@@ -1,0 +1,46 @@
+
+h1{
+	text-align: center;
+	font-family: 'Bitter', serif;
+}
+
+h2{
+	font-family: 'Bitter', serif;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+p{
+	margin: auto;
+}
+
+li{
+	font-family: 'Open Sans', sans-serif;	
+}
+
+.company{
+	font-family: 'Bitter', serif;
+}
+
+.contact{
+	text-align: left;
+	width: 11%;
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#execsum{
+	text-align: auto;
+	width: 55%;
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#work{
+	width: 60%;
+	margin: 0 auto;
+}
+
+td {
+    padding: 15px;
+}
