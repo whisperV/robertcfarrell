@@ -2,9 +2,9 @@
 <html>
 <head>
 	<title>Robert C Farrell</title>
-	<link rel="stylesheet" type="text/css" href="MyPage.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
-
+	<link rel="stylesheet" type="text/css" href="MyPage.css">
+	
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -19,14 +19,19 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 </style>
-
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 
 <div class="jumbotron container">
   <h1 id="mename">Robert C Farrell, JD, EA</h1>
-  <nav class="navbar navbar-default">
+<div class="resdlbutton">
+	<!-- <div class="btn-group" role="group" aria-label="..."> -->
+  <a href="#" download="RobertCFarrell_Resume" class="btn btn-default	">Download Resume</a>
+  	<!-- </div> -->
+</div>
+  <nav class="navbar navbar-default navbar-custom">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -37,24 +42,16 @@
         <span class="icon-bar"></span>
       </button>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="https://www.linkedin.com/in/robert-farrell-jd-ea-939a8118/">LinkedIn</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact Info <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Phone: 949.545.4435</a></li>
-            <li><a href="#">Fax: 310.496.0413</a></li>
-            <li><a href="mailto:robert.farrell@gmail.com">Email: robert.farrell@gmail.com</a></li>
-         </ul>
-        </li>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://taxprof.typepad.com/">TaxProf Blog</a></li>
-        <li><a href="https://taxfoundation.org/">Tax Foundation</a></li>
-        <li><a href="https://www.irs.gov/">IRS Website</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle navbar-custom-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-address-card-o" aria-hidden="true"></i> Contact Info <span class="caret"></span></a>
+          <ul class="dropdown-menu navbar-custom-drop">
+            <li><a href="mailto:robert.farrell@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> robert.farrell@gmail.com</a></li>
+            <li><a href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> 949.545.4435</a></li>
+            <li><a href="#"><i class="fa fa-fax" aria-hidden="true"></i> 310.496.0413</a></li>
+            <li><a href="https://www.linkedin.com/in/robert-farrell-jd-ea-939a8118/"><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
          </ul>
         </li>
       </ul>
@@ -63,9 +60,11 @@
 </nav>
 </div>
 
-
-<h2 class="headlines">Executive Summary</h2>
-	<p id="execsum">Tax Professional with 5 years of experience in direct and indirect taxation including return preparation, accounting, advisory, compliance and controversy. Professional certifications include CA state bar membership and IRS Enrolled Agent.</p>
+<div class="container">
+  <div class="row">
+     <h2 class="headlines col-lg-12">Executive Summary</h2>
+       <div id="execsum" class="col-lg-12">Tax Professional with 5 years of experience in direct and indirect taxation including return preparation, accounting, advisory, compliance and controversy. Professional certifications include CA state bar membership and IRS Enrolled Agent.</div>
+  </div>
 
 <hr class="style17">
 <h2 class="headlines">Experience</h2>
@@ -128,26 +127,28 @@
 		</ul>
 	</div>
 <h2 class="headlines">Education</h2>
-	<table class="container">
-		<td>Whittier Law School</td>
-		<td>Juris Doctor</td>
-		<td>2012</td>
-		<tr>
-		<td>The Pennsylvania State University</td>
-		<td>Bachelor of Arts</td>
-		<td>2009</td>
-		</tr>
-		<tr>
-		<td>California State University, Fullerton</td>
-		<td>Master of Science in Taxation</td>
-		<td>12 of 30 required credits</td>
-		<tr>
-		<td></td>
-		<td></td>
-		<td>22 total credits</td>
-		</tr>
-		</tr>
-	</table>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">Whittier Law School</div>
+			<div class="col-lg-4">Juris Doctor, Business Law concentration</div>
+			<div class="col-lg-4">2012</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">California State University, Fullerton</div>
+			<div class="col-lg-4">Master of Science, Taxation</div>
+			<div class="col-lg-4">2013 (22 of 30 credits)</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">The Pennsylvania State University</div>
+			<div class="col-lg-4">Bachelor of Arts, Pre-law</div>
+			<div class="col-lg-4">2009</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">Orange Coast College</div>
+			<div class="col-lg-4">Associate of Arts, Accounting</div>
+			<div class="col-lg-4">2011 (21 Accounting credits)</div>
+		</div>		
+	</div>
 <h2 class="headlines">Volunteer Experience</h2>
 	<p class="company">IRS VITA Program</p>
 	<p><em>Tax Preparer</em></p>

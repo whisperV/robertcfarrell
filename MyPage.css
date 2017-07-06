@@ -1,8 +1,38 @@
 
 #mename{
-	text-align: center;
 	font-family: 'Cinzel Decorative', cursive;
+	margin: auto;
+	width: 80%;
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom-right-radius: 100px;
+	border-top-right-radius: 100px;
+	border-top-left-radius: 100px;
+	border-bottom-left-radius: 100px;
+
 }
+
+.resdlbutton{
+	/*text-align: left;*/
+	float: left;
+	position: absolute;
+	bottom: 0;
+	margin: 10px;
+	font-family: 'Bitter', serif;
+	font-size: 120%;
+	padding: 1px;
+	/*border: 1px solid;*/
+	border-radius: 10px;
+	/*background-color: #e1f7d5;*/
+
+}
+
+.resdlbutton a {
+	color: 	#000000;
+}
+
+
 
 .headlines{
 	/*font-family: 'Bitter', serif;*/
@@ -32,13 +62,11 @@ li{
 
 #execsum{
 	text-align: auto;
-	width: 55%;
-	margin: 0 auto;
 	font-family: 'Open Sans', sans-serif;
 }
 
 #work{
-	width: 60%;
+	
 	margin: 0 auto;
 }
 
@@ -46,8 +74,41 @@ td {
     padding: 15px;
 }
 
+.navbar-custom{
+	background-color: #F8F8F8;
+	border: 0;
+}
+
+.navbar-custom-menu{
+	border-top: 0;
+	border-left: 1px solid;
+	border-right: 0;
+	border-bottom: 1px solid;
+	border-bottom-left-radius: 30px;
+	border-top-left-radius: 30px;
+}
+
+.navbar-custom-menu-inverse{
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	border-bottom-right-radius: 30px;
+	border-top-right-radius: 30px;	
+}
+
+.navbar-custom-drop{
+	border-radius: 30px;
+	
+}
+
 .jumbotron{
-	color: #5160F5;
+	position: relative;
+	text-align: center;
+	background-color: #F8F8F8;
+	border: 1px solid #000000;
+	border-radius: 30px;
+	/*color: #5160F5;*/
 
 }
 .centerme{
