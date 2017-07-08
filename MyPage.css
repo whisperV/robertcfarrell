@@ -129,3 +129,49 @@ hr.style17:after {
 	-moz-transform: rotate(60deg);
 	transform: rotate(90deg);
 }
+
+.btn-custom {
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+  margin-bottom: 10px;
+}
+
+.btn-custom:focus,
+.btn-custom.focus {
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+}
+
+.btn-custom:hover {
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+}
+
+.btn-custom:active,
+.btn-custom.active,
+.open > .dropdown-toggle.btn-custom {
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+}
+
+.btn-custom:active:hover,
+.btn-custom.active:hover,
+.open > .dropdown-toggle.btn-custom:hover,
+.btn-custom:active:focus,
+.btn-custom.active:focus,
+.open > .dropdown-toggle.btn-custom:focus,
+.btn-custom:active.focus,
+.btn-custom.active.focus,
+.open > .dropdown-toggle.btn-custom.focus {
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+}
+
+.openall{
+	float: right;
+}
