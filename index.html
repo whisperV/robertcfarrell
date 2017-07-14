@@ -25,9 +25,6 @@
 <!-- Font Awesome Glyphicons -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- JS Files -->
-<script src="MyPage.js"></script>
-
 </head>
 <body>
 
@@ -79,42 +76,42 @@
 	<div class="container">
 		<div class="row openall">
 			<div class="col-lg-12"></div>
-				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript1, #descript2, #descript3, #descript4, #descript5, #descript6, #descript7" aria-expanded="false">
-    					Expand All <i class="fa fa-expand" aria-hidden="true"></i></button>
-    	</div>
+				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript1, #descript2, #descript3, #descript4, #descript5, #descript6, #descript7" aria-expanded="false">    					
+    					<span>Expand All <i class="fa fa-expand" aria-hidden="true"></i></span></button>
+    			<button type="button" class="btn btn-custom closed" data-toggle="collapse" data-target="#descript1, #descript2, #descript3, #descript4, #descript5, #descript6, #descript7" aria-expanded="false">    					
+    					<span>Close All <i class="fa fa-compress" aria-hidden="true"></i></span></button>
+    		</div>
 
 <!-- Begin Actual Work History -->
 		<div class="row">
-			<div class="company col-lg-12">Intuit</div>
+			<div class="company col-lg-11"><img src="IntuitTTlogo.jpg" class="icons col-lg-1">Intuit, Inc.
 			<div class="col-lg-12">
-  					<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript1" aria-expanded="false">
-    					Tax Support Specialist - FLEX queue <i class="fa fa-angle-down" aria-hidden="true"></i>	
-  					</button>
-  					<ul id="descript1" class="collapse">
-    					<li>Assist taxpayers with individual income tax returns</li>
-						<li>Advised customers on nearly all individual tax forms, including sch K-1, sch E, sch D, and sch C</li>
-						<li>Assisted with revenue recognition, expense recognition, income allocation and </li>
-						<li>Also helped mutli-state filers and addressed any state or local income tax issues presented.</li>
-						<li>Worked one on one with each customer, with limited support from a tax advice team, to address any tax related questions</li>
-  					</ul>
+  				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript1" aria-expanded="false">Tax Support Specialist - FLEX queue <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+  				<ul id="descript1" class="collapse">
+    				<li>Assist taxpayers with individual income tax returns</li>
+					<li>Advised customers on nearly all individual tax forms, including sch K-1, sch E, sch D, and sch C</li>
+					<li>Assisted with revenue recognition, expense recognition, income allocation and </li>
+					<li>Also helped mutli-state filers and addressed any state or local income tax issues presented.</li>
+					<li>Worked one on one with each customer, with limited support from a tax advice team, to address any tax related questions</li>
+  				</ul>
+  			</div>
 			</div>	
 		</div>
 		<div class="row">
-			<div class="company col-lg-12">Accenture</div>
+			<div class="company col-lg-11"><img src="Accenture_logo.jpg" class="icons col-lg-1"> Accenture
 			<div class="col-lg-12">
-  					<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript2" aria-expanded="false">
-    					Senior Tax Analyst <i class="fa fa-angle-down" aria-hidden="true"></i>
-  					</button>
-  					<ul id="descript2" class="collapse">
-    					<li>Multifunction role with various responsibilities</li>
-						<li>Responsible for preparation and filing of Canadian provincial sales tax returns, including HST provinces, and federal goods and services returns</li>
-						<li>Adjusting entries, month end and year end entries, account reconciliations, and audit report complitaion</li>
-						<li>Creating process maps/quick reference guides for assigned tasks which outlined completing common tasks in a step by step method</li>
-						<li>Analyzed US and Canadian indirect tax exemption requests related to sales of primarily cloud based products with limited services</li>
-						<li>Created onboarding materials to assist with quicker training new team members</li>
-						<li>Assisted with structured a tax exempt transaction to comply with the laws of a foreign county</li>
-  					</ul>
-				</div>	
+  				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript2" aria-expanded="false">Senior Tax Analyst <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+  				<ul id="descript2" class="collapse">
+    				<li>Multifunction role with various responsibilities</li>
+					<li>Responsible for preparation and filing of Canadian provincial sales tax returns, including HST provinces, and federal goods and services returns</li>
+					<li>Adjusting entries, month end and year end entries, account reconciliations, and audit report complitaion</li>
+					<li>Creating process maps/quick reference guides for assigned tasks which outlined completing common tasks in a step by step method</li>
+					<li>Analyzed US and Canadian indirect tax exemption requests related to sales of primarily cloud based products with limited services</li>
+					<li>Created onboarding materials to assist with quicker training new team members</li>
+					<li>Assisted with structured a tax exempt transaction to comply with the laws of a foreign county</li>
+  				</ul>
+			</div>	
+			</div>
 		</div>
 		<div class="row">
 			<div class="company col-lg-12">MyTaxCompany.com</div>
@@ -259,4 +256,8 @@
   crossorigin="anonymous"></script>
 <script src="bootstrap.js"></script>
 </body>
+
+<!-- JS Files -->
+<script src="MyPage.js"></script>
+
 </html>
