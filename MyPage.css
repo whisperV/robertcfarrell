@@ -175,9 +175,35 @@ hr.style17:after {
 	float: right;
 }
 
-.icons{
-	height: 10%;
-	
+#co1{
+	height: 15px;
+	width: 87px;
+}
+
+#co2{
+	height: 32px;
+	width: 87px;
+}
+#co3{
+	height: 12px;
+	width: 87px;
+}
+#co4{
+	height: 23px;
+	width: 87px;
+}
+#co5{
+	height: 13px;
+	width: 87px;
+}
+#co6{
+	height: 12px;
+	width: 87px;
+}
+
+#co7{
+	height: 19px;
+	width: 87px;
 }
 
 .closed{
