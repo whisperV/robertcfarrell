@@ -1,3 +1,8 @@
+
+.hideMe{
+	display: none;
+}
+
 #mename{
 	font-family: 'Cinzel Decorative', cursive;
 	margin: auto;
@@ -32,6 +37,11 @@
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
+}
+
+
+button{
+	outline: none;
 }
 
 p{
@@ -139,7 +149,7 @@ hr.style17:after {
   background-color: transparent;
   border: 0;
   margin-bottom: 10px;
-  /*position: absolute;*/
+  outline: none;
 }
 
 .alignme{
@@ -152,12 +162,14 @@ hr.style17:after {
   color: inherit;
   background-color: transparent;
   border: 0;
+  outline: none;
 }
 
 .btn-custom:hover {
   color: inherit;
   background-color: transparent;
   border: 0;
+  outline: none;
 }
 
 .btn-custom:active,

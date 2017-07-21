@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script
+  		src="https://code.jquery.com/jquery-3.2.1.js"
+  		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  		crossorigin="anonymous">
+</script>
+
+	<script src="iracalc.js"></script>
+	<script src="bootstrap.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="iracalc.css">
+	
+<!-- FONTS -->
+
+<link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Faster+One');
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative');
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+</style>
+
+<!-- Font Awesome Glyphicons -->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+	<title>IRA Qualification</title>
+</head>
+<body>
+
+<div class="container">
+
+<div class="output">
+	<ul>
+			
+	</ul>
+</div>
+
+<div>
+<span>Enter your name then press ENTER: </span>
+<input type="text" name="userName"></input>
+</div>
+
+<div id="rothOrTrad"> </div>
+<ul>
+<li><input type="radio" name="IRAtype" class="IRAtype" value="Roth"> Roth</li>
+<li><input type="radio" name="IRAtype" class="IRAtype" value="Traditional"> Traditional</li>
+</ul>
+
+<div>What is your filing status?
+<ul>
+<li><input type="radio" name="status" class="status" value="Single"> Single</li>
+<li><input type="radio" name="status" class="status" value="Married, filing jointly"> Married, filing a joint return</li>
+<li><input type="radio" name="status" class="status" value="Head of Household"> Head of Household</li>
+<li><input type="radio" name="status" class="status" value="Married, filing separately"> Married, filing separate returns</li>
+<li><input type="radio" name="status" class="status" value="Qualified widower"> Qualified Widow</li>
+</ul>
+</div>
+
+
+<div>
+	<span>Are you covered by a retirement plan as an employee?</span>
+	<ul>
+	<li><input type="radio" name="covered" class="workPlan" value="yes"> Yes</li>
+	<li><input type="radio" name="covered" class="workPlan" value="no"> No</li>
+	</ul>
+</div>
+
+<div>
+	Enter your current year AGI (Found at the bottom of page 1 of your 1040) then press ENTER:
+</div>
+<input type="number" name="AGI" step="1" min="0" max="99,999,999">
+
+</div>
+
+</body>
+
+<script src="iracalc.js"></script>
+</html>
