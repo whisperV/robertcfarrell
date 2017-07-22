@@ -77,9 +77,23 @@
 </div>
 
 <div>
-	Enter your current year AGI (Found at the bottom of page 1 of your 1040) then press ENTER:
+	Enter your modified adjusted gross income: (Found by adding the below items back to AGI) then press ENTER:
 </div>
 <input type="number" name="AGI" step="1" min="0" max="99,999,999">
+
+<div>Need to calculate your modified adjusted gross income?</div>
+<div> Check all that apply:</div>
+<li><input type="checkbox" name="deduction" class="deduction" value="tradIRAdeduct"> Took a deduction for traditional IRA contribution.</li>
+<li><input type="checkbox" name="deduction" class="deduction" value="studentLoandeduct"> Took a deduction for student loan interest paid.</li>
+<li><input type="checkbox" name="deduction" class="deduction" value="tuitionAndFeesdeduct"> Took a deduction for qualified tuition and fees paid.</li>
+<li><input type="checkbox" name="deduction" class="deduction" value="domesticProdActivity"> Took a deduction for domestic production activity.</li>
+<li><input type="checkbox" name="deduction" class="deduction" value="foreignIncomeExcl"> Excluded foreign earned income or housing. Found on Form 2555, line 45</li>
+<li><input type="checkbox" name="deduction" class="deduction" value="foreignHousingDeduct"> Deducted for foreign housing. Found on Form 2555, line 50.</li>
+<li><input type="checkbox" name="deduction" class="deduction" value="savingsBondExcl"> Any qualified savings bonds interest excluded Found on form 8815, line 14.</li>
+<li><input type="checkbox" name="deduction" class="deduction" value="adoptionBeneExcl"> Any excludable employer-provided adoption benefits. Found on Form 8839, line 28</li>
+
+
+
 
 </div>
 

@@ -8,15 +8,19 @@ function contributionAmount(taxPayer){
 
 	switch(taxPayer.iraType){
 		case('Roth'):
-			//if(taxPayer.iraType === "Roth"){
-			if(taxPayer.filingStatus === "Single" && taxPayer.agi >= 133000){
+			if((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && taxPayer.agi >= 133000){
+				console.log(taxPayer['agi']);
 				$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
-					} else if(taxPayer.filingStatus === "Single" && taxPayer.agi < 118000){
-						$(".output").append("<li> You can contribute the maximum amount, or 5500.</li>");
+					} else if((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && taxPayer.agi < 118000){
+						$(".output").append("<li> You can contribute the maximum amount for the year. For 2017 this is 5500 dollars.</li>");
+					} else if((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && (taxPayer.agi >= 118000 && taxPayer.agi <133000)){
+							var phaseOut = taxPayer['agi'];
+							var contributionAmt = (5500-((taxPayer.agi-118000)/15000)*5500);
+							$(".output").append("<li> Your maximum contribution amount is " + contributionAmt + " dollars for 2017.</li>");
 					}
 			break;
 		case('Traditional'):
-			$(".output").append("<li>" + taxPayer['name'] + ", you can contribute the maximum amount, or 5500.</li>");	
+			$(".output").append("<li>" + taxPayer['name'] + ", you can contribute the maximum amount for the year. For 2017 this is 5500 dollars.</li>");	
 			break;
 		}
 	}
@@ -63,12 +67,12 @@ $(".workPlan").on("click", function (){
 		}	
 	}
 	})
-
+//MUCH MORE TO FIGURING OUT THE MAGI - lots of add backs
 $("input[type='number']").keypress(function(event){
 	taxPayer.agi = $("input[type='number']").val();
 	if(event.which === 13){
 		$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['agi'] + ".</li>");
-		contributionAmount(taxPayer);
-	}
-	})
-
+	}})
+$(".deduction").on("click", function(){
+	console.log($("input[type=checkbox][name=deduction]:checked").val());	
+})
