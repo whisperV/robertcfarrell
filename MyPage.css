@@ -47,7 +47,7 @@ p{
 }
 
 li{
-	font-family: 'Open Sans', sans-serif;	
+	font-family: 'Open Sans', sans-serif;
 }
 
 .company{
@@ -241,18 +241,33 @@ hr.style17:after {
 }
 
 .simplenav{
-	background: grey;
+	background: #efdfdf;
 	height: 100px;
 	color: white;
 	text-align: center;
  	justify-content: center;
   	margin-top: 20%;
+  	box-shadow: inset 5px 5px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);
 }   	
 
 .navbutton{
 	text-transform: uppercase;
 	justify-content: center;
 	color: #404040;
+	background-color: white;
 	padding: 20px;
 	height: 100px;
+	margin-top: 1px;
+	box-shadow: 0px 0px 3px rgba(0,0,0,.3), inset 0px 0px 10px rgba(0,0,255,.3), inset 0px 0px 20px rgba(0, 200, 200, .2), inset 0px 0px 30px rgba(255, 255, 0, .1);
+	border-radius: 50px;
+}
+
+#landingnameplate{
+	font-family: 'Cinzel Decorative', cursive;	
+	text-align: left;
+	border:	1px solid rgba(100, 201, 201, .8);
+	width: 24.1%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
 }
