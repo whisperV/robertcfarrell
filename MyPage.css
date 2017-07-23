@@ -6,12 +6,16 @@
 	margin: auto;
 	width: 80%;
 	border-bottom: 1px solid;
-	border-right: 1px solid;
+	/*border-right: 1px solid;
 	border-left: 0;
 	border-bottom-right-radius: 100px;
 	border-top-right-radius: 100px;
-	border-bottom-left-radius: 20px;
+	border-bottom-left-radius: 20px;*/
 
+}
+
+.joblist{
+	margin-bottom: 30px;
 }
 
 .resdlbutton{
@@ -20,13 +24,7 @@
 	position: absolute;
 	bottom: 0;
 	margin: 10px;
-	font-family: 'Bitter', serif;
-	font-size: 120%;
 	padding: 1px;
-	/*border: 1px solid;*/
-	border-radius: 10px;
-	/*background-color: #e1f7d5;*/
-
 }
 
 
@@ -52,8 +50,23 @@ li{
 
 .company{
 	font-family: 'Bitter', serif;
-	margin: 0;
+	
 }
+
+.jtroncustom{
+/*cool buttons*/
+	box-shadow: 0px 0px 3px rgba(0,0,0,.3), inset 0px 0px 10px rgba(0,0,255,.4), inset 0px 0px 20px rgba(0, 200, 200, .3), inset 0px 0px 30px rgba(255, 255, 0, .2);
+	border-radius: 50px;
+	background-color: white;
+	border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+/*end cool buttons*/
+    position: relative;
+	text-align: center;
+	
+ }
 
 .icons{
 	margin: 0;
@@ -82,8 +95,11 @@ td {
 }
 
 .navbar-custom{
-	background-color: #F8F8F8;
+	background-color: white;
 	border: 0;
+	font-family: 'Open sans', sans-serif;
+	font-size: 120%;
+	/*background-color: white;*/
 }
 
 .navbar-custom-menu{
@@ -110,13 +126,6 @@ td {
 	
 }
 
-.jumbotron{
-	position: relative;
-	text-align: center;
-	background-color: #F8F8F8;
-	/*border: 1px solid #000000;*/
-	/*border-radius: 30px;*/
-	/*color: #5160F5;*/
 
 }
 .centerme{
@@ -148,6 +157,7 @@ hr.style17:after {
   border: 0;
   margin-bottom: 10px;
   outline: none;
+
 }
 
 .alignme{

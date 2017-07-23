@@ -5,6 +5,7 @@
 	<title>Resume</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="MyPage.css">
+
 	
 <!-- FONTS -->
 
@@ -29,7 +30,7 @@
 <body>
 
 
-<div class="jumbotron container">
+<div class="jumbotron container jtroncustom">
   <h1 id="mename">robert c. farrell, jd, ea</h1>
 <div class="resdlbutton">
 	<!-- <div class="btn-group" role="group" aria-label="..."> -->
@@ -68,7 +69,7 @@
 <div class="container">
   <div class="row">
      <h2 class="headlines col-lg-12">Executive Summary</h2>
-       <div id="execsum" class="col-lg-12">Tax Professional with 5 years of experience in direct and indirect taxation including return preparation, accounting, advisory, compliance and controversy. Professional certifications include CA state bar membership and IRS Enrolled Agent.</div>
+       <div id="execsum" class="col-lg-12">Tax Professional with 5 years of experience in direct and indirect taxation including return preparation, accounting, advisory, compliance and controversy. I am looking to join an organization which supports and encourages professional growth.</div>
   </div>
   <hr class="style17">
 </div>
@@ -78,9 +79,9 @@
 	<div class="container">
 		<div class="row openall">
 			<div class="col-lg-12"></div>
-				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript1, #descript2, #descript3, #descript4, #descript5, #descript6, #descript7" aria-expanded="false">    					
+				<button type="button" id="openAll" class="btn btn-custom" data-toggle="collapse"  aria-expanded="false">    					
     					<span>Expand All <i class="fa fa-expand" aria-hidden="true"></i></span></button>
-    			<button type="button" class="btn btn-custom closed" data-toggle="collapse" data-target="#descript1, #descript2, #descript3, #descript4, #descript5, #descript6, #descript7" aria-expanded="false">    					
+    			<button type="button" id="closeAll" class="btn btn-custom collapse" data-toggle="collapse" aria-expanded="false">    					
     					<span>Close All <i class="fa fa-compress" aria-hidden="true"></i></span></button>
     	</div>		
 
@@ -89,7 +90,7 @@
 			<div class="company col-lg-11"><img src="http://i.imgur.com/a1nE1WU.jpg" id="co1" class="col-lg-1">Intuit, Inc.
 			<div class="col-lg-11 ">
   				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript1" aria-expanded="false">Tax Support Specialist - FLEX queue <i class="fa fa-angle-down" aria-hidden="true"></i></button>
-  				<ul id="descript1" class="collapse">
+  				<ul id="descript1" class="collapse workDesc">
     				<li>Assist taxpayers with individual income tax returns</li>
 					<li>Advised customers on nearly all individual tax forms, including sch K-1, sch E, sch D, and sch C</li>
 					<li>Assisted with revenue recognition, expense recognition, income allocation and </li>
@@ -103,7 +104,7 @@
 			<div class="company col-lg-11"><img src="http://i.imgur.com/ry62Pfr.jpg" id="co2" class="col-lg-1"> Accenture
 			<div class="col-lg-12">
   				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript2" aria-expanded="false">Senior Tax Analyst <i class="fa fa-angle-down" aria-hidden="true"></i></button>
-  				<ul id="descript2" class="collapse">
+  				<ul id="descript2" class="collapse workDesc">
     				<li>Multifunction role with various responsibilities</li>
 					<li>Responsible for preparation and filing of Canadian provincial sales tax returns, including HST provinces, and federal goods and services returns</li>
 					<li>Adjusting entries, month end and year end entries, account reconciliations, and audit report complitaion</li>
@@ -119,7 +120,7 @@
 			<div class="company col-lg-11"><img src="http://i.imgur.com/cdIqNnY.png" id="co3" class="col-lg-1"> MyTaxCompany.com
 			<div class="col-lg-12">
   				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript3" aria-expanded="false">Tax Accountant/Preparer <i class="fa fa-angle-down" aria-hidden="true"></i></button>
-  				<ul id="descript3" class="collapse">
+  				<ul id="descript3" class="collapse workDesc">
     				<li>Assisted with preparation of tax returns for various entities</li>
 					<li>Performed due diligence checks on client provided workpapers and financial statements</li>
 					<li>Federal income tax research</li>
@@ -133,7 +134,7 @@
   				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript4" aria-expanded="false">
     				Tax Intern <i class="fa fa-angle-down" aria-hidden="true"></i>
   				</button>
-  				<ul id="descript4" class="collapse">
+  				<ul id="descript4" class="collapse workDesc">
     				<li>Tax return preparation and accounting for large corporations</li>
 					<li>Depreciation schedules for fixed assets and intangibles</li>
 					<li>Book to tax conversion and provision reconciliation</li>
@@ -147,7 +148,7 @@
   				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript5" aria-expanded="false">
     				Student Assistant <i class="fa fa-angle-down" aria-hidden="true"></i>
   				</button>
-  				<ul id="descript5" class="collapse">
+  				<ul id="descript5" class="collapse workDesc">
     				<li>Oversaw accounting lab in which student teams worked to prepare financial statements</li>
 					<li>Tutored students in financial accounting</li>
 					<li>Drafted a 3 part case study which students worked on throughout the semester</li>
@@ -161,7 +162,7 @@
   				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript6" aria-expanded="false">
     				Payroll Analyst/Consultant <i class="fa fa-angle-down" aria-hidden="true"></i>
   				</button>
-  				<ul id="descript6" class="collapse">
+  				<ul id="descript6" class="collapse workDesc">
     				<li>Organized payroll reports for clarity and software compatibility</li>
 					<li>Acted as a liason between multiple companies in order to generate accurate reports</li>
 					<li>Reduced the report generation time from 40 hours a week to 10 hours a week</li>
@@ -175,7 +176,7 @@
   				<button type="button" class="btn btn-custom" data-toggle="collapse" data-target="#descript7" aria-expanded="false">
     				Bookkeeper/TaxConsultant <i class="fa fa-angle-down" aria-hidden="true"></i>
   				</button>
-  				<ul id="descript7" class="collapse">
+  				<ul id="descript7" class="collapse workDesc">
     				<li>Create/Correct accounting records for small to medium sized businesses</li>
 					<li>Primarily worked in Quickbooks</li>
 					<li>Sales and Use Tax audit research</li>
@@ -185,6 +186,8 @@
 		</div>
 	</div>
 
+<div class="container">
+<hr class="style17">
 <h2 class="headlines">Education</h2>
 	<div class="container">
 		<div class="row">
@@ -208,7 +211,9 @@
 			<div class="col-lg-2">2011 (21 credits)</div>
 		</div>		
 	</div>
-
+</div>
+<div class="container">
+<hr class="style17">
 <h2 class="headlines">Volunteer Experience</h2>
 	<div class="container">
 		<div class="row">
@@ -243,17 +248,19 @@
 			</div>
 		</div>
 	</div>
-
-<h2 class="headlines">Military Experience</h2>
-	<div class="container">
-		<div class="row">
-			<div class="company col-lg-12">CA Army National Guard</div>
-			<div class="company col-lg-12">PA Army National Guard</div>
-			<div class="company col-lg-12">SMP ROTC Cadet, The Pennsylvania State University</div>
-		</div>
-	</div>
 </div>
-
+<div class="container">
+<hr class="style17">
+<h2 class="headlines">Military Experience</h2>
+		<div class="row joblist">
+			<div class="company col-lg-3">US Army National Guard: </div>
+			<div class="company col-lg-2">Scout, 19D</div>
+			<div class="company col-lg-2">Radio Operator, 25C</div>
+			<div class="company col-lg-2">SMP Cadet, 09R</div>
+			<div class="company col-lg-2">OIF Campaign Medal</div>
+		</div>
+</div>
+</div>
 
 <script
   src="https://code.jquery.com/jquery-3.2.1.js"
