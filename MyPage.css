@@ -1,7 +1,5 @@
 
-.hideMe{
-	display: none;
-}
+
 
 #mename{
 	font-family: 'Cinzel Decorative', cursive;
@@ -247,7 +245,14 @@ hr.style17:after {
 	height: 100px;
 	color: white;
 	text-align: center;
- 	display: flex;
-  	justify-content: center;
+ 	justify-content: center;
   	margin-top: 20%;
 }   	
+
+.navbutton{
+	text-transform: uppercase;
+	justify-content: center;
+	color: #404040;
+	padding: 20px;
+	height: 100px;
+}
