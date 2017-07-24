@@ -1,6 +1,6 @@
 
 
 
-$("h1").click(function(){
-	alert("button clicked");
-	});
+// $("h1").click(function(){
+// 	alert("button clicked");
+// 	});

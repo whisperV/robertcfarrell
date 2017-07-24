@@ -273,6 +273,7 @@ hr.style17:after {
 	width: 219.41px;	
 }
 
+
 #landingnameplate{
 	font-family: 'Cinzel Decorative', cursive;	
 	text-align: left;
@@ -281,4 +282,80 @@ hr.style17:after {
 	position: fixed;
 	bottom: 0;
 	left: 0;
+}
+
+
+.navbutton2{
+	color: #404040;
+	background-color: white;
+	box-shadow: 0px 0px 3px rgba(0,0,0,.3), inset 0px 0px 10px rgba(0,0,255,.3), inset 0px 0px 20px rgba(0, 200, 200, .2), inset 0px 0px 30px rgba(255, 255, 0, .1);
+	border-radius: 50px;
+	height: 100px;
+	/*width: 300px;*/
+
+
+}
+
+
+.navbutton3{
+	background-color: transparent;
+	border-top: none;
+	border-bottom: 1px solid rgba(0,0,0,.3);
+	border-left: 1px solid rgba(0,0,0,.3);
+	border-right: 1px solid rgba(0,0,0,.3);
+	border-radius: 50px;
+	height: 50px;
+}
+
+.navbutton4{
+	background-color: transparent;
+	border-bottom: none;
+	border-top: 1px solid rgba(0,0,0,.3);
+	border-left: 1px solid rgba(0,0,0,.3);
+	border-right: 1px solid rgba(0,0,0,.3);
+	border-radius: 50px;
+	height: 50px;
+}
+
+.navbutton0{
+	background-color: transparent;
+	border-bottom: none;
+	border-top: none;
+	border-left: 1px solid rgba(0,0,0,.3);
+	border-right: 1px solid rgba(0,0,0,.3);
+	border-radius: 50px;
+	height: 50px;
+}
+
+
+.navbutton5{
+	background-color: transparent;
+	border-bottom: none;
+	border-top: none;
+	border-left: 1px solid rgba(0,0,0,.3);
+	border-right: 1px solid rgba(0,0,0,.3);
+	border-radius: 50px;
+	height: 50px;
+}
+
+
+.grids{
+	color: white;
+	text-align: center;
+	margin-top: 20%;
+ }
+
+.nobutton, .nobutton:hover, .nobutton:focus{
+	border: 0;
+	background-color: transparent;
+	color: inherit;
+	text-transform: capitalize;
+	/*box-shadow: 0px 0px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);*/
+	margin-top: 10%;
+
+	
+}
+
+.test{
+	border: 2px solid black;
 }
