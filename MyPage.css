@@ -44,9 +44,7 @@ p{
 	margin: auto;
 }
 
-ul{
-	list-style: none;
-}
+
 li{
 	font-family: 'Open Sans', sans-serif;
 }
@@ -276,16 +274,37 @@ hr.style17:after {
 	border-radius: 50px;
 	width: 219.41px;	
 }
+@media screen and (max-width: 700px) {
+  .simplenav{
+    height: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .simplenav{
+    height: 300px;
+  }
+}
 
 
 #landingnameplate{
-	font-family: 'Cinzel Decorative', cursive;	
+	font-family: 'Cinzel Decorative', serif;	
 	text-align: left;
 	border:	1px solid rgba(100, 201, 201, .8);
 	width: 24.1%;
+	size: auto;
 	position: fixed;
 	bottom: 0;
 	left: 0;
+}
+@media screen and (max-width: 600px) {
+  #landingnameplate{
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
 }
 
 
