@@ -2,7 +2,25 @@
 	width: 400px;
 	border: 2px solid black;
 	position: relative;
-	top: 100px;
-	left: 1000px;
-
+	/*float: left;*/
+	align-content: right;
 }
+
+.contribAmount{
+	border: 1px solid black;
+}
+
+#console {
+    border-bottom: 1px solid #ccc;
+    background-color: #eee;
+    height: 5em;
+    overflow: auto;
+}
+
+.deductionHide{
+	display: none;
+}
+
+ul{
+	list-style: none;
+	}

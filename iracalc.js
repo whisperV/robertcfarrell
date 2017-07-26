@@ -1,5 +1,7 @@
 
-var taxPayer = {name: '', iraType: '', filingStatus: '', workPlan: '', agi: 0};
+var taxPayer = {name: '', iraType: '', filingStatus: '', workPlan: '', magi: 0, adjustments: 0};
+var magiCalc;
+var allDeductions = document.getElementsByClassName(".deductionHide");
 
 
 //calculate the max contribution
@@ -27,7 +29,7 @@ function contributionAmount(taxPayer){
 	
 
 
-//IRA question in js not html 
+//IRA question in js not html for testing
 $("#rothOrTrad").text("Contributing to a Roth or Traditional IRA?");
 
 
@@ -46,6 +48,7 @@ $(".IRAtype").on("click", function (){
 		taxPayer.iraType = $("input[type=radio][name=IRAtype]:checked").val();
 	if(taxPayer.iraType !== null){
 		$(".output").append("<li> You're contributing to a " + taxPayer['iraType'] + " IRA.</li>");	
+		$(".contribAmount").text("How much can I contribute to a " + taxPayer['iraType'] + " IRA?");
 	}
 	})
 
@@ -68,11 +71,56 @@ $(".workPlan").on("click", function (){
 	}
 	})
 //MUCH MORE TO FIGURING OUT THE MAGI - lots of add backs
-$("input[type='number']").keypress(function(event){
-	taxPayer.agi = $("input[type='number']").val();
+$("input[type=number][name=AGI]").keypress(function(event){
+	taxPayer.magi = $("input[type='number']").val();
 	if(event.which === 13){
-		$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['agi'] + ".</li>");
+		$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['magi'] + ".</li>");
 	}})
-$(".deduction").on("click", function(){
-	console.log($("input[type=checkbox][name=deduction]:checked").val());	
-})
+
+ // $(".deduction").on("click", function(){
+ // 		$(".listedDeductions").find("checkbox").each(function(){
+	// 		if($(this).prop('checked')==true){
+	// 			console.log("a deduction is checked");
+	// 		}
+	// 		else{
+	// 			console.log("uh oh");
+	// 		}
+	// 	});
+	// });
+
+	// magiCalc = $("input[type=checkbox][name=deduction]:checked").val();
+ 
+  	$(".contribAmount").on("click", function(){
+ 		magiCalc = $("input[type=checkbox][name=deduction]:checked").val();
+ 		console.log(magiCalc);
+ 		if(magiCalc === "noneAbove" || null)
+			{ 
+				console.log(magiCalc + " test text");
+			
+			}
+ 		else{
+ 				console.log("arrays?");
+			};
+ 	});
+
+ 	$(".contribAmount").text("How much can I contribute to a " + taxPayer['iraType'] + "?");
+ // });
+
+// $(".contribAmount").on("click", function(){
+// 		console.log(magiCalc);	
+// });
+
+$('input[type="checkbox"]').on("click", function() { 
+	
+	var i = parseInt($("input[type=checkbox][name=deduction]:checked").val());
+	
+	for(var j = i; j < (i+1); j++){
+		if ($(this).is(':checked') && $.isNumeric(i)) {
+			$("#1").toggleClass('deductionHide');
+			console.log(i);
+			console.log("This is dedcution number: " + j);    	
+		};
+	}
+});
+
+

@@ -44,6 +44,9 @@ p{
 	margin: auto;
 }
 
+ul{
+	list-style: none;
+}
 li{
 	font-family: 'Open Sans', sans-serif;
 }
@@ -55,7 +58,7 @@ li{
 
 .jtroncustom{
 /*cool buttons*/
-	box-shadow: 0px 0px 3px rgba(0,0,0,.7), inset 0px 0px 10px rgba(0,0,255,.6), inset 0px 0px 20px rgba(0, 200, 200, .5), inset 0px 0px 30px rgba(255, 255, 0, .4);
+	box-shadow: 0px 0px 3px rgba(0,0,0,.8), inset 0px 0px 10px rgba(0,0,255,.7), inset 0px 0px 20px rgba(0, 200, 200, .6), inset 0px 0px 30px rgba(255, 255, 0, .5);
 	border-radius: 50px;
 	background-color: white;
 	border-width: 2px;
@@ -289,7 +292,8 @@ hr.style17:after {
 .navbutton2{
 	color: #404040;
 	background-color: white;
-	box-shadow: 0px 0px 3px rgba(0,0,0,.3), inset 0px 0px 10px rgba(0,0,255,.3), inset 0px 0px 20px rgba(0, 200, 200, .2), inset 0px 0px 30px rgba(255, 255, 0, .1);
+	box-shadow: 0px 0px 3px rgba(0,0,0,.8), inset 0px 0px 10px rgba(0,0,255,.7), inset 0px 0px 20px rgba(0, 200, 200, .6), inset 0px 0px 30px rgba(255, 255, 0, .5);
+	border-style: outset;
 	border-radius: 50px;
 	height: 100px;
 	/*width: 300px;*/
@@ -300,23 +304,11 @@ hr.style17:after {
 
 .navbutton3{
 	background-color: transparent;
-	border-top: none;
-	border-bottom: 1px solid rgba(0,0,0,.3);
-	border-left: 1px solid rgba(0,0,0,.3);
-	border-right: 1px solid rgba(0,0,0,.3);
+	border: none;
 	border-radius: 50px;
 	height: 50px;
 }
 
-.navbutton4{
-	background-color: transparent;
-	border-bottom: none;
-	border-top: 1px solid rgba(0,0,0,.3);
-	border-left: 1px solid rgba(0,0,0,.3);
-	border-right: 1px solid rgba(0,0,0,.3);
-	border-radius: 50px;
-	height: 50px;
-}
 
 .navbutton0{
 	background-color: transparent;
@@ -351,16 +343,23 @@ hr.style17:after {
 }
 
 .blogBackground{
-	background-image: url('http://i.imgur.com/nNf2CBP.jpg');
-	height: 240px;
+	background-image: url('http://i.imgur.com/Y5e3LwI.jpg');
+	/*height: 170px;*/
 	background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center bottom;
+    /*background-position: center;*/
 	/*box-shadow: inset 0px 15px 15px rgba(0,0,0,.5), 0px 0px 13px rgba(255, 0, 0, .4);	*/
-	color: white;
+	color: auto;
+	text-shadow: white 0.1em 0.1em 0.2em;
 }
 
-.blogBackground2{
-	background: transparent;
-	color: white;
+.toolsBackground{
+	background-image: url('http://i.imgur.com/9A3MqqH.jpg');
+	background-repeat: no-repeat;
+    border-radius: 150px;
+    background-size: 1200px 600px;
+    /*background-attachment: fixed;*/
+    background-position: center;
+    box-shadow: 4px 4px 15px rgba(0,0,0,.5); 
+
 }

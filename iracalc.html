@@ -38,64 +38,69 @@
 </head>
 <body>
 
-<div class="container">
-
 <div class="output">
-	<ul>
+	<ul> </ul>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		
+		<div class="col-lg-12">
+			<span>Enter your name then press ENTER: </span>
+			<input type="text" name="userName"></input>
+		</div>
+
+		<div class="col-lg-12"><span id="rothOrTrad"></span>
+			<ul>
+				<li><input type="radio" name="IRAtype" class="IRAtype" value="Roth"> Roth</li>
+				<li><input type="radio" name="IRAtype" class="IRAtype" value="Traditional"> Traditional</li>
+			</ul>
+		</div>
+
+		<div class="col-lg-12">What is your filing status?
+			<ul>
+				<li><input type="radio" name="status" class="status" value="Single"> Single</li>
+				<li><input type="radio" name="status" class="status" value="Married, filing jointly"> Married, filing a joint return</li>
+				<li><input type="radio" name="status" class="status" value="Head of Household"> Head of Household</li>
+				<li><input type="radio" name="status" class="status" value="Married, filing separately"> Married, filing separate returns</li>
+				<li><input type="radio" name="status" class="status" value="Qualified widower"> Qualified Widow</li>
+			</ul>
+		</div>
+
+
+		<div class="col-lg-12">
+			<span>Are you covered by a retirement plan as an employee?</span>
+				<ul>
+					<li><input type="radio" name="covered" class="workPlan" value="yes"> Yes</li>
+					<li><input type="radio" name="covered" class="workPlan" value="no"> No</li>
+				</ul>
+		</div>
+
+		<div class="col-lg-12">
+			Enter your Adjusted Gross Income from your tax return then press ENTER:
+			<div><input type="number" name="AGI" step="1" min="0" max="99,999,999"></div>
+		</div>
 			
-	</ul>
+
+		<div class="col-lg-12"> Check all that apply:
+			<ul class="listedDeductions">
+				<li><input type="checkbox" name="deduction" class="deduction" value="1"> Took a deduction for traditional IRA contribution. <span class="deductionHide" id="1"> Amount: <input type="number" name=""> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" value="2"> Took a deduction for student loan interest paid.<span class="deductionHide" id="2"> Amount: <input type="number" name=""> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" value="3"> Took a deduction for qualified tuition and fees paid.<span class="deductionHide" id="3"> Amount: <input type="number" name=""> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" value="4"> Took a deduction for domestic production activity.<span class="deductionHide" id="4"> Amount: <input type="number" name=""> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" value="5"> Excluded foreign earned income or housing. Found on Form 2555, line 45.<span class="deductionHide" id="5"> Amount: <input type="number" name=""> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" value="6"> Deducted for foreign housing. Found on Form 2555, line 50.<span class="deductionHide" id="6"> Amount: <input type="number" name=""> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" value="7"> Any qualified savings bonds interest excluded Found on form 8815, line 14.<span class="deductionHide" id="7"> Amount: <input type="number" name=""> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" value="8"> Any excludable employer-provided adoption benefits. Found on Form 8839, line 28.<span class="deductionHide" id="8"> Amount: <input type="number" name=""> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" value="9"> None of these apply.</li>
+			</ul>
+		</div>
+
+		<div class="col-lg-12"><button class="contribAmount">Calculate the maximum I can contribute to a </button></div>
+	</div>
 </div>
 
-<div>
-<span>Enter your name then press ENTER: </span>
-<input type="text" name="userName"></input>
-</div>
-
-<div id="rothOrTrad"> </div>
-<ul>
-<li><input type="radio" name="IRAtype" class="IRAtype" value="Roth"> Roth</li>
-<li><input type="radio" name="IRAtype" class="IRAtype" value="Traditional"> Traditional</li>
-</ul>
-
-<div>What is your filing status?
-<ul>
-<li><input type="radio" name="status" class="status" value="Single"> Single</li>
-<li><input type="radio" name="status" class="status" value="Married, filing jointly"> Married, filing a joint return</li>
-<li><input type="radio" name="status" class="status" value="Head of Household"> Head of Household</li>
-<li><input type="radio" name="status" class="status" value="Married, filing separately"> Married, filing separate returns</li>
-<li><input type="radio" name="status" class="status" value="Qualified widower"> Qualified Widow</li>
-</ul>
-</div>
-
-
-<div>
-	<span>Are you covered by a retirement plan as an employee?</span>
-	<ul>
-	<li><input type="radio" name="covered" class="workPlan" value="yes"> Yes</li>
-	<li><input type="radio" name="covered" class="workPlan" value="no"> No</li>
-	</ul>
-</div>
-
-<div>
-	Enter your modified adjusted gross income: (Found by adding the below items back to AGI) then press ENTER:
-</div>
-<input type="number" name="AGI" step="1" min="0" max="99,999,999">
-
-<div>Need to calculate your modified adjusted gross income?</div>
-<div> Check all that apply:</div>
-<li><input type="checkbox" name="deduction" class="deduction" value="tradIRAdeduct"> Took a deduction for traditional IRA contribution.</li>
-<li><input type="checkbox" name="deduction" class="deduction" value="studentLoandeduct"> Took a deduction for student loan interest paid.</li>
-<li><input type="checkbox" name="deduction" class="deduction" value="tuitionAndFeesdeduct"> Took a deduction for qualified tuition and fees paid.</li>
-<li><input type="checkbox" name="deduction" class="deduction" value="domesticProdActivity"> Took a deduction for domestic production activity.</li>
-<li><input type="checkbox" name="deduction" class="deduction" value="foreignIncomeExcl"> Excluded foreign earned income or housing. Found on Form 2555, line 45</li>
-<li><input type="checkbox" name="deduction" class="deduction" value="foreignHousingDeduct"> Deducted for foreign housing. Found on Form 2555, line 50.</li>
-<li><input type="checkbox" name="deduction" class="deduction" value="savingsBondExcl"> Any qualified savings bonds interest excluded Found on form 8815, line 14.</li>
-<li><input type="checkbox" name="deduction" class="deduction" value="adoptionBeneExcl"> Any excludable employer-provided adoption benefits. Found on Form 8839, line 28</li>
-
-
-
-
-</div>
 
 </body>
 
