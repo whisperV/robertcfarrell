@@ -285,6 +285,17 @@ hr.style17:after {
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .openall{
+  	visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+}
+
 
 #landingnameplate{
 	font-family: 'Cinzel Decorative', serif;	
