@@ -1,9 +1,9 @@
 .output{
-	width: 400px;
+	width: 350px;
 	border: 2px solid black;
-	position: relative;
-	/*float: left;*/
-	align-content: right;
+	/*position: fixed;*/
+	float: right;
+	margin-bottom: 20px;
 }
 
 .contribAmount{

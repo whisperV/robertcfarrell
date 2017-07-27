@@ -38,27 +38,28 @@
 </head>
 <body>
 
-<div class="output">
-	<ul> </ul>
-</div>
-
 
 <div class="container">
 	<div class="row">
 		
-		<div class="col-lg-12">
+		
+		<div class="output col-lg-4">
+			<ul> </ul>
+		</div>
+
+		<div class="col-lg-8">
 			<span>Enter your name then press ENTER: </span>
 			<input type="text" name="userName"></input>
 		</div>
 
-		<div class="col-lg-12"><span id="rothOrTrad"></span>
+		<div class="col-lg-8"><span id="rothOrTrad"></span>
 			<ul>
 				<li><input type="radio" name="IRAtype" class="IRAtype" value="Roth"> Roth</li>
 				<li><input type="radio" name="IRAtype" class="IRAtype" value="Traditional"> Traditional</li>
 			</ul>
 		</div>
 
-		<div class="col-lg-12">What is your filing status?
+		<div class="col-lg-8">What is your filing status?
 			<ul>
 				<li><input type="radio" name="status" class="status" value="Single"> Single</li>
 				<li><input type="radio" name="status" class="status" value="Married, filing jointly"> Married, filing a joint return</li>
@@ -69,7 +70,7 @@
 		</div>
 
 
-		<div class="col-lg-12">
+		<div class="col-lg-8">
 			<span>Are you covered by a retirement plan as an employee?</span>
 				<ul>
 					<li><input type="radio" name="covered" class="workPlan" value="yes"> Yes</li>
@@ -77,13 +78,13 @@
 				</ul>
 		</div>
 
-		<div class="col-lg-12">
+		<div class="col-lg-8">
 			Enter your Adjusted Gross Income from your tax return then press ENTER:
 			<div><input type="number" name="AGI" step="1" min="0" max="99,999,999"></div>
 		</div>
 			
 
-		<div class="col-lg-12"> Check all that apply:
+		<div class="col-lg-8"> Check all that apply:
 			<ul class="listedDeductions">
 				<li><input type="checkbox" name="deduction" class="deduction" value="1"> Took a deduction for traditional IRA contribution. <span class="deductionHide" id="1"> Amount: <input type="number" name=""> </span></li>
 				<li><input type="checkbox" name="deduction" class="deduction" value="2"> Took a deduction for student loan interest paid.<span class="deductionHide" id="2"> Amount: <input type="number" name=""> </span></li>
@@ -97,9 +98,11 @@
 			</ul>
 		</div>
 
-		<div class="col-lg-12"><button class="contribAmount">Calculate the maximum I can contribute to a </button></div>
+		<div class="col-lg-8"><button class="contribAmount">Calculate the maximum I can contribute to a </button></div>
+
 	</div>
 </div>
+
 
 
 </body>
