@@ -70,57 +70,175 @@ $(".workPlan").on("click", function (){
 		}	
 	}
 	})
-//MUCH MORE TO FIGURING OUT THE MAGI - lots of add backs
+
 $("input[type=number][name=AGI]").keypress(function(event){
 	taxPayer.magi = $("input[type='number']").val();
 	if(event.which === 13){
 		$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['magi'] + ".</li>");
 	}})
 
- // $(".deduction").on("click", function(){
- // 		$(".listedDeductions").find("checkbox").each(function(){
-	// 		if($(this).prop('checked')==true){
-	// 			console.log("a deduction is checked");
-	// 		}
-	// 		else{
-	// 			console.log("uh oh");
-	// 		}
-	// 	});
-	// });
 
-	// magiCalc = $("input[type=checkbox][name=deduction]:checked").val();
- 
-  	$(".contribAmount").on("click", function(){
- 		magiCalc = $("input[type=checkbox][name=deduction]:checked").val();
- 		console.log(magiCalc);
- 		if(magiCalc === "noneAbove" || null)
-			{ 
-				console.log(magiCalc + " test text");
-			
-			}
- 		else{
- 				console.log("arrays?");
-			};
- 	});
+/** BEGIN: Get individual deduction type amounts: **/
 
- 	$(".contribAmount").text("How much can I contribute to a " + taxPayer['iraType'] + "?");
- // });
 
-// $(".contribAmount").on("click", function(){
-// 		console.log(magiCalc);	
-// });
-
-$('input[type="checkbox"]').on("click", function() { 
+$('input[type="checkbox"]').on("click", function() {
 	
-	var i = parseInt($("input[type=checkbox][name=deduction]:checked").val());
-	
-	for(var j = i; j < (i+1); j++){
-		if ($(this).is(':checked') && $.isNumeric(i)) {
-			$("#1").toggleClass('deductionHide');
-			console.log(i);
-			console.log("This is dedcution number: " + j);    	
-		};
+	var a = $(this).val()
+	var addUps = [];
+
+	if(this.checked){
+		$('span.deductionHider').eq(a).removeClass('deductionHide');
+	}
+	else {
+		$('span.deductionHider').eq(a).addClass('deductionHide');
 	}
 });
 
+/** END: Get individual deduction type amounts: **/		
 
+
+// var array = [];
+// $('input[type="checkbox"][name="deduction"]').change(function(){
+// 	if(this.checked){
+// 		if (array.indexOf($(this).val()) < 0){
+// 			array.push($(this).val());
+// 		} else{
+// 			if(array.indexOf($(this).val()) >= 0){
+// 				array.splice(array.indexOf($(this).val()), 1);
+// 			}
+// 		}
+// 	console.log(array);
+// 	console.log("test");
+// 	}
+
+// });
+
+
+
+// BEGIN: Obtain and add deductions taken
+
+//GOAL to store the new deduction amounts in an array, then add all array elements to determine MAGI
+
+
+var add = [];
+var totalDeductions = 0;
+
+$("input[type=number][name=addBack1]").on("keyup change", function() {
+	  
+	  var i = $(".deduction").eq(0).val();	  
+
+	  add[i] = parseInt(this.value);
+	  console.log(add[i] + " checkbox value " + i );
+	  
+});
+
+$("input[type=number][name=addBack2]").on("keyup change", function() {
+	  
+	  var i = $(".deduction").eq(1).val();
+	  
+	  add[i] = parseInt(this.value);
+	  console.log(add[i] + " checkbox value " + i );
+});
+
+$("input[type=number][name=addBack3]").on("keyup change", function() {
+	  
+	  var i = $(".deduction").eq(2).val();
+	  
+	  add[i] = parseInt(this.value);
+	  console.log(add[i] + " checkbox value " + i );
+});
+
+$("input[type=number][name=addBack4]").on("keyup change", function() {
+	  
+	  var i = $(".deduction").eq(3).val();
+	  
+	  add[i] = parseInt(this.value);
+	  console.log(add[i] + " checkbox value " + i );
+});
+
+$("input[type=number][name=addBack5]").on("keyup change", function() {
+	  
+	  var i = $(".deduction").eq(4).val();
+
+	  add[i] = parseInt(this.value);
+	  console.log(add[i] + " checkbox value " + i );
+});
+
+$("input[type=number][name=addBack6]").on("keyup change", function() {
+	  
+	  var i = $(".deduction").eq(5).val();
+
+	  add[i] = parseInt(this.value);
+	  console.log(add[i] + " checkbox value " + i );
+});	  
+
+$("input[type=number][name=addBack7]").on("keyup change", function() {
+	  
+	  var i = $(".deduction").eq(6).val();
+
+	  add[i] = parseInt(this.value);
+	  console.log(add[i] + " checkbox value " + i );
+});
+
+$("input[type=number][name=addBack8]").on("keyup change", function() {
+	  
+	  var i = $(".deduction").eq(7).val();
+
+	  add[i] = parseInt(this.value);
+	  console.log(add[i] + " checkbox value " + i );
+});
+
+
+//END: Obtain and add deductions taken
+
+
+
+// BEGIN: Uncheck all boxes, hide all list inputs, clear all amounts
+
+function uncheckAll(){
+	var boxes = $('input[name=deduction]');
+	
+	for( var i = 0; i < (boxes.length-1); i++){
+		boxes.each(function(){
+			if( $(this).val() < 8)
+				{this.checked = false;}
+			});
+	
+		$('span.deductionHider').eq(i).addClass('deductionHide');
+		$('input[type=number]').eq(i+1).val(0);
+		add[i] = 0;
+	}
+}
+
+function checkNone(){
+	var x = $(".deduction").eq(8).prop('checked');
+	
+	if(x === true){
+		$(".deduction").eq(8).prop('checked', false);
+		}
+}
+	
+// END: Uncheck all boxes, hide all list inputs
+
+
+// BEGIN: Do some things when clicking the calculate button
+ 
+ $(".contribAmount").on("click", function(){
+ 
+	//add up total deductions
+
+ 	for(var j = 0; j < add.length; j++){
+		totalDeductions += add[j];
+	}	
+  	var y = taxPayer.magi + totalDeductions;
+  	console.log("Total of Deductions: " + totalDeductions + " MAGI: " + y);
+ });
+ 	
+
+ 	
+
+	
+
+
+
+// END: Do some things when clicking the calculate button

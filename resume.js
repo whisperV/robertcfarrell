@@ -33,14 +33,27 @@ var isOpen = true;
 $("#openAll").on("click", function(){
 	$(this).toggleClass("collapse");
 	$("#closeAll").toggleClass("collapse");
-	$(".workDesc").addClass("in");
+	$(".workDesc").addClass("show");
 	$(".btn-custom").removeClass("collapsed");
 	
 });
 
+
+$("#openAll").on("click", function(){
+	$(".btn-custom").attr({
+		"aria-expanded": true;
+		"class" : "btn btn-custom";
+
+	}
+
+	)
+
+})
+
 $("#closeAll").on("click", function(){
 	$(this).toggleClass("collapse");
 	$("#openAll").toggleClass("collapse");
+	$(".workDesc").removeClass("show");
 	$(".workDesc").removeClass("in");
 	$(".btn-custom").addClass("collapsed");
 

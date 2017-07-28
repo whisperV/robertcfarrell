@@ -85,17 +85,19 @@
 			
 
 		<div class="col-lg-8"> Check all that apply:
+		<form>
 			<ul class="listedDeductions">
-				<li><input type="checkbox" name="deduction" class="deduction" value="1"> Took a deduction for traditional IRA contribution. <span class="deductionHide" id="1"> Amount: <input type="number" name=""> </span></li>
-				<li><input type="checkbox" name="deduction" class="deduction" value="2"> Took a deduction for student loan interest paid.<span class="deductionHide" id="2"> Amount: <input type="number" name=""> </span></li>
-				<li><input type="checkbox" name="deduction" class="deduction" value="3"> Took a deduction for qualified tuition and fees paid.<span class="deductionHide" id="3"> Amount: <input type="number" name=""> </span></li>
-				<li><input type="checkbox" name="deduction" class="deduction" value="4"> Took a deduction for domestic production activity.<span class="deductionHide" id="4"> Amount: <input type="number" name=""> </span></li>
-				<li><input type="checkbox" name="deduction" class="deduction" value="5"> Excluded foreign earned income or housing. Found on Form 2555, line 45.<span class="deductionHide" id="5"> Amount: <input type="number" name=""> </span></li>
-				<li><input type="checkbox" name="deduction" class="deduction" value="6"> Deducted for foreign housing. Found on Form 2555, line 50.<span class="deductionHide" id="6"> Amount: <input type="number" name=""> </span></li>
-				<li><input type="checkbox" name="deduction" class="deduction" value="7"> Any qualified savings bonds interest excluded Found on form 8815, line 14.<span class="deductionHide" id="7"> Amount: <input type="number" name=""> </span></li>
-				<li><input type="checkbox" name="deduction" class="deduction" value="8"> Any excludable employer-provided adoption benefits. Found on Form 8839, line 28.<span class="deductionHide" id="8"> Amount: <input type="number" name=""> </span></li>
-				<li><input type="checkbox" name="deduction" class="deduction" value="9"> None of these apply.</li>
+				<li><input type="checkbox" name="deduction" class="deduction" onchange="checkNone()" value="0"> Took a deduction for traditional IRA contribution. <span class="deductionHider deductionHide" id="1"> Amount: <input type="number" min="0" max="99999999" name="addBack1"> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" onchange="checkNone()" value="1"> Took a deduction for student loan interest paid.<span class="deductionHider deductionHide" id="2"> Amount: <input type="number" min="0" max="99999999" name="addBack2"> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" onchange="checkNone()" value="2"> Took a deduction for qualified tuition and fees paid.<span class="deductionHider deductionHide" id="3"> Amount: <input type="number"  min="0" max="99999999" name="addBack3"> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" onchange="checkNone()" value="3"> Took a deduction for domestic production activity.<span class="deductionHider deductionHide" id="4"> Amount: <input type="number"  min="0" max="99999999" name="addBack4"> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" onchange="checkNone()" value="4"> Excluded foreign earned income or housing. Found on Form 2555, line 45.<span class="deductionHider deductionHide" id="5"> Amount: <input type="number"  min="0" max="99999999" name="addBack5"> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" onchange="checkNone()" value="5"> Deducted for foreign housing. Found on Form 2555, line 50.<span class="deductionHider deductionHide" id="6"> Amount: <input type="number"  min="0" max="99999999" name="addBack6"> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" onchange="checkNone()" value="6"> Any qualified savings bonds interest excluded Found on form 8815, line 14.<span class="deductionHider deductionHide" id="7"> Amount: <input type="number"  min="0" max="99999999" name="addBack7"> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" onchange="checkNone()" value="7"> Any excludable employer-provided adoption benefits. Found on Form 8839, line 28.<span class="deductionHider deductionHide" id="8"> Amount: <input type="number" min="0" max="99999999" name="addBack8"> </span></li>
+				<li><input type="checkbox" name="deduction" class="deduction" onchange="uncheckAll()" value="8"> None of these apply.</li>
 			</ul>
+		</form>
 		</div>
 
 		<div class="col-lg-8"><button class="contribAmount">Calculate the maximum I can contribute to a </button></div>
