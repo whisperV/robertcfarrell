@@ -260,10 +260,17 @@ hr.style17:after {
  	justify-content: center;
   	margin-top: 20%;
   	box-shadow: inset 0px 5px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);
-  	background: #085078;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #85D8CE, #085078);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #85D8CE, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  	
+  	background: #1c92d2;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+
+
+  	/*background: #085078;  /* fallback for old browsers 
+	background: -webkit-linear-gradient(to top, #85D8CE, #085078);   Chrome 10-25, Safari 5.1-6 
+	background: linear-gradient(to top, #85D8CE, #085078); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
+	*/
 }   	
 
 .navbutton{
@@ -342,8 +349,10 @@ hr.style17:after {
 	border-style: outset;
 	border-radius: 50px;
 	height: 100px;
-	margin-top: 10%;
-	margin-bottom: 10%;
+	width: 400px;
+	justify-content: center;
+	margin-top: 1px;
+	margin-bottom: 1px;
 }
 
 
@@ -357,17 +366,25 @@ hr.style17:after {
 	height: 50px;
 }
 
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
 .grids{
 	color: white;
 	text-align: center;
-	margin-top: 20%;
+	margin-left: 20%;
+
+
+	
  }
 
 .nobutton, .nobutton:hover, .nobutton:focus{
 	border: 0;
 	background-color: transparent;
 	color: inherit;
-	text-transform: capitalize;
+	text-transform: uppercase;
 	/*box-shadow: 0px 0px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);*/
 	margin-top: 10%;
 	font-family: 'Open Sans', sans-serif;
@@ -375,9 +392,10 @@ hr.style17:after {
 }
 
 .resumeBackground{
-	background: #134E5E;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #52c234;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #f8f8f8, #52c234);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #f8f8f8, #52c234); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 	/*background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,200,0,0.2)), url('http://i.imgur.com/qUQ9Z5H.jpg');*/
 	box-shadow: inset 0px 15px 15px rgba(0,0,0,.5), 0px 0px 13px rgba(255, 0, 0, .4);
 }
@@ -389,22 +407,36 @@ hr.style17:after {
     /*background-position: center;*/
 	/*box-shadow: inset 0px 15px 15px rgba(0,0,0,.5), 0px 0px 13px rgba(255, 0, 0, .4);	*/
 
-	background: #649173;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #DBD5A4, #649173);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #DBD5A4, #649173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #CAC531;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #F3F9A7, #CAC531);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #F3F9A7, #CAC531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+/*	background: #649173;  /* fallback for old browsers */
+/*	background: -webkit-linear-gradient(to left, #DBD5A4, #649173);  /* Chrome 10-25, Safari 5.1-6 */
+/*	background: linear-gradient(to left, #DBD5A4, #649173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	
 
 }
 
 .toolsBackground{
-	background: #4b6cb7;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/*	background: #4b6cb7;  /* fallback for old browsers */
+/*	background: -webkit-linear-gradient(to top, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+/*	background: linear-gradient(to top, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	margin-top: 20%;
+	height: 103px;
 
+	text-align: center;
+ 	justify-content: center;
+  	margin-top: 20%;
+  	
+	background: #EF3B36;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #f8f8f8, #f00000);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #f8f8f8, #f00000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
 
-	box-shadow: 0px 10px 15px rgba(0,0,0,.5); 
-    border-radius: 250px;
+	box-shadow: inset 0px 5px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);
+
+	/*box-shadow: 0px 10px 15px rgba(0,0,0,.5); */
+    /*border-radius: 250px;*/
 	/*background-image: url('http://i.imgur.com/9A3MqqH.jpg');
 	background-repeat: no-repeat;
     background-size: 1200px 600px;
