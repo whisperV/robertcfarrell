@@ -252,14 +252,18 @@ hr.style17:after {
 }
 
 .simplenav{
-	background-image: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(0,0,255,0.5)),
-    url('http://i.imgur.com/9uE1BB9.jpg');
+	/*background-image: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(0,0,255,0.5)),*/
+    /*url('http://i.imgur.com/9uE1BB9.jpg');*/
 	height: 100px;
 	color: white;
 	text-align: center;
  	justify-content: center;
   	margin-top: 20%;
   	box-shadow: inset 0px 5px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);
+  	background: #085078;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #85D8CE, #085078);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #85D8CE, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }   	
 
 .navbutton{
@@ -338,8 +342,8 @@ hr.style17:after {
 	border-style: outset;
 	border-radius: 50px;
 	height: 100px;
-	margin-top: 15%;
-	margin-bottom: 15%;
+	margin-top: 10%;
+	margin-bottom: 10%;
 }
 
 
@@ -371,28 +375,41 @@ hr.style17:after {
 }
 
 .resumeBackground{
-	background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,200,0,0.2)), url('http://i.imgur.com/qUQ9Z5H.jpg');
+	background: #134E5E;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	/*background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,200,0,0.2)), url('http://i.imgur.com/qUQ9Z5H.jpg');*/
 	box-shadow: inset 0px 15px 15px rgba(0,0,0,.5), 0px 0px 13px rgba(255, 0, 0, .4);
 }
 
 .blogBackground{
-	background-image: url('http://i.imgur.com/Y5e3LwI.jpg');
-	/*height: 170px;*/
-	background-repeat: no-repeat;
-    background-attachment: fixed;
+	/*background-image: url('http://i.imgur.com/Y5e3LwI.jpg');*/
+	/*background-repeat: no-repeat;
+    background-attachment: fixed;*/
     /*background-position: center;*/
 	/*box-shadow: inset 0px 15px 15px rgba(0,0,0,.5), 0px 0px 13px rgba(255, 0, 0, .4);	*/
-	color: auto;
-	text-shadow: white 0.1em 0.1em 0.2em;
+
+	background: #649173;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #DBD5A4, #649173);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #DBD5A4, #649173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	
+
 }
 
 .toolsBackground{
-	background-image: url('http://i.imgur.com/9A3MqqH.jpg');
+	background: #4b6cb7;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+	box-shadow: 0px 10px 15px rgba(0,0,0,.5); 
+    border-radius: 250px;
+	/*background-image: url('http://i.imgur.com/9A3MqqH.jpg');
 	background-repeat: no-repeat;
-    border-radius: 150px;
     background-size: 1200px 600px;
     /*background-attachment: fixed;*/
-    background-position: center;
-    box-shadow: 4px 4px 15px rgba(0,0,0,.5); 
+    /*background-position: center;*/
+    
 
 }
