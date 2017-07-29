@@ -252,8 +252,6 @@ hr.style17:after {
 }
 
 .simplenav{
-	/*background-image: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(0,0,255,0.5)),*/
-    /*url('http://i.imgur.com/9uE1BB9.jpg');*/
 	height: 100px;
 	color: white;
 	text-align: center;
@@ -264,13 +262,6 @@ hr.style17:after {
   	background: #1c92d2;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to top, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to top, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
-  	/*background: #085078;  /* fallback for old browsers 
-	background: -webkit-linear-gradient(to top, #85D8CE, #085078);   Chrome 10-25, Safari 5.1-6 
-	background: linear-gradient(to top, #85D8CE, #085078); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
-	*/
 }   	
 
 .navbutton{
@@ -349,10 +340,13 @@ hr.style17:after {
 	border-style: outset;
 	border-radius: 50px;
 	height: 100px;
-	width: 400px;
-	justify-content: center;
+	width: 300px;
+	/*justify-content: center;*/
 	margin-top: 1px;
 	margin-bottom: 1px;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	
 }
 
 
@@ -373,18 +367,33 @@ a {
 
 .grids{
 	color: white;
+	align-content: center;	
+	justify-content: center;
 	text-align: center;
-	margin-left: 20%;
-
-
+	box-shadow: 0px 0px 5px rgba(0,0,0,.1);
+	/*margin-left: 20%;*/
 	
+ }
+
+ @media screen and (max-width: 700px) {
+  .grids{
+    height: 300px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .grids{
+    height: 300px;
+  }
+}
+
+ .toolsDefine{
+ 	border-bottom: 1px solid rbga(0,0,0,0.4);
  }
 
 .nobutton, .nobutton:hover, .nobutton:focus{
 	border: 0;
 	background-color: transparent;
 	color: inherit;
-	text-transform: uppercase;
 	/*box-shadow: 0px 0px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);*/
 	margin-top: 10%;
 	font-family: 'Open Sans', sans-serif;
@@ -442,6 +451,17 @@ a {
     background-size: 1200px 600px;
     /*background-attachment: fixed;*/
     /*background-position: center;*/
-    
-
 }
+
+@media screen and (max-width: 995px) {
+  .toolsBackground{
+    height: 200px;
+  }
+}
+@media screen and (max-width: 770px) {
+  .toolsBackground{
+    height: 300px;
+  }
+}
+
+

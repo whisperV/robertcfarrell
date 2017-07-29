@@ -1,3 +1,7 @@
+var ROTH_MIN_MFJ = 186000;
+var ROTH_MAX_MFJ = 196000;
+var ROTH_MIN_S = 118000;
+var ROTH_MAX_S = 133000;
 
 var taxPayer = {name: '', iraType: '', filingStatus: '', workPlan: '', magi: 0, adjustments: 0};
 var magiCalc;
@@ -45,7 +49,7 @@ $("input[type='text']").keypress(function(event){
 
 //get and report type of IRA contributions
 $(".IRAtype").on("click", function (){
-		taxPayer.iraType = $("input[type=radio][name=IRAtype]:checked").val();
+		taxPayer.iraType = $("input[type=radio][name=IRAtype]:checked").val(); 							//Roth or Traditional
 	if(taxPayer.iraType !== null){
 		$(".output").append("<li> You're contributing to a " + taxPayer['iraType'] + " IRA.</li>");	
 		$(".contribAmount").text("How much can I contribute to a " + taxPayer['iraType'] + " IRA?");
@@ -54,11 +58,12 @@ $(".IRAtype").on("click", function (){
 
 //get and report filing status
 $(".status").on("click", function (){
-		taxPayer.filingStatus = $("input[type=radio][name=status]:checked").val();
+		taxPayer.filingStatus = $("input[type=radio][name=status]:checked").val();						//Single, (Married, filing jointly), Head of Household, Married, filing separate returns, qualified widower
 	if(taxPayer.filingStatus !== null){
 		$(".output").append("<li> You're filing as " + taxPayer['filingStatus'] + " </li>");	
 	}
 	})
+
 
 $(".workPlan").on("click", function (){
 	taxPayer.workPlan = $("input[type=radio][name=covered]:checked").val();
@@ -208,6 +213,8 @@ function uncheckAll(){
 		$('input[type=number]').eq(i+1).val(0);
 		add[i] = 0;
 	}
+
+	totalDeductions = 0;
 }
 
 function checkNone(){
@@ -222,22 +229,59 @@ function checkNone(){
 
 
 // BEGIN: Do some things when clicking the calculate button
- 
+
+function contributionCalculation(obj, objName){
+
+	var contAmt;
+	
+	if(obj.iraType === "Roth")
+	{
+		if(obj.filingStatus === "Single"){
+			if(obj.magi >= ROTH_MAX_S){
+				return("NONE");
+			} else {
+				return("5500");
+				}
+		}
+	}
+ }
+
+
+function showProps(obj, objName) {
+  var result = '';
+  for (var i in obj) {
+    // obj.hasOwnProperty() is used to filter out properties from the object's prototype chain
+    if (obj.hasOwnProperty(i)) {
+      result += objName + '.' + i + ' = ' + obj[i] + '\n';
+    }
+  }
+  
+
+  return result;
+}
+	
+
  $(".contribAmount").on("click", function(){
  
 	//add up total deductions
 
  	for(var j = 0; j < add.length; j++){
-		totalDeductions += add[j];
+		taxPayer.adjustments += add[j];
 	}	
-  	var y = taxPayer.magi + totalDeductions;
-  	console.log("Total of Deductions: " + totalDeductions + " MAGI: " + y);
+	
+	var x = parseInt(taxPayer.magi);
+	var z = parseInt(taxPayer.adjustments);
+	taxPayer.magi = x + z;
+  	console.log("Total of Deductions: " + taxPayer['adjustments'] + " MAGI: " + taxPayer['magi']);
+
+  	// var contributionAmount = contributionCalculation(taxPayer);
+
+  	alert("Your max contribution amount is: " + contributionCalculation(taxPayer, "taxPayer"));
+  	console.log(showProps(taxPayer, "taxPayer"));
  });
  	
 
  	
-
-	
 
 
 
