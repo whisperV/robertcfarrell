@@ -3,7 +3,7 @@ var ROTH_MAX_MFJ = 196000;
 var ROTH_MIN_S = 118000;
 var ROTH_MAX_S = 133000;
 
-var taxPayer = {name: '', iraType: '', filingStatus: '', workPlan: '', magi: 0, adjustments: 0};
+var taxPayer = {name: '', iraType: '', filingStatus: '', workPlan: '', agi: 0, magi: 0, adjustments: 0};
 var magiCalc;
 var allDeductions = document.getElementsByClassName(".deductionHide");
 
@@ -77,9 +77,9 @@ $(".workPlan").on("click", function (){
 	})
 
 $("input[type=number][name=AGI]").keypress(function(event){
-	taxPayer.magi = $("input[type='number']").val();
+	taxPayer.agi = $("input[type='number']").val();
 	if(event.which === 13){
-		$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['magi'] + ".</li>");
+		$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['agi'] + ".</li>");
 	}})
 
 
@@ -262,14 +262,15 @@ function showProps(obj, objName) {
 	
 
  $(".contribAmount").on("click", function(){
- 
+ 	
+ 	taxPayer.adjustments = 0;
 	//add up total deductions
 
  	for(var j = 0; j < add.length; j++){
 		taxPayer.adjustments += add[j];
 	}	
 	
-	var x = parseInt(taxPayer.magi);
+	var x = parseInt(taxPayer.agi);
 	var z = parseInt(taxPayer.adjustments);
 	taxPayer.magi = x + z;
   	console.log("Total of Deductions: " + taxPayer['adjustments'] + " MAGI: " + taxPayer['magi']);

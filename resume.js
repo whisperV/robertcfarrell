@@ -39,14 +39,14 @@ $("#openAll").on("click", function(){
 });
 
 
-$("#openAll").on("click", function(){
-	$(".btn-custom").attr({
-		"aria-expanded": true;
-		"class" : "btn btn-custom";})
-	$(".workDesc").attr({
+// $("#openAll").on("click", function(){
+// 	$(".btn-custom").attr({
+// 		"aria-expanded": true
+// 		"class" : "btn btn-custom"})
+// 	$(".workDesc").attr({
 		
-	})
-});
+// 	})
+// });
 
 $("#closeAll").on("click", function(){
 	$(this).toggleClass("collapse");
