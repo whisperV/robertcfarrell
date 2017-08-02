@@ -38,13 +38,18 @@ $("#rothOrTrad").text("Contributing to a Roth or Traditional IRA?");
 
 
 //get user name
-$("input[type='text']").keypress(function(event){
-	if(event.which === 13){
-		taxPayer.name = $(this).val();
+
+
+$("input[type='text']").on("keyup change", function(){
+	taxPayer.name = $(this).val();
 	//display info in output window
-	$(".output").append("<li> Hello, " + taxPayer['name'] + " !</li>");
-	}
-})
+	 $(this).keypress(function(event){
+	 	if (event.which == 13){
+	 		$(".output").append("<li> Hello, " + taxPayer['name'] + " !</li>");	
+	 	}
+	 })
+	 	
+	})
 
 
 //get and report type of IRA contributions
@@ -76,11 +81,10 @@ $(".workPlan").on("click", function (){
 	}
 	})
 
-$("input[type=number][name=AGI]").keypress(function(event){
+$("input[type=number][name=AGI]").on("keyup change", function(){
 	taxPayer.agi = $("input[type='number']").val();
-	if(event.which === 13){
-		$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['agi'] + ".</li>");
-	}})
+	$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['agi'] + ".</li>");
+	})
 
 
 /** BEGIN: Get individual deduction type amounts: **/
@@ -237,8 +241,8 @@ function contributionCalculation(obj, objName){
 	if(obj.iraType === "Roth")
 	{
 		if(obj.filingStatus === "Single"){
-			if(obj.magi >= ROTH_MAX_S){
-				return("NONE");
+			if(obj.magi >= ROTH_MIN_S){
+				return("NONE or less than 5500");
 			} else {
 				return("5500");
 				}
