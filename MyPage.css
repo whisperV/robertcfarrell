@@ -336,18 +336,20 @@ hr.style17:after {
 .navbutton3{
 	color: #404040;
 	background-color: white;
-	box-shadow: 0px 0px 3px rgba(0,0,0,.8), inset 0px 0px 10px rgba(0,0,255,.7), inset 0px 0px 20px rgba(0, 200, 200, .6), inset 0px 0px 30px rgba(255, 255, 0, .5);
-	border-style: outset;
+	box-shadow: 0px 0px 3px rgba(0,0,0,.3), inset 0px 0px 10px rgba(0,0,255,.3), inset 0px 0px 20px rgba(0, 200, 200, .2), inset 0px 0px 30px rgba(255, 255, 0, .1);
 	border-radius: 50px;
 	height: 100px;
 	width: 300px;
-	/*justify-content: center;*/
+	justify-content: center;
 	margin-top: 1px;
 	margin-bottom: 1px;
 	font-family: 'Open Sans', sans-serif;
 	text-transform: uppercase;
+	padding: 20px;
 	
 }
+
+
 
 
 .navbutton0{
@@ -425,7 +427,7 @@ a {
 /*	background: -webkit-linear-gradient(to left, #DBD5A4, #649173);  /* Chrome 10-25, Safari 5.1-6 */
 /*	background: linear-gradient(to left, #DBD5A4, #649173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-	box-shadow: inset 5px 0px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);	
+	box-shadow: inset 0px 0px 6px rgba(120,120,0,.6), 0px 0px 5px rgba(245, 255, 0, .1);	
 
 }
 
