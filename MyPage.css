@@ -406,7 +406,8 @@ a {
 	background: linear-gradient(to top, #f8f8f8, #52c234); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 	/*background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,200,0,0.2)), url('http://i.imgur.com/qUQ9Z5H.jpg');*/
-	box-shadow: inset 0px 15px 15px rgba(0,0,0,.5), 0px 0px 13px rgba(255, 0, 0, .4);
+	/*box-shadow: inset 0px 15px 15px rgba(0,0,0,.5), 0px 0px 13px rgba(255, 0, 0, .4);*/
+	box-shadow: inset 0px 5px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);	
 }
 
 .blogBackground{
@@ -417,13 +418,14 @@ a {
 	/*box-shadow: inset 0px 15px 15px rgba(0,0,0,.5), 0px 0px 13px rgba(255, 0, 0, .4);	*/
 
 	background: #CAC531;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #F3F9A7, #CAC531);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #F3F9A7, #CAC531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to left, #ffffce, #f7f72e);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #ffffce, #f7f72e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 /*	background: #649173;  /* fallback for old browsers */
 /*	background: -webkit-linear-gradient(to left, #DBD5A4, #649173);  /* Chrome 10-25, Safari 5.1-6 */
 /*	background: linear-gradient(to left, #DBD5A4, #649173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	
+
+	box-shadow: inset 5px 0px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);	
 
 }
 
@@ -464,4 +466,45 @@ a {
   }
 }
 
+
+#veryFirstLetter{
+	font-size: 220%;
+	font-family: 'Cinzel-Decorative', serif;
+	background-color: rgba(229, 225, 94,.4) ;
+	border-radius: 5px;
+
+}
+
+.firstLetterFirstPara{
+	font-size: 170%;
+	font-family: 'Cinzel-Decorative', serif;
+	margin-left: 25px;
+}
+
+.firstLetter{
+	margin-left: 25px;
+}
+
+.newPara{
+	margin-top: 10px;
+
+}
+
+.listedTable{
+	list-style: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+.listable{
+	list-style: none;
+	margin-left: 10px;
+}
+
+.listableCat{
+	list-style: none;
+	font-weight: bold;
+	
+}
 
