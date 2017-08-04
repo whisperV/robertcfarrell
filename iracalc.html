@@ -48,8 +48,15 @@
 		</div>
 
 		<div class="col-lg-8">
-			<span>Enter your name then press ENTER: </span>
+			<span>Salutations! What is your name? </span>
 			<input type="text" name="userName"></input>
+		</div>
+
+		<div class="col-lg-8">Have you made any contributions to any type of IRA already?
+			<ul>
+				<li><input type="radio" name="priorContribs" class="priorContribs" value="yes" onclick="priorContribs()"> Yes <span class="priorAmounts deductionHide"> Amount: <input type="number" min="0" max="99999999" name="iraContribsMade"></span></li>
+				<li><input type="radio" name="priorContribs" class="priorContribs" value="no" onclick="priorContribs()"> No</li>
+			</ul>
 		</div>
 
 		<div class="col-lg-8"><span id="rothOrTrad"></span>
@@ -65,7 +72,7 @@
 				<li><input type="radio" name="status" class="status" value="Married, filing jointly"> Married, filing a joint return</li>
 				<li><input type="radio" name="status" class="status" value="Head of Household"> Head of Household</li>
 				<li><input type="radio" name="status" class="status" value="Married, filing separately"> Married, filing separate returns</li>
-				<li><input type="radio" name="status" class="status" value="Qualified widower"> Qualified Widow</li>
+				<li><input type="radio" name="status" class="status" value="a Qualified Widow or Widower"> Qualified Widow or Widower</li>
 			</ul>
 		</div>
 

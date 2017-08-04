@@ -1,36 +1,139 @@
+//"Constants" change to update
 var ROTH_MIN_MFJ = 186000;
 var ROTH_MAX_MFJ = 196000;
 var ROTH_MIN_S = 118000;
 var ROTH_MAX_S = 133000;
+// end "Constants"
 
 var taxPayer = {name: '', iraType: '', filingStatus: '', workPlan: '', agi: 0, magi: 0, adjustments: 0};
-var magiCalc;
 var allDeductions = document.getElementsByClassName(".deductionHide");
+
+
+var magiCalc; //more like mystery calc, idk what this is for
+
+	
+///rounding to 3 decimals
+
+function roundIt(number, precision) {
+    var factor = Math.pow(10, precision);
+    var tempNumber = number * factor;
+    var roundedTempNumber = Math.round(tempNumber);
+    return roundedTempNumber / factor;
+}
 
 
 //calculate the max contribution
 
-function contributionAmount(taxPayer){
 
-	switch(taxPayer.iraType){
-		case('Roth'):
-			if((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && taxPayer.agi >= 133000){
-				console.log(taxPayer['agi']);
-				$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
-					} else if((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && taxPayer.agi < 118000){
-						$(".output").append("<li> You can contribute the maximum amount for the year. For 2017 this is 5500 dollars.</li>");
-					} else if((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && (taxPayer.agi >= 118000 && taxPayer.agi <133000)){
-							var phaseOut = taxPayer['agi'];
-							var contributionAmt = (5500-((taxPayer.agi-118000)/15000)*5500);
-							$(".output").append("<li> Your maximum contribution amount is " + contributionAmt + " dollars for 2017.</li>");
-					}
-			break;
-		case('Traditional'):
-			$(".output").append("<li>" + taxPayer['name'] + ", you can contribute the maximum amount for the year. For 2017 this is 5500 dollars.</li>");	
-			break;
-		}
-	}
+function contributionCalculation(obj, objName){
+
+	var contributionAmt = 5500; 
+	var reduction; 
+	var rothM; // fractional multiplier
+	var madeContribs = parseFloat($("input[name=iraContribsMade]").val()); //contributions that have already been made
+
+
+	if(taxPayer.magi === 0){
+		$(".output").append("<li> You cannot contribute to an IRA because you did not have any income.</li>");}
+
+
 	
+
+	switch(obj.iraType){
+			case('Roth'):
+				if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && obj.magi >= 133000){
+					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
+				} else if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && obj.magi < 118000){
+					if (madeContribs !== null){
+						$(".output").append("<li> You maximum amount you can contribute in for 2017 is " + (contributionAmt - madeContribs) + " dollars.</li>");
+					} else {
+						$(".output").append("<li> You can contribute the maximum amount for the year. For 2017 this is 5,500 dollars.</li>");
+					}
+				} else if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && (obj.magi >= 118000 && obj.magi <133000)){
+				
+					rothM = parseFloat((obj.magi-ROTH_MIN_S)/15000);
+					roundIt(rothM);
+					reduction = rothM*5500;
+					contributionAmt = 5500-reduction;
+					contributionAmt = contributionAmt - madeContribs;
+
+					if (contributionAmt <= 0){
+						$(".output").append("<li> Your maximum contribution amount is 0, since you've already contributed " + madeContribs + ". You have excess contributions of " + contributionAmt);		
+					} else {
+						$(".output").append("<li> Your maximum contribution amount is " + Math.round(contributionAmt) + " dollars for 2017. </li>");}
+				
+					console.log((obj.magi - ROTH_MIN_S)/15000);
+					var temp = (((obj.magi)-ROTH_MIN_S)/15000);
+					var d = roundIt(temp, 3);
+					console.log(d);
+					console.log(roundIt(reduction, 2));
+					console.log(madeContribs);
+
+
+					return(contributionAmt);
+				}
+
+				if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi >= ROTH_MAX_MFJ || taxPayer.magi === 0)){
+					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
+				} else if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi < ROTH_MIN_MFJ)){
+					$(".output").append("<li> You can contribute the maximum amount for the year. For 2017 this is 11,000 dollars.</li>");
+				} 
+				else if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi >= ROTH_MIN_MFJ && taxPayer.magi < ROTH_MAX_MFJ)){
+				    
+				    rothM = parseFloat((obj.magi-ROTH_MIN_MFJ)/10000);
+					roundIt(rothM);
+					reduction = rothM*11000;
+					contributionAmt = 11000-reduction;
+				
+					$(".output").append("<li> Your maximum contribution amount is " + Math.round(contributionAmt) + " dollars for 2017. This is " + Math.round(contributionAmt/2) + " for each taxpayer.</li>"); // check CP laws
+					return(contributionAmt);
+
+				//Single, (Married, filing jointly), Head of Household, Married, filing separate returns, qualified widower
+
+				}	
+				break;
+		
+			case('Traditional'):
+				if ($(".workPlan").val() === "yes"){
+
+					console.log("yes for covered at work");
+					//calculations
+
+					//MFJ figure each contribution amount separately? pub 509a
+					//also trustee fees are deductible
+
+
+
+				} else {
+					$(".output").append("<li>" + taxPayer['name'] + ", you can contribute the maximum amount for the year. For you this would be 11,000 dollars. </li>");}
+				break;
+	}
+
+
+}; //end of contributionCalculation
+
+
+
+// prior contributions made entry window, different approach than the deduction entries
+
+function priorContribs(){
+
+	var priorCont = $("input[type=radio][name=priorContribs]:checked").val();
+
+	if(priorCont == "yes"){
+		$('span.priorAmounts').removeClass('deductionHide');
+	} else if (priorCont == "no"){
+		$('span.priorAmounts').addClass('deductionHide');
+	}
+};
+
+
+
+// function disableInputs(){
+
+// 	$("input").each(
+
+// }
 
 
 //IRA question in js not html for testing
@@ -42,14 +145,13 @@ $("#rothOrTrad").text("Contributing to a Roth or Traditional IRA?");
 
 $("input[type='text']").on("keyup change", function(){
 	taxPayer.name = $(this).val();
-	//display info in output window
-	 $(this).keypress(function(event){
-	 	if (event.which == 13){
-	 		$(".output").append("<li> Hello, " + taxPayer['name'] + " !</li>");	
-	 	}
-	 })
-	 	
-	})
+	
+});
+
+
+$("input[type='text']").blur(function(){
+	$(".output").append("<li> Hello, " + taxPayer['name'] + " !</li>");						//display info in output window	 
+});
 
 
 //get and report type of IRA contributions
@@ -71,7 +173,7 @@ $(".status").on("click", function (){
 
 
 $(".workPlan").on("click", function (){
-	taxPayer.workPlan = $("input[type=radio][name=covered]:checked").val();
+	taxPayer.workPlan = $("input[type=radio][name=covered]:checked").val();					//yes or no
 	if(taxPayer.workPlan !== null){
 		if(taxPayer.workPlan == "yes"){
 			$(".output").append("<li> You <strong>are</strong> covered by a retirement plan at work.</li>");		
@@ -81,10 +183,21 @@ $(".workPlan").on("click", function (){
 	}
 	})
 
-$("input[type=number][name=AGI]").on("keyup change", function(){
-	taxPayer.agi = $("input[type='number']").val();
-	$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['agi'] + ".</li>");
-	})
+$("input[type=number][name=AGI]").on("keyup change", function(){							//get AGI
+	taxPayer.agi = $(this).val();
+});
+
+
+$("input[type=number][name=AGI]").blur(function(){
+	taxPayer.agi = $("input[type=number][name=AGI]").val();
+	if (taxPayer.agi < 0){
+		$("input[type=number][name=AGI]").val(0);
+		taxPayer.agi = 0;
+		$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['agi'] + ".</li>");
+	} else {
+		$(".output").append("<li>Your adjusted gross income (AGI) was " + taxPayer['agi'] + ".</li>");
+	}
+});
 
 
 /** BEGIN: Get individual deduction type amounts: **/
@@ -93,7 +206,7 @@ $("input[type=number][name=AGI]").on("keyup change", function(){
 $('input[type="checkbox"]').on("click", function() {
 	
 	var a = $(this).val()
-	var addUps = [];
+	//var addUps = [];
 
 	if(this.checked){
 		$('span.deductionHider').eq(a).removeClass('deductionHide');
@@ -104,23 +217,6 @@ $('input[type="checkbox"]').on("click", function() {
 });
 
 /** END: Get individual deduction type amounts: **/		
-
-
-// var array = [];
-// $('input[type="checkbox"][name="deduction"]').change(function(){
-// 	if(this.checked){
-// 		if (array.indexOf($(this).val()) < 0){
-// 			array.push($(this).val());
-// 		} else{
-// 			if(array.indexOf($(this).val()) >= 0){
-// 				array.splice(array.indexOf($(this).val()), 1);
-// 			}
-// 		}
-// 	console.log(array);
-// 	console.log("test");
-// 	}
-
-// });
 
 
 
@@ -226,7 +322,7 @@ function checkNone(){
 	
 	if(x === true){
 		$(".deduction").eq(8).prop('checked', false);
-		}
+	}
 }
 	
 // END: Uncheck all boxes, hide all list inputs
@@ -234,27 +330,12 @@ function checkNone(){
 
 // BEGIN: Do some things when clicking the calculate button
 
-function contributionCalculation(obj, objName){
 
-	var contAmt;
-	
-	if(obj.iraType === "Roth")
-	{
-		if(obj.filingStatus === "Single"){
-			if(obj.magi >= ROTH_MIN_S){
-				return("NONE or less than 5500");
-			} else {
-				return("5500");
-				}
-		}
-	}
- }
 
 
 function showProps(obj, objName) {
   var result = '';
   for (var i in obj) {
-    // obj.hasOwnProperty() is used to filter out properties from the object's prototype chain
     if (obj.hasOwnProperty(i)) {
       result += objName + '.' + i + ' = ' + obj[i] + '\n';
     }
@@ -262,13 +343,15 @@ function showProps(obj, objName) {
   
 
   return result;
-}
+}// -- for testing only
 	
 
- $(".contribAmount").on("click", function(){
+$(".contribAmount").on("click", function(){
  	
  	taxPayer.adjustments = 0;
 	//add up total deductions
+
+	
 
  	for(var j = 0; j < add.length; j++){
 		taxPayer.adjustments += add[j];
@@ -281,12 +364,12 @@ function showProps(obj, objName) {
 
   	// var contributionAmount = contributionCalculation(taxPayer);
 
-  	alert("Your max contribution amount is: " + contributionCalculation(taxPayer, "taxPayer"));
+  	console.log("Your max contribution amount is: " + contributionCalculation(taxPayer, "taxPayer"));
   	console.log(showProps(taxPayer, "taxPayer"));
+ 
+	
  });
- 	
-
- 	
+ 		
 
 
 
