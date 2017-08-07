@@ -56,7 +56,7 @@ li{
 
 .jtroncustom{
 /*cool buttons*/
-	box-shadow: 0px 0px 3px rgba(0,0,0,.8), inset 0px 0px 10px rgba(0,0,255,.7), inset 0px 0px 20px rgba(0, 200, 200, .6), inset 0px 0px 30px rgba(255, 255, 0, .5);
+	box-shadow: 0px 0px 3px rgba(0,0,0,.5), inset 0px 0px 5px rgba(0,0,255,.5), inset 0px 0px 7px rgba(0, 200, 200, .4), inset 0px 0px 10px rgba(255, 255, 0, .3);
 	border-radius: 50px;
 	background-color: white;
 	border-width: 2px;
@@ -406,6 +406,7 @@ a {
 	background: #52c234;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to top, #f8f8f8, #52c234);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to top, #f8f8f8, #52c234); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	
 
 	/*background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,200,0,0.2)), url('http://i.imgur.com/qUQ9Z5H.jpg');*/
 	/*box-shadow: inset 0px 15px 15px rgba(0,0,0,.5), 0px 0px 13px rgba(255, 0, 0, .4);*/

@@ -5,7 +5,8 @@ var ROTH_MIN_S = 118000;
 var ROTH_MAX_S = 133000;
 // end "Constants"
 
-var taxPayer = {name: '', iraType: '', filingStatus: '', workPlan: '', agi: 0, magi: 0, adjustments: 0};
+var genLimit = 5500;
+var taxPayer = {name: '', iraType: '', filingStatus: '', workPlan: '', agi: 0, magi: 0, adjustments: 0, age: 0};
 var allDeductions = document.getElementsByClassName(".deductionHide");
 
 
@@ -27,70 +28,97 @@ function roundIt(number, precision) {
 
 function contributionCalculation(obj, objName){
 
-	var contributionAmt = 5500; 
-	var reduction; 
-	var rothM; // fractional multiplier
-	var madeContribs = parseFloat($("input[name=iraContribsMade]").val()); //contributions that have already been made
-
-
-	if(taxPayer.magi === 0){
-		$(".output").append("<li> You cannot contribute to an IRA because you did not have any income.</li>");}
-
-
 	
+	var contributionAmt = genLimit; 
+	var reduction = 0; 
+	var rothM = 0; // fractional multiplier
+	var madeContribs = parseFloat($("input[name=iraContribsMade]").val()); //contributions that have already been made
+	
+
+//check for excess contributions
+	function excessContribCheck(Made, Limit){ 
+		var excess = Limit - Made;
+
+		if (excess >= 0){
+			return("You can contribute up to " + excess + " this year.");
+		}
+		else {
+			return("You cannot contribute anything to an IRA, and you actually have excess contributions of " + -1*excess + " ");
+		}
+	}
+
+
+
+
+	if (taxPayer.age == true){ contributionAmt = 6500 }
+
+	//Age > 50 +1000 to limit, MFJ +1000 per TP > 50
+
+	if(taxPayer.magi === 0){ $(".output").append("<li> You cannot contribute to an IRA because you did not have any income.</li>");}
+
 
 	switch(obj.iraType){
 			case('Roth'):
-				if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && obj.magi >= 133000){
-					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
-				} else if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && obj.magi < 118000){
-					if (madeContribs !== null){
-						$(".output").append("<li> You maximum amount you can contribute in for 2017 is " + (contributionAmt - madeContribs) + " dollars.</li>");
-					} else {
-						$(".output").append("<li> You can contribute the maximum amount for the year. For 2017 this is 5,500 dollars.</li>");
-					}
-				} else if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && (obj.magi >= 118000 && obj.magi <133000)){
-				
+
+//SINGLE HEAD OF HOUSEHOLD
+				if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && obj.magi >= ROTH_MAX_S)
+				{
+					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>"); 
+				}
+				else if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && obj.magi < ROTH_MIN_S)
+				{
+					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>"); 
+
+					 //Your maximum contribution for a " + taxPayer['iraType'] + " 
+
+				}
+				else if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && (obj.magi >= ROTH_MIN_S && obj.magi < ROTH_MAX_S))
+				{
 					rothM = parseFloat((obj.magi-ROTH_MIN_S)/15000);
 					roundIt(rothM);
-					reduction = rothM*5500;
-					contributionAmt = 5500-reduction;
+					reduction = rothM*genLimit;
+					contributionAmt = genLimit-reduction;
 					contributionAmt = contributionAmt - madeContribs;
-
-					if (contributionAmt <= 0){
-						$(".output").append("<li> Your maximum contribution amount is 0, since you've already contributed " + madeContribs + ". You have excess contributions of " + contributionAmt);		
-					} else {
-						$(".output").append("<li> Your maximum contribution amount is " + Math.round(contributionAmt) + " dollars for 2017. </li>");}
-				
-					console.log((obj.magi - ROTH_MIN_S)/15000);
-					var temp = (((obj.magi)-ROTH_MIN_S)/15000);
-					var d = roundIt(temp, 3);
-					console.log(d);
-					console.log(roundIt(reduction, 2));
-					console.log(madeContribs);
-
-
-					return(contributionAmt);
+					$(".output").append("<li> You can contribute " + contributionAmt + " For 2017 </li>");
 				}
 
+				// if (parseFloat(contributionAmt) <= 0){
+				// 		$(".output").append("<li> Your maximum contribution amount is 0, since you've already contributed " + madeContribs + ". You have excess contributions of " + contributionAmt);} 
+				// else {
+				
+				// 		$(".output").append("<li> Your maximum contribution amount is " + Math.round(contributionAmt) + " dollars for 2017. </li>");
+				
+				// 	console.log((obj.magi - ROTH_MIN_S)/15000);	//if MAGI > ROTH MIN causes errors but only this log line	
+				// 	var temp = (((obj.magi)-ROTH_MIN_S)/15000);
+				// 	var d = roundIt(temp, 3);
+					
+				// 	console.log(reduction);
+				// 	console.log(temp);
+				// 	console.log(d);
+				// 	console.log(roundIt(reduction, 2));
+				// 	console.log(madeContribs);
+
+				// 	return(contributionAmt);
+				// }
+
+//MARRIED FILING JOINTLY QUALIFIED WIDOW
 				if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi >= ROTH_MAX_MFJ || taxPayer.magi === 0)){
 					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
 				} else if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi < ROTH_MIN_MFJ)){
-					$(".output").append("<li> You can contribute the maximum amount for the year. For 2017 this is 11,000 dollars.</li>");
+					$(".output").append("<li> " + excessContribCheck(madeContribs, genLimit) + " </li>");
 				} 
 				else if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi >= ROTH_MIN_MFJ && taxPayer.magi < ROTH_MAX_MFJ)){
 				    
 				    rothM = parseFloat((obj.magi-ROTH_MIN_MFJ)/10000);
 					roundIt(rothM);
-					reduction = rothM*11000;
-					contributionAmt = 11000-reduction;
+					reduction = rothM*genLimit;
+					contributionAmt = genLimit-reduction;
 				
 					$(".output").append("<li> Your maximum contribution amount is " + Math.round(contributionAmt) + " dollars for 2017. This is " + Math.round(contributionAmt/2) + " for each taxpayer.</li>"); // check CP laws
 					return(contributionAmt);
 
 				//Single, (Married, filing jointly), Head of Household, Married, filing separate returns, qualified widower
-
-				}	
+				}
 				break;
 		
 			case('Traditional'):
@@ -129,9 +157,73 @@ function priorContribs(){
 
 
 
-// function disableInputs(){
+function over50(){
+	
+	overUnder = $("input[type=radio][class=age]:checked").val();
+			
+	if (overUnder === "over" && taxPayer.filingStatus === "Married, filing jointly"){
+		genLimit = 11000;
+		genLimit += 1000;
+		console.log(genLimit);
+		console.log(overUnder);
+		$("input[type=radio][class=age][value=over]").prop('disabled', true);	
+		$("input[type=radio][class=age][value=under]").prop('disabled', false);	
+		return(genLimit);	
+	} 
 
-// 	$("input").each(
+	else if (overUnder === "under" && taxPayer.filingStatus === "Married, filing jointly"){
+		genLimit = 11000;
+		console.log(genLimit);
+		console.log(overUnder);
+		$("input[type=radio][class=age][value=under]").prop('disabled', true);		
+		$("input[type=radio][class=age][value=over]").prop('disabled', false);	
+		return(genLimit);		
+	}
+
+	else if (overUnder === "under" && taxPayer.filingStatus !== "Married, filing jointly"){
+		genLimit = 5500;
+		console.log(genLimit);
+		console.log(overUnder);
+		$("input[type=radio][class=age][value=under]").prop('disabled', true);		
+		$("input[type=radio][class=age][value=over]").prop('disabled', false);	
+		return(genLimit);	
+	}
+
+	else if (overUnder === "over" && taxPayer.filingStatus !== "Married, filing jointly"){
+		genLimit = 6500;
+		console.log(genLimit);
+		console.log(overUnder);
+		$("input[type=radio][class=age][value=under]").prop('disabled', true);		
+		$("input[type=radio][class=age][value=over]").prop('disabled', false);	
+		return(genLimit);	
+	}
+}
+
+function spouseToo(){
+
+	if (taxPayer.filingStatus !== "Married, filing jointly"){
+		genLimit = 5500;
+	}
+
+	if($("input[type=checkbox][name=mfjOnly]").is(':checked')){
+			genLimit += 1000;
+			console.log(genLimit);
+			console.log("Spouse2 checked");
+	} else {
+			genLimit -= 1000;
+			console.log(genLimit);
+			console.log("Spouse2 Unchecked");
+			console.log();
+	}
+
+}
+
+// function disableAllInputs(){
+// 	$("input").each().prop('disabled', true);
+// }
+
+// function disableInput(){
+
 
 // }
 
@@ -148,6 +240,15 @@ $("input[type='text']").on("keyup change", function(){
 	
 });
 
+$(".age").on("click", function (){
+		taxPayer.age = $("input[type=radio][name=age]:checked").val();
+		parseInt(taxPayer.age);
+		if (taxPayer.age === 1 ){
+			contributionAmt+= 1000; 
+
+			console.log(contributionAmt)
+		}
+}); 							//50 or over
 
 $("input[type='text']").blur(function(){
 	$(".output").append("<li> Hello, " + taxPayer['name'] + " !</li>");						//display info in output window	 
@@ -169,7 +270,14 @@ $(".status").on("click", function (){
 	if(taxPayer.filingStatus !== null){
 		$(".output").append("<li> You're filing as " + taxPayer['filingStatus'] + " </li>");	
 	}
-	})
+	
+	if ($("#mfj").is(':checked')){
+		$(".spouseCheck").removeClass("deductionHide");
+		genLimit *= 2;
+	} else if (!$("#mfj").is(':checked')){
+		$(".spouseCheck").addClass("deductionHide");
+	}
+});
 
 
 $(".workPlan").on("click", function (){
@@ -181,7 +289,7 @@ $(".workPlan").on("click", function (){
 			$(".output").append("<li> You <strong>are not</strong> covered by a retirement plan at work.</li>");		
 		}	
 	}
-	})
+});
 
 $("input[type=number][name=AGI]").on("keyup change", function(){							//get AGI
 	taxPayer.agi = $(this).val();
@@ -203,7 +311,7 @@ $("input[type=number][name=AGI]").blur(function(){
 /** BEGIN: Get individual deduction type amounts: **/
 
 
-$('input[type="checkbox"]').on("click", function() {
+$('input[type="checkbox"][class=deduction]').on("click", function() {
 	
 	var a = $(this).val()
 	//var addUps = [];
@@ -231,66 +339,58 @@ var totalDeductions = 0;
 $("input[type=number][name=addBack1]").on("keyup change", function() {
 	  
 	  var i = $(".deduction").eq(0).val();	  
-
 	  add[i] = parseInt(this.value);
-	  console.log(add[i] + " checkbox value " + i );
+	  
 	  
 });
 
 $("input[type=number][name=addBack2]").on("keyup change", function() {
 	  
 	  var i = $(".deduction").eq(1).val();
-	  
 	  add[i] = parseInt(this.value);
-	  console.log(add[i] + " checkbox value " + i );
+	  
 });
 
 $("input[type=number][name=addBack3]").on("keyup change", function() {
 	  
 	  var i = $(".deduction").eq(2).val();
-	  
 	  add[i] = parseInt(this.value);
-	  console.log(add[i] + " checkbox value " + i );
+	  
 });
 
 $("input[type=number][name=addBack4]").on("keyup change", function() {
 	  
 	  var i = $(".deduction").eq(3).val();
-	  
 	  add[i] = parseInt(this.value);
-	  console.log(add[i] + " checkbox value " + i );
+	  
 });
 
 $("input[type=number][name=addBack5]").on("keyup change", function() {
 	  
 	  var i = $(".deduction").eq(4).val();
-
 	  add[i] = parseInt(this.value);
-	  console.log(add[i] + " checkbox value " + i );
+	  
 });
 
 $("input[type=number][name=addBack6]").on("keyup change", function() {
 	  
 	  var i = $(".deduction").eq(5).val();
-
 	  add[i] = parseInt(this.value);
-	  console.log(add[i] + " checkbox value " + i );
+	  
 });	  
 
 $("input[type=number][name=addBack7]").on("keyup change", function() {
 	  
 	  var i = $(".deduction").eq(6).val();
-
 	  add[i] = parseInt(this.value);
-	  console.log(add[i] + " checkbox value " + i );
+	  
 });
 
 $("input[type=number][name=addBack8]").on("keyup change", function() {
 	  
 	  var i = $(".deduction").eq(7).val();
-
 	  add[i] = parseInt(this.value);
-	  console.log(add[i] + " checkbox value " + i );
+	  
 });
 
 

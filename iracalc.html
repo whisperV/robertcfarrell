@@ -42,6 +42,7 @@
 <div class="container">
 	<div class="row">
 		
+		<h2>DISCLAIMER: FOR EDUCATIONAL PURPOSES ONLY - ACCURACY NOT GUARANTEED</h2>
 		
 		<div class="output col-lg-4">
 			<ul> </ul>
@@ -69,12 +70,21 @@
 		<div class="col-lg-8">What is your filing status?
 			<ul>
 				<li><input type="radio" name="status" class="status" value="Single"> Single</li>
-				<li><input type="radio" name="status" class="status" value="Married, filing jointly"> Married, filing a joint return</li>
+				<li><input type="radio" name="status" class="status" id="mfj" value="Married, filing jointly"> Married, filing a joint return</li>
 				<li><input type="radio" name="status" class="status" value="Head of Household"> Head of Household</li>
 				<li><input type="radio" name="status" class="status" value="Married, filing separately"> Married, filing separate returns</li>
 				<li><input type="radio" name="status" class="status" value="a Qualified Widow or Widower"> Qualified Widow or Widower</li>
 			</ul>
 		</div>
+
+		<div class="col-lg-8">Are you over 50 years old? <!-- 2 is both, 1 is 1, 3 is none, 0 is unknown -->
+			<ul>
+				<li><input type="radio" name="age" class="age" value="over" onclick="over50()"> Yes </li>
+				<li><input type="radio" name="age" class="age" value="under" onclick="over50()"> No </li>
+				<li class="spouseCheck deductionHide"><input type="checkbox" name="mfjOnly" onchange="spouseToo()"> Check here if your spouse is over 50</li>
+			</ul>
+		</div>
+
 
 
 		<div class="col-lg-8">
