@@ -1,6 +1,9 @@
 
 
 
+
+
+
 #mename{
 	font-family: 'Cinzel Decorative', cursive;
 	margin: auto;
@@ -255,8 +258,7 @@ hr.style17:after {
 	height: 100px;
 	color: white;
 	text-align: center;
- 	justify-content: center;
-  	margin-top: 20%;
+ 	margin-top: 20%;
   	box-shadow: inset 0px 5px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);
   	
   	background: #1c92d2;  /* fallback for old browsers */
@@ -266,7 +268,6 @@ hr.style17:after {
 
 .navbutton{
 	text-transform: uppercase;
-	justify-content: center;
 	color: #404040;
 	background-color: white;
 	padding: 20px;
@@ -276,6 +277,8 @@ hr.style17:after {
 	border-radius: 50px;
 	width: 219.41px;	
 }
+
+
 @media screen and (max-width: 700px) {
   .simplenav{
     height: 200px;
@@ -308,7 +311,33 @@ hr.style17:after {
 	bottom: 0;
 	left: 0;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px){
+  #landingnameplate{
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+}
+
+
+@media screen and (max-height: 500px){
+  #landingnameplate{
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+}
+
+
+
+
+@media handheld and (orientation: landscape) {
   #landingnameplate{
     visibility: hidden;
     clear: both;
@@ -369,12 +398,8 @@ a {
 
 .grids{
 	color: white;
-	align-content: center;	
-	justify-content: center;
-	text-align: center;
 	box-shadow: 0px 0px 5px rgba(0,0,0,.1);
-	/*margin-left: 20%;*/
-	
+		
  }
 
  @media screen and (max-width: 700px) {
