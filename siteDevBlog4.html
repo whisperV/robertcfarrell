@@ -16,7 +16,7 @@
     <meta name="robots" content="index,follow"> -->
     
     
-    <title>TaxBlog</title>
+    <title>Site Development Blog</title>
     
     <!-- Favicon -->
     <!-- <link rel="shortcut icon" href="images/favicon/favicon.ico">
@@ -95,32 +95,52 @@
                                 
                                 <!-- Post Headline Start -->
                                 <div class="post-title">
-                                    <h1>Site development updates pt2</h1> 
+                                    <h1>Off Work Wednesday</h1> 
                                    </div>
                                    <!-- Post Headline End -->
                                     
                                     
                                 <!-- Post Detail Start -->
                                 <div class="post-info">
-                                    <span>August 7, 2017 / by <a href="http://www.robertcfarrell.com/index.html" target="_blank">Robert C. Farrell</a></span>
+                                    <span>August 9, 2017 / by <a href="http://www.robertcfarrell.com/index.html" target="_blank">Robert C. Farrell</a></span>
                                    </div>
                                    <!-- Post Detail End -->
                                     
-                                  <p><strong><span class="firstLetterFirstPara">T</span></strong>oday was style changes and article proofing</p>
+                                  <p><strong><span class="firstLetterFirstPara">T</span></strong>oday was: Bug fix<strike>es</strike></p>
                                    
-                                  <p class="newPara"><span class="firstLetter">T</span>he focus is on the IRA contribution calculator and the Roth/Traditional article, but I had to make some minor style changes to the landing page. The buttons on the landing were too close together, and the buttons on the tools page were too far apart and it was too distracting not to correct. They're updated now with some added symmetry. While the change was pretty simple, the small problem of the day showed up while updating. The landing page had the same code as the tools menu, yet was not behaving the same way. This is today's little problem of the day because I spent 10 minutes going through every element to see if I could figure out why the bootsrtap 'text-left' and 'text-right' weren't working. It was an missing end quote on the div class for the bootstrap columns. I should probably read up on troubleshooting techniques. A seperate 'dev-style' blog section is in the works as well.</p>
+                                  <p class="newPara"><span class="firstLetter">T</span>he IRA contribution calculator was the focus today. Plus a page addition. </p>
 
                                   <h2>The work done today</h2>
                                   
-                                  <p class="newPara"><span class="firstLetter">T</span>he one blog article up has been gone over again. I think I will leave it as is, however I decided not to include any citations since the entire article would be littered with them. It is likely the last time I will revisit this article in depth, although it may get some updates if I catch any typos or inaccuracies. Other than the article, the only work done was the styling changes mentioned above. The work remaining on the IRA calcultor is pretty intensive, considering my proficiency level, and usually eats up most of the day, so I left it alone for now. </p>  
+                                  <p><span class="firstLetterFirstPara">W</span>ednesday is supposed to be a slow day. Since I don't really have weekends, I like to take Wednesday's pretty easy so not much work was done today. Just an minor bug fix on the Resume page. The first page of this site was my resume so it's mostly html with the just the 'Open All' button having any javascript behind it. This bit of code was the first javascrupt I wrote, and was a simple class toggle for the duties description sections.</p>  
 
-                                  <p class="newPara"><span class="firstLetter">T</span>hat was pretty much it for the day. Not a lot of actual web dev, but proofing the article ended up taking longer than expected, which ended up being the big problem of the day</p>  
+                                  <p class="newPara"><span class="firstLetter">T</span>he big fix was for this toggle. The list of jobs and descriptions were made with Bootsrap, and the work descriptions are in Boostrap dropdown menus. The toggle all button was originally just adding a class which hid the descriptions. The bug happened when the toogle all would be showing the description while the Boostrap toggle was trying to hide them. This cause the descriptions to show while the Boostrap menu was collapsed, and vice versa.</p>  
+
+                                  <p class="newPara"><span class="firstLetter">T</span>he knowledge I gained working on other parts of the site made fixing this a breeze and appears to be working as intended. The fix was just putting a check in to look for the Boostrap classes and change them if needed. Some minor style changes were done too just to distinguish the Dev Blog from the Tax Blog. There is still so much to do, but today is more job hunting, studying and some Heroes of Might and Magic 6.</p>
                                   
                                   <h2>The Big Problem of the Day</h2>
 
-                                  <p class="newPara"><span class="firstLetter">T</span>oday's big problem was not related to coding, or site development. It was with what to include in the article about IRAs. How much detail? How many transactions should be explored, and how many consequences of those transactions should be further explored? Even while writing this I still wonder if more or less should have been included. Too much detail on the underlying law and it could potentially misapplied, too much detail on facts and the article is of no use to anyone. Maybe I should also include links to the IRS website?</p>
+                                  <p class="newPara"><span class="firstLetter">T</span>oday's big problem was with project scope, and life. Working on this site has been a great experience, but the possibilities seem endless. It is easy for me to get so into improving this site that I lose focus on other things. So today will be job junting, studying for Reg, and some HoMM6. Instead of getting the calculator working, the resume page more interactive, getting all my articles proofed and posted on the blog, breaking ground on the other calculators, getting cohesion and depth to the style, ad naseum. </p>
 
-                                  <p class="newPara"><span class="firstLetter">F</span>or me, the problem begins with searching for perfection then quickly realizing nothing is perfect, and usually ends with something mediocre or mediocre+. Medicore+ is like 4th place when there are 10 places. Either way, the writing and rewriting, checking and double checking, rewriting again, and checking again, was the bulk of the work done, and it still isn't as 'complete' as it could be. However, there is more to life than adding fine detail to an article on a personal and unknown webpage. </p>                                              
+                                  <p class="newPara"><span class="firstLetter">H</span>ere's the code running the Open all button on the Resume page. It's far from optimized, but it's functional, and considering it was the first js on this page, forgivably sloppy: </p>
+
+                                  <div class="margin-top-40 margin-bottom-40">  
+                                   <pre class="brush: js">
+
+                                      $("#openAll").on("click", function(){
+                                        $(this).toggleClass("collapse");
+                                        $("#closeAll").toggleClass("collapse");
+                                        $(".btn-custom").removeClass("collapsed");
+                                        if ($(".workDesc").not(".in")){
+                                          $(".workDesc").addClass("in");
+                                          $(".workDesc").css("height", "auto");
+                                        }
+                                      });
+
+                                        ... 
+                                  </pre>
+                                  </div>
+                                                                                                                 
                                   <!-- Post Author Bio Box Start -->
                                   <div class="about-author margin-top-70 margin-bottom-50">
                                     
@@ -143,14 +163,8 @@
                               
                          </div>
                          
-                        
-                        
-                                               
-                           
                          </div>
-                     
-                     
-                       
+
                        <!-- Footer Start -->
                        <div class="col-md-12 page-body margin-top-50 footer">
                           <footer>

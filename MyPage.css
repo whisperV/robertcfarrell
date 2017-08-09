@@ -461,6 +461,16 @@ a {
 
 }
 
+
+.blogBackground2{
+	background: #CAC531;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #e2ffff, #9cd5d6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #e2ffff, #9cd5d6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	box-shadow: inset 0px 0px 6px rgba(120,120,0,.6), 0px 0px 5px rgba(245, 255, 0, .1);	
+
+}
+
+
 .toolsBackground{
 /*	background: #4b6cb7;  /* fallback for old browsers */
 /*	background: -webkit-linear-gradient(to top, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
