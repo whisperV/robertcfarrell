@@ -282,11 +282,13 @@ hr.style17:after {
 @media screen and (max-width: 700px) {
   .simplenav{
     height: 200px;
+    text-align: center;
   }
 }
 @media screen and (max-width: 500px) {
   .simplenav{
     height: 300px;
+    text-align: center;
   }
 }
 
