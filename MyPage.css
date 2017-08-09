@@ -279,18 +279,19 @@ hr.style17:after {
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
   .simplenav{
     height: 200px;
     text-align: center;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 770px) {
   .simplenav{
     height: 300px;
     text-align: center;
   }
 }
+
 
 @media screen and (max-width: 1200px) {
   .openall{
@@ -336,9 +337,6 @@ hr.style17:after {
   }
 }
 
-
-
-
 @media handheld and (orientation: landscape) {
   #landingnameplate{
     visibility: hidden;
@@ -347,6 +345,7 @@ hr.style17:after {
     margin: 10px auto 5px 20px;
     width: 28%;
     display: none;
+    text-align: center;
   }
 }
 
@@ -401,17 +400,20 @@ a {
 .grids{
 	color: white;
 	box-shadow: 0px 0px 5px rgba(0,0,0,.1);
-		
- }
+}
 
  @media screen and (max-width: 700px) {
   .grids{
     height: 300px;
   }
 }
-@media screen and (max-width: 500px) {
-  .grids{
-    height: 300px;
+
+@media screen and (max-width: 1000px) {
+   .text-left{
+  	text-align: center;
+  }
+   .text-right{
+  	text-align: center;
   }
 }
 
