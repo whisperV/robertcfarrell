@@ -9,12 +9,6 @@
 	margin: auto;
 	width: 80%;
 	border-bottom: 1px solid;
-	/*border-right: 1px solid;
-	border-left: 0;
-	border-bottom-right-radius: 100px;
-	border-top-right-radius: 100px;
-	border-bottom-left-radius: 20px;*/
-
 }
 
 .joblist{
@@ -22,7 +16,6 @@
 }
 
 .resdlbutton{
-	/*text-align: left;*/
 	float: left;
 	position: absolute;
 	bottom: 0;
@@ -58,7 +51,6 @@ li{
 }
 
 .jtroncustom{
-/*cool buttons*/
 	box-shadow: 0px 0px 3px rgba(0,0,0,.5), inset 0px 0px 5px rgba(0,0,255,.5), inset 0px 0px 7px rgba(0, 200, 200, .4), inset 0px 0px 10px rgba(255, 255, 0, .3);
 	border-radius: 50px;
 	background-color: white;
@@ -66,7 +58,6 @@ li{
     border-style: outset;
     border-color: buttonface;
     border-image: initial;
-/*end cool buttons*/
     position: relative;
 	text-align: center;
 	
