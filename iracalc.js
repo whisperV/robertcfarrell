@@ -271,7 +271,7 @@ function uncheckAll(){
 			});
 	
 		$('span.deductionHider').eq(i).addClass('deductionHide');
-		$('input[type=number]').eq(i+1).val(0);
+		$('input[type=number]').eq(i+2).val(0);
 		add[i] = 0;
 	}
 
