@@ -3,6 +3,7 @@ var ROTH_MIN_MFJ = 186000;
 var ROTH_MAX_MFJ = 196000;
 var ROTH_MIN_S = 118000;
 var ROTH_MAX_S = 133000;
+var ROTH_MAX_MFSLW = 10000;
 // end "Constants"
 
 var genLimit = 5500;
@@ -107,6 +108,14 @@ function spouseToo(){
 
 }
 
+
+	
+
+
+
+
+
+
 function disableAllInputs(){
 	$("#target input").prop("disabled", true);
 }
@@ -126,7 +135,7 @@ function excessContribCheck(made, limit){
 			console.log(made);
 	}	
 
-	if (taxPayer.agi < limit){
+	if (taxPayer.agi < limit){   //If AGI is less than the general limit, the new limit is the AGI
 		limit = taxPayer.agi;
 	}
 
@@ -138,6 +147,7 @@ function excessContribCheck(made, limit){
 		return("You cannot contribute anything to an IRA, and you actually have excess contributions of " + -1*excess + " ");
 	}
 }
+
 
 
 function contributionCalculation(obj, objName){
@@ -176,36 +186,8 @@ function contributionCalculation(obj, objName){
 					roundIt(rothM, 3);
 					reduction = rothM*genLimit;
 					contributionAmt = genLimit-reduction;
-					contributionAmt = contributionAmt - madeContribs;
-					$(".output").append("<li> You can contribute " + Math.round(contributionAmt) + " For 2017 </li>");
-					console.log("Phaseout section of switch statement")
-					console.log($("input[type=radio][name=priorContribs]").val());
-					console.log(rothM);
-					console.log(roundIt(rothM, 3));
-					console.log(genLimit);
-					console.log(contributionAmt);
-					console.log(madeContribs);
-
+					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
 				}
-
-				// if (parseFloat(contributionAmt) <= 0){
-				// 		$(".output").append("<li> Your maximum contribution amount is 0, since you've already contributed " + madeContribs + ". You have excess contributions of " + contributionAmt);} 
-				// else {
-				
-				// 		$(".output").append("<li> Your maximum contribution amount is " + Math.round(contributionAmt) + " dollars for 2017. </li>");
-				
-				// 	console.log((obj.magi - ROTH_MIN_S)/15000);	//if MAGI > ROTH MIN causes errors but only this log line	
-				// 	var temp = (((obj.magi)-ROTH_MIN_S)/15000);
-				// 	var d = roundIt(temp, 3);
-					
-				// 	console.log(reduction);
-				// 	console.log(temp);
-				// 	console.log(d);
-				// 	console.log(roundIt(reduction, 2));
-				// 	console.log(madeContribs);
-
-				// 	return(contributionAmt);
-				// }
 
 //MARRIED FILING JOINTLY QUALIFIED WIDOW
 				if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi >= ROTH_MAX_MFJ || taxPayer.magi === 0)){
@@ -219,14 +201,41 @@ function contributionCalculation(obj, objName){
 					roundIt(rothM, 3);
 					reduction = rothM*genLimit;
 					contributionAmt = genLimit-reduction;
-				
-					$(".output").append("<li> Your maximum contribution amount is " + Math.round(contributionAmt) + " dollars for 2017. This is " + Math.round(contributionAmt/2) + " for each taxpayer.</li>"); // check CP laws
-					return(contributionAmt);
+					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>" + "<li> This is " + (excessContribCheck(madeContribs, contributionAmt)/2) + " for each taxpayer </li>"); // check CP laws
 
 				//Single, (Married, filing jointly), Head of Household, Married, filing separate returns, qualified widower
 				}
-				break;
-		
+				
+//MARRIED FILING SEPARATELY 
+				var livedWith = $("input[type=checkbox][name=mfsLiveWith]");
+
+				if(taxPayer.filingStatus === "Married, filing separately" && livedWith.is(":checked") && (taxPayer.magi >= ROTH_MAX_MFSLW || taxPayer.magi === 0)){
+					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
+					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
+
+				} else if((taxPayer.filingStatus === "Married, filing separately") && livedWith.is(":checked") && (taxPayer.magi < ROTH_MAX_MFSLW)){
+					rothM = parseFloat((obj.magi)/10000);
+					roundIt(rothM, 3);
+					reduction = rothM*genLimit;
+					contributionAmt = genLimit-reduction;
+					console.log("lived with = " + livedWith.val());
+
+					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
+				
+				} 
+				// else if ((taxPayer.filingStatus === "Married, filing separately") && !livedWith.is(":checked") && (taxPayer.magi < ROTH_MAX_S || taxPayer.magi === 0)){
+				// 	rothM = parseFloat((obj.magi-ROTH_MIN_S)/15000);
+				// 	roundIt(rothM, 3);
+				// 	reduction = rothM*genLimit;
+				// 	contributionAmt = genLimit-reduction;
+				// 	$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
+				// 	console.log("Not checked " + genLimit);
+				// } 
+					   
+			break;		    									
+
+				//Single, (Married, filing jointly), Head of Household, Married, filing separate returns, qualified widower
+				
 			case('Traditional'):
 				if ($(".workPlan").val() === "yes"){
 
@@ -242,17 +251,9 @@ function contributionCalculation(obj, objName){
 					$(".output").append("<li>" + taxPayer['name'] + ", you can contribute the maximum amount for the year. For you this would be 11,000 dollars. </li>");}
 					disableAllInputs();
 				break;
-	
-		
 	}
 
-// if(parseFloat(taxPayer.agi) <= 0){ 
-// 		$(".output").append("<li> You cannot contribute to an TEST IRA because you did not have any income. </li>"); 
-// 		console.log(madeContribs)
-// 		console.log(contributionAmt);
-// 		console.log(excessContribCheck(madeContribs, contributionAmt));
 
-// 	}
 
 
 }; //end of contributionCalculation
@@ -433,6 +434,14 @@ $(".status").on("click", function (){
 	}
 });
 
+//Check is MFS lived with spouse
+$(".status").on("click", function (){
+	if ($("#mfs").is(':checked')){
+		$(".spouseLiveWith").removeClass("deductionHide");
+	} else if (!$("#mfs").is(':checked')){
+		$(".spouseLiveWith").addClass("deductionHide");
+	}
+});
 
 $(".workPlan").on("click", function (){
 	taxPayer.workPlan = $("input[type=radio][name=covered]:checked").val();					//yes or no
