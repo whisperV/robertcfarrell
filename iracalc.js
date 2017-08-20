@@ -42,6 +42,7 @@ function priorContribs(){
 		$('span.priorAmounts').removeClass('deductionHide');
 	} else if (priorCont == "no"){
 		$('span.priorAmounts').addClass('deductionHide');
+
 	}
 };
 
@@ -109,12 +110,6 @@ function spouseToo(){
 }
 
 
-	
-
-
-
-
-
 
 function disableAllInputs(){
 	$("#target input").prop("disabled", true);
@@ -129,19 +124,19 @@ function disableInput(field){
 //check for excess contributions
 function excessContribCheck(made, limit){ 
 	
-	if (!made || ($("input[type=radio][name=priorContribs]").val() === "no")){
-			made = 0;
-			console.log("Checked madeContribs");
-			console.log(made);
-	}	
-
 	if (taxPayer.agi < limit){   //If AGI is less than the general limit, the new limit is the AGI
 		limit = taxPayer.agi;
 	}
 
+	if (!made || ($("input[type=radio][name=priorContribs]").val() === "no")){ 
+			made = 0;
+			console.log("Checked madeContribs");
+			console.log(made);
+	}	
+	
 	var excess = limit - made;
 	
-	if (excess >= 0){
+	if (excess >= 0){		
 		return("You can contribute up to " + excess + " this year.");			
 	} else {
 		return("You cannot contribute anything to an IRA, and you actually have excess contributions of " + -1*excess + " ");
@@ -165,6 +160,27 @@ function contributionCalculation(obj, objName){
 	
 	switch(obj.iraType){
 			case('Roth'):
+
+//MARRIED FILING SEPARATELY 
+				var livedWith = $("input[type=checkbox][name=mfsLiveWith]");
+
+				if(taxPayer.filingStatus === "Married, filing separately" && livedWith.is(":checked") && (taxPayer.magi >= ROTH_MAX_MFSLW || taxPayer.magi === 0)){
+					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
+					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
+
+				} else if((taxPayer.filingStatus === "Married, filing separately") && livedWith.is(":checked") && (taxPayer.magi < ROTH_MAX_MFSLW)){
+					rothM = parseFloat((obj.magi)/10000);
+					roundIt(rothM, 3);
+					reduction = rothM*genLimit;
+					contributionAmt = genLimit-reduction;
+					console.log("lived with = " + livedWith.val());
+
+					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
+				
+				}  else if (taxPayer.filingStatus === "Married, filing separately" && !livedWith.is(":checked")){
+					taxPayer.filingStatus = "Single";
+				}
+
 
 //SINGLE HEAD OF HOUSEHOLD
 				if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && obj.magi >= ROTH_MAX_S)
@@ -206,31 +222,6 @@ function contributionCalculation(obj, objName){
 				//Single, (Married, filing jointly), Head of Household, Married, filing separate returns, qualified widower
 				}
 				
-//MARRIED FILING SEPARATELY 
-				var livedWith = $("input[type=checkbox][name=mfsLiveWith]");
-
-				if(taxPayer.filingStatus === "Married, filing separately" && livedWith.is(":checked") && (taxPayer.magi >= ROTH_MAX_MFSLW || taxPayer.magi === 0)){
-					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
-					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
-
-				} else if((taxPayer.filingStatus === "Married, filing separately") && livedWith.is(":checked") && (taxPayer.magi < ROTH_MAX_MFSLW)){
-					rothM = parseFloat((obj.magi)/10000);
-					roundIt(rothM, 3);
-					reduction = rothM*genLimit;
-					contributionAmt = genLimit-reduction;
-					console.log("lived with = " + livedWith.val());
-
-					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
-				
-				} 
-				// else if ((taxPayer.filingStatus === "Married, filing separately") && !livedWith.is(":checked") && (taxPayer.magi < ROTH_MAX_S || taxPayer.magi === 0)){
-				// 	rothM = parseFloat((obj.magi-ROTH_MIN_S)/15000);
-				// 	roundIt(rothM, 3);
-				// 	reduction = rothM*genLimit;
-				// 	contributionAmt = genLimit-reduction;
-				// 	$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
-				// 	console.log("Not checked " + genLimit);
-				// } 
 					   
 			break;		    									
 
