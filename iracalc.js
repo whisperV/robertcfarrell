@@ -135,9 +135,13 @@ function excessContribCheck(made, limit){
 	}	
 	
 	var excess = limit - made;
+
+	Math.round(excess);
+	console.log("Excess Rounding Check");
+	console.log(Math.round(excess));
 	
 	if (excess >= 0){		
-		return("You can contribute up to " + excess + " this year.");			
+		return("You can contribute up to " + Math.round(excess) + " this year.");			
 	} else {
 		return("You cannot contribute anything to an IRA, and you actually have excess contributions of " + -1*excess + " ");
 	}
