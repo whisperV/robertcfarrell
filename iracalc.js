@@ -169,8 +169,10 @@ function contributionCalculation(obj, objName){
 				var livedWith = $("input[type=checkbox][name=mfsLiveWith]");
 
 				if(taxPayer.filingStatus === "Married, filing separately" && livedWith.is(":checked") && (taxPayer.magi >= ROTH_MAX_MFSLW || taxPayer.magi === 0)){
-					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>");
 					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
+					if (madeContribs >= 0){
+						$(".output").append("<li> You actually have excess contributions of </li>" + madeContribs);
+					}
 
 				} else if((taxPayer.filingStatus === "Married, filing separately") && livedWith.is(":checked") && (taxPayer.magi < ROTH_MAX_MFSLW)){
 					rothM = parseFloat((obj.magi)/10000);
@@ -189,9 +191,12 @@ function contributionCalculation(obj, objName){
 //SINGLE HEAD OF HOUSEHOLD
 				if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && obj.magi >= ROTH_MAX_S)
 				{
-					// excessContribCheck();
+					$(".output").append("<li> Your MAGI is above the limit for a Roth IRA. Your max contribution is 0</li>");
+					if (madeContribs >= 0){
+						$(".output").append("<li> You actually have excess contributions of </li>" + madeContribs);
+					}
 
-					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>"); 
+					
 				}
 				else if((obj.filingStatus === "Single" || obj.filingStatus === "Head of Household") && obj.magi < ROTH_MIN_S)
 				{
@@ -211,8 +216,14 @@ function contributionCalculation(obj, objName){
 
 //MARRIED FILING JOINTLY QUALIFIED WIDOW
 				if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi >= ROTH_MAX_MFJ || taxPayer.magi === 0)){
-					$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
+			
+					$(".output").append("<li> Your MAGI is above the limit for a Roth IRA. Your max contribution is 0</li>");
+					if (madeContribs >= 0){
+						$(".output").append("<li> You actually have excess contributions of </li>" + madeContribs);
+					}
+
 				} else if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi < ROTH_MIN_MFJ)){
+			
 					$(".output").append("<li> " + excessContribCheck(madeContribs, genLimit) + " </li>");
 				} 
 				else if((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && (taxPayer.magi >= ROTH_MIN_MFJ && taxPayer.magi < ROTH_MAX_MFJ)){
@@ -221,7 +232,7 @@ function contributionCalculation(obj, objName){
 					roundIt(rothM, 3);
 					reduction = rothM*genLimit;
 					contributionAmt = genLimit-reduction;
-					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>" + "<li> This is " + (excessContribCheck(madeContribs, contributionAmt)/2) + " for each taxpayer </li>"); // check CP laws
+					$(".output").append("<li> " + excessContribCheck(madeContribs, contributionAmt) + " </li>"); // check CP laws
 
 				//Single, (Married, filing jointly), Head of Household, Married, filing separate returns, qualified widower
 				}
