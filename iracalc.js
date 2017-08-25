@@ -148,11 +148,12 @@ function excessContribCheck(made, limit){
 }
 
 function disqualExcess(made){
-	$(".output").append("<li> Your AGI is above the limit for a Roth IRA. Your max contribution is 0.</li>");
-	if (made >= 0){
-		$(".output").append("<li> You actually have excess contributions of </li>" + made);
-	}
+	if (taxPayer.agi === 0 && made < 1){
+		$(".output").append("<li>Your max contribution is 0, because you didn't have any income.</li>");
 
+	} else if (taxPayer.agi > 0 && made > 0){
+		$(".output").append("<li> Your MAGI was above the limit, so you cannot make any contributions. You actually have excess contributions of </li>" + made);
+	}
 }
 
 
