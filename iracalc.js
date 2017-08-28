@@ -153,6 +153,8 @@ function disqualExcess(made){
 
 	} else if (taxPayer.agi > 0 && made > 0){
 		$(".output").append("<li> Your MAGI was above the limit, so you cannot make any contributions. You actually have excess contributions of </li>" + made);
+	} else if (taxPayer.agi > 0 && !made){
+		$(".output").append("<li> Your MAGI was above the limit, so you cannot make any contributions. </li>");
 	}
 }
 
