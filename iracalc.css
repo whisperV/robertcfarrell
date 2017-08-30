@@ -24,3 +24,9 @@
 ul{
 	list-style: none;
 	}
+
+.hideMe{
+	display: none;
+	
+}
+

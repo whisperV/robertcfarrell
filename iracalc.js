@@ -160,6 +160,7 @@ function disqualExcess(made){
 
 
 
+
 function contributionCalculation(obj, objName){
 
 	
@@ -242,19 +243,20 @@ function contributionCalculation(obj, objName){
 				//Single, (Married, filing jointly), Head of Household, Married, filing separate returns, qualified widower
 				
 			case('Traditional'):
-				if ($(".workPlan").val() === "yes"){
+				var covered = $("input[type=radio][class=workPlan]:checked").val();
 
+				if (covered === "yes"){
+					//coveredAtWork();
 					console.log("yes for covered at work");
 					//calculations
 
 					//MFJ figure each contribution amount separately? pub 509a
 					//also trustee fees are deductible
 
-
-
 				} else {
 					$(".output").append("<li>" + taxPayer['name'] + ", you can contribute the maximum amount for the year. For you this would be 11,000 dollars. </li>");}
-					disableAllInputs();
+					//notCovered();
+					
 				break;
 	}
 
@@ -389,9 +391,10 @@ function showProps(obj, objName) {
 
 
 //IRA question in js not html for testing
-$("#rothOrTrad").text("Contributing to a Roth or Traditional IRA?");
+$("#rothOrTrad").text("Would you like to contribute to a Roth or Traditional IRA?");
 
 
+$("#workParticipant").text("Covered by a retirement plan by your employer?");
 //get user name
 
 
@@ -422,7 +425,19 @@ $(".IRAtype").on("click", function (){
 		$(".output").append("<li> You're contributing to a " + taxPayer['iraType'] + " IRA.</li>");	
 		$(".contribAmount").text("How much can I contribute to a " + taxPayer['iraType'] + " IRA?");
 	}
-	})
+});
+
+
+$(".IRAtype").on("click", function (){
+	if($("#T").is(':checked')){
+ 		$(".switchSee").removeClass("hideMe");
+ 	} else if ($("#R").is(':checked')){
+ 		$(".switchSee").addClass("hideMe");
+ 	}
+ });
+
+
+
 
 //get and report filing status
 $(".status").on("click", function (){
@@ -436,7 +451,7 @@ $(".status").on("click", function (){
 		genLimit *= 2;
 	} else if (!$("#mfj").is(':checked')){
 		$(".spouseCheck").addClass("deductionHide");
-	}
+	} 
 });
 
 //Check is MFS lived with spouse
@@ -445,8 +460,18 @@ $(".status").on("click", function (){
 		$(".spouseLiveWith").removeClass("deductionHide");
 	} else if (!$("#mfs").is(':checked')){
 		$(".spouseLiveWith").addClass("deductionHide");
+	} 
+});
+
+$(".status").on("click", function (){
+	if ($("#mfs").is(':checked') || $("#mfj").is(':checked')){
+		$("#workParticipant").text("Are you or your spouse covered by a retirement plan by your employer?")
+	} else {
+		$("#workParticipant").text("Are you covered by a retirement plan by your employer?")
 	}
 });
+
+
 
 $(".workPlan").on("click", function (){
 	taxPayer.workPlan = $("input[type=radio][name=covered]:checked").val();					//yes or no

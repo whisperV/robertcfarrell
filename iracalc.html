@@ -62,8 +62,8 @@
 
 		<div class="col-lg-8"><span id="rothOrTrad"></span>
 			<ul>
-				<li><input type="radio" name="IRAtype" class="IRAtype" value="Roth"> Roth</li>
-				<li><input type="radio" name="IRAtype" class="IRAtype" value="Traditional"> Traditional</li>
+				<li><input type="radio" name="IRAtype" class="IRAtype" id="R" value="Roth"> Roth</li>
+				<li><input type="radio" name="IRAtype" class="IRAtype" id="T" value="Traditional"> Traditional</li>
 			</ul>
 		</div>
 
@@ -88,8 +88,8 @@
 
 
 
-		<div class="col-lg-8">
-			<span>Are you covered by a retirement plan as an employee?</span>
+		<div class="col-lg-8 hideMe switchSee">
+			<span id="workParticipant"></span>
 				<ul>
 					<li><input type="radio" name="covered" class="workPlan" value="yes"> Yes</li>
 					<li><input type="radio" name="covered" class="workPlan" value="no"> No</li>
