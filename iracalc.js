@@ -143,7 +143,7 @@ function excessContribCheck(made, limit){
 	if (excess >= 0){		
 		return("You can contribute up to " + Math.round(excess) + " this year.");			
 	} else {
-		return("You cannot contribute to any more IRA, because you have excess contributions of " + -1*excess + " ");
+		return("You cannot contribute to an IRA, because you have excess contributions of " + -1*excess + " ");
 	}
 }
 
@@ -158,6 +158,15 @@ function disqualExcess(made){
 	}
 }
 
+function coveredAtWork(magi){
+
+	if ((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && (0 < magi < 62000 )){
+		$(".output").append("<li> You can deduct the full amount of your contribution. </li>");
+	}
+	// else if ((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && magi < 
+
+
+}
 
 
 
@@ -246,9 +255,8 @@ function contributionCalculation(obj, objName){
 				var covered = $("input[type=radio][class=workPlan]:checked").val();
 
 				if (covered === "yes"){
-					//coveredAtWork();
-					console.log("yes for covered at work");
-					//calculations
+					$(".output").append("<li>" + excessContribCheck(madeContribs, contributionAmt) + " </li> ");
+					coveredAtWork(taxPayer.magi);
 
 					//MFJ figure each contribution amount separately? pub 509a
 					//also trustee fees are deductible
