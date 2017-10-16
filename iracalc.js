@@ -262,7 +262,7 @@ function contributionCalculation(obj, objName){
 					//also trustee fees are deductible
 
 				} else {
-					$(".output").append("<li>" + taxPayer['name'] + ", you can contribute the maximum amount for the year. For you this would be 11,000 dollars. </li>");}
+					$(".output").append("<li>" + taxPayer['name'] + ", " + excessContribCheck(madeContribs, contributionAmt) + "</li>");}
 					//notCovered();
 					
 				break;
