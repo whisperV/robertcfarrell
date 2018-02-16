@@ -316,7 +316,7 @@ function addUpDeductions(check){
 if (check == 1){
 	//var totalDeductions = 0;
 
-	$("input[type=number][name=addBack1]").on("keyup change", function() {									// *******************   FIX?? IRA CONTRIBUTION MADE IN CY SHOULD REDUCE ALLOWABLE CONTRIBS, IF NOT COULD RESULT IN ++CONTRIBS 
+	$("input[type=number][name=addBack1]").on("keyup change", function() {				// *******************   FIX?? IRA CONTRIBUTION MADE IN CY SHOULD REDUCE ALLOWABLE CONTRIBS, IF NOT COULD RESULT IN ++CONTRIBS 
 		  
 		  var i = $(".deduction").eq(0).val();
 		  add[i] = parseInt(this.value);	
@@ -537,7 +537,6 @@ $(".contribAmount").on("click", function(){
  	
  	taxPayer.adjustments = 0;
 	//add up total deductions
-
 	
 
  	for(var j = 0; j < add.length; j++){
