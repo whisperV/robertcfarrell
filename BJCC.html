@@ -8,11 +8,11 @@
   		crossorigin="anonymous">
 </script>
 
-	<script src="Accountancies.js"></script>
+	<script src="bjcc.js"></script>
 	<script src="bootstrap.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="Accountancies.css">
+	<link rel="stylesheet" type="text/css" href="BJcc.css">
 	
 <!-- FONTS -->
 
@@ -34,26 +34,22 @@
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <head>
-	<title>Accounting Things</title>
+	<title>Dealer Tron 0.01</title>
 </head>
 <body>
 
 <div class="container">
 	<div class="row">
 		
-		<h2>DISCLAIMER: FOR EDUCATIONAL PURPOSES ONLY - ACCURACY NOT GUARANTEED</h2>
+		<h2>DISCLAIMER: FOR ENTERTAINMENT PURPOSES ONLY - ACCURACY NOT GUARANTEED</h2>
 
-		<div class="output col-lg-4">
+		<div class="output">
 			<ul> </ul>
 		</div>
 		
-		<div><button class="PVSimpleCalc" onclick="dropEm()">Calculate the present value of a single amount with simple interest.</button></div>
+		<div><button class="dealEm" onclick="dealEm()">DEAL</button></div>
 		<ul>
-			<li class="PVQ hideMe">What is the Future Value amount? <input type="number" min="0.00" max="99999999.00" step=".01" name="userFV" oninput="validity.valid||(value='');"></li>
-			<li class="PVQ hideMe">What is the rate? <input type="number" min="0.000" max="99.999" step="0.001" name="userRate" oninput="validity.valid||(value='');"></li>
-			<li class="PVQ hideMe">How many holding periods? <input type="number" min="0" max="99999999" name="userPeriods" oninput="validity.valid||(value='');"></li>
-			<li></li>
-			<li></li>
+			<div>
 		</ul>
 		<div><button onclick="presentValueSolAmt()">Calculate</button></div>		
 
