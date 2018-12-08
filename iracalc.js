@@ -160,9 +160,9 @@ function disqualExcess(made){
 
 function coveredAtWork(magi){
 
-	if ((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && (0 < magi < 62000 )){
-		$(".output").append("<li> You can deduct the full amount of your contribution. </li>");
-	} else if ((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && (62001 < magi < 73000 )){
+	if ((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && (magi > 0 && magi < 62000 )){
+		$(".output").append("<li> You can deduct the full amount of your contribution. </li>" + magi);
+	} else if ((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && (magi > 62000 && magi < 73000 )){
 		$(".output").append("<li> You can deduct the part of your contribution. </li>");
 	} else if ((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && (magi > 73000 )){
 		$(".output").append("<li> You cannot deduct your contribution. </li>");
