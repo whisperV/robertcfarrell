@@ -166,6 +166,7 @@ function coveredAtWork(magi){
 		$(".output").append("<li> You can deduct the part of your contribution. </li>");
 	} else if ((taxPayer.filingStatus === "Single" || taxPayer.filingStatus === "Head of Household") && (magi > 73000 )){
 		$(".output").append("<li> You cannot deduct your contribution. </li>");
+	}
 	// else if ((taxPayer.filingStatus === "Married, filing jointly" || taxPayer.filingStatus === "a Qualified Widow or Widower") && magi < 
 
 
