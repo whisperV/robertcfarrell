@@ -3,10 +3,10 @@
 //let and const aren't working for some reason - ES6 syntax is a no go :(
 var stdDeduction = 12000;
 
-var mFJ = 2*stdDeduction;
-var headOH = 1.5* stdDeduction;
-var mFS = stdDeduction;
-var qWidow = mFJ;
+//Are these even needed?
+var mFJDed = 2*stdDeduction;
+var headOHDed = 1.5* stdDeduction;
+var mFSDed = stdDeduction;
 
 
 // Taxpayer Object 
@@ -21,32 +21,116 @@ var taxPayer = {
 	spSight: String
 };
 
-var sTier = [9525, 38700, 82500, 157500, 200000, 500000],
-	mfjTier = [19050, 77400, 165000, 315000, 400000, 600000];
+// Income tiers Object
+
+var incomeTiers = {
+
+		sTier: [9525, 38700, 82500, 157500, 200000, 500000],
+		mfjTier: [19050, 77400, 165000, 315000, 400000, 600000],
+		hOHTier: [13600, 51800, 82500, 157500, 200000, 500000 ],
+		mFSTier: [9525, 38700, 82500, 157500, 200000, 300000]
+};
+
 var taxTables = [.1, .12, .22, .24, .32, .35, .37];
 
+var appTier = [];
 
+function tierSelect(filingStatus, incomeTiers, err){
+ 		if (taxPayer.filingStatus == "single"){
+ 			return(appTier = incomeTiers.sTier);
+ 		} else if (taxPayer.filingStatus == "mFJ"){
+ 			return(appTier = incomeTiers.mfjTier);
+ 		} else if (taxPayer.filingStatus == "hOH"){
+ 			return(appTier = incomeTiers.hOHTier);
+ 		} else if (taxPayer.filingStatus == "mFS"){
+ 			return(appTier = incomeTiers.mFSTier);
+ 		} else if (err){
+ 			console.log (err);
+ 		};
+ };
 
 
 function buildATaxpayer(){
-	let currDed = stdDeduction;
 	let agi = 0;
 
 	taxPayer.filingStatus = $("#filingStatus option:selected").val();
 	taxPayer.grossWages = $("#grossIncome").val();
 	taxPayer.dependents = $("#dependents").val();
+	taxPayer.age = $("#age").val();
+	taxPayer.spAge = $("#spAge").val();
+	taxPayer.sight = $("#sight").val();
+	taxPayer.spSight = $("#spSight").val();
 		
-	//currDed
-		//eyesAndAges();
-		//taxPayer.dependents;
+	
+	agi = taxPayer.grossWages - currDed(taxPayer);
+	
 
 
-	agi = taxPayer.grossWages - currDed;
-	console.log(currDed, agi, taxPayer.grossWages);
-	console.log(taxPayer);
-	$("#taxOwed").html(taxOwed(agi));
+	tierSelect(taxPayer.filingStatus, incomeTiers);
+	console.log(appTier);
+	$("#taxOwed").html(taxOwed(agi, appTier));
 };
 
+
+function currDed(filingStatus){
+	let currDed = 0;
+	let ageBox = $("#age").checked;
+
+
+//adjustments to deduction
+	if (taxPayer.filingStatus == "single"){
+ 		currDed += stdDeduction;
+	 		if($("#age").prop('checked')){
+				currDed += 1600;
+			} 
+			if($("#sight").prop('checked')){
+				currDed += 1600;
+			} 
+ 	} else if (taxPayer.filingStatus == "mFJ"){
+ 		currDed += mFJDed;
+	 		if($("#age").prop('checked')){
+				currDed += 1300;
+			} 
+			if($("#sight").prop('checked')){
+				currDed += 1300;
+			} 
+			if($("#spAge").prop('checked')){
+				currDed += 1300;
+			} 
+			if($("#spSight").prop('checked')){
+				currDed += 1300;
+			}
+ 	} else if (taxPayer.filingStatus == "hOH"){
+ 		currDed += headOHDed;
+	 		if($("#age").prop('checked')){
+				currDed += 1600;
+			} 
+			if($("#sight").prop('checked')){
+				currDed += 1600;
+			} 
+ 	} else if (taxPayer.filingStatus == "mFS"){
+ 		currDed += mFSDed;
+ 			if($("#age").prop('checked')){
+				currDed += 1300;
+			} 
+			if($("#sight").prop('checked')){
+				currDed += 1300;
+			}
+ 	} else if (taxPayer.filingStatus == "qW"){
+ 		currDed += mFJDed;
+ 			if($("#age").prop('checked')){
+				currDed += 1300;
+			} 
+			if($("#sight").prop('checked')){
+				currDed += 1300;
+			}
+	};
+
+//adjustments for age and sight
+	console.log(currDed);
+	return(currDed);
+	//return(ageAndSight(currDed));
+};
 
 
 function taxOwed(agi){
@@ -60,21 +144,21 @@ function taxOwed(agi){
 // or object with arrays?
 
 	while(taxableInc > 0){
-		console.log("Iteration: " + i);							
+		console.log("Iteration: " + i, taxableInc);							
 		//Tier 1
 		if (i == 0){
-			tierTaxable = sTier[i];
+			tierTaxable = appTier[i];
 		} else if (i == 6){ 	
 			//oh lawd he comin
 			console.log(taxableInc, taxDue);
 			taxDue += (taxableInc*taxTables[i]);
 			return(taxDue);
 		} else {
-			tierTaxable = sTier[i] - sTier[i-1];
+			tierTaxable = appTier[i] - appTier[i-1];
 		}
 		
-		console.log(tierTaxable);
-		if (taxableInc % tierTaxable == taxableInc){
+		if (taxableInc % tierTaxable == taxableInc || taxableInc % tierTaxable == 0){
+			console.log(taxableInc, taxDue, taxTables[i]);
 			taxDue = taxDue + (taxableInc * taxTables[i]);
 			taxableInc -= tierTaxable;
 		} else {
@@ -86,24 +170,15 @@ function taxOwed(agi){
 	}
 	return(taxDue);
 };
-		
+	
+function otherOps(spouse){
+	if(spouse == "mFJ"){
+		$("div").removeClass("unspoused");	
+	} else {
+		$(".spouse").addClass("unspoused");
+	}
+};
 
-function eyesAndAges(){
-	if($("age") == "on"){
-			currDed += 1300;
-		}
-
-		if($("#spAge").checked){
-			currDed += 1300;
-		}
-		if($("sight").checked){
-			currDed += 1300;
-		}
-
-		if($("#spSight").checked){
-			currDed += 1300;
-		}
-}
 
 /*
 
@@ -154,7 +229,8 @@ taxableInc - 19050 = afterTen (value: 18950) (tax = if ((afterTen - 77400) <= 0)
 
 MFJ: 19050, 77400, 165000, 315000, 400000, 600000 
 Single: 9525, 38700, 82500, 157500, 200000, 500000
-
+HoH: 13600, 51800, 82500, 157500, 200000, 500000 
+MFS:  9525, 38700, 82500, 157500, 200000, 300000
 
 for 50000 (38000) answer should be 4373
 for 78000 (66000) answer should be 10,465
