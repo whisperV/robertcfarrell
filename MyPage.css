@@ -9,6 +9,10 @@
 	margin-bottom: 30px;
 }
 
+a{
+	text-decoration: none;
+}
+
 .resdlbutton{
 	float: left;
 	position: absolute;
@@ -244,7 +248,7 @@ hr.style17:after {
 	color: white;
 	text-align: center;
  	margin-top: 20%;
-  	box-shadow: inset 0px 5px 5px rgba(0,0,0,.5), 0px 0px 3px rgba(255, 0, 0, .2);
+  	box-shadow: 0px 0px 3px rgba(0,0,0,.3), inset 0px 0px 10px rgba(0,0,255,.3), inset 0px 0px 20px rgba(0, 200, 200, .2), inset 0px 0px 30px rgba(255, 255, 0, .1);
   	
   	background: #1c92d2;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to top, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
