@@ -18,7 +18,7 @@
     padding-bottom: 2vh;
     color: #000;
     margin-top: 20%;
-
+    background: #1f1d1d;
     background: #EF3B36;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #080808e0, #4ddbff);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #080808e0, #4ddbff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
@@ -32,10 +32,16 @@
     padding-bottom: auto;
     color: rgb(255, 255, 255);
     text-align: center;
+   
   }
+
+.blackground{
+    background: #1f1d1d;
+}
 
 .navbutton {
     text-transform: uppercase;
+ 
     text-align: center;
     font-family: 'Roboto';
 	color: #ffffff;
