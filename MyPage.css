@@ -31,3 +31,21 @@
     color: rgb(255, 255, 255);
     text-align: center;
   }
+
+  .navbutton {
+    text-transform: uppercase;
+	color: #ffffff;
+	background-color: #4ddbff48;
+	padding: 20px;
+	height: 100px;
+	margin-top: 1px;
+	box-shadow: 0px 0px 3px rgba(0,0,0,.3), inset 0px 0px 10px rgba(0,0,255,.3), inset 0px 0px 20px rgba(0, 200, 200, .2), inset 0px 0px 30px rgba(255, 255, 0, .1);
+	border-radius: 50px;
+  width: 219.41px;	
+  font-size: 180%;
+  outline: none; 
+}
+
+body, html{
+    height: 100%; background: #1f1d1d;
+}
