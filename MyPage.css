@@ -8,7 +8,9 @@
 .joblist{
 	margin-bottom: 30px;
 }
-
+body{
+	background: #1f1d1d;
+}
 a{
 	text-decoration: none;
 }
@@ -32,6 +34,7 @@ a{
 
 button{
 	outline: none;
+	text-decoration: none;
 }
 
 p{
@@ -251,8 +254,8 @@ hr.style17:after {
   	box-shadow: 0px 0px 3px rgba(0,0,0,.3), inset 0px 0px 10px rgba(0,0,255,.3), inset 0px 0px 20px rgba(0, 200, 200, .2), inset 0px 0px 30px rgba(255, 255, 0, .1);
   	
   	background: #1c92d2;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to top, #ffffffc2, rgb(37, 135, 173));  /* Chrome 10-25, Safari 5.1-6 */
+  	background: linear-gradient(to top,  #ffffffc2, rgb(37, 135, 173)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
 }   	
 
 .navbutton{
@@ -302,6 +305,7 @@ hr.style17:after {
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	text: white;
 }
 @media screen and (max-width: 600px){
   #landingnameplate{
@@ -471,7 +475,7 @@ a {
  	justify-content: center;
   	margin-top: 20%;
   	
-	background: #EF3B36;  /* fallback for old browsers */
+	background: #2587ad;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to top, #f8f8f8, #f00000);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to top, #f8f8f8, #f00000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
 
