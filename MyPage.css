@@ -35,9 +35,8 @@
    
   }
 
-.blackground{
-    background: #1f1d1d;
-}
+
+
 
 .navbutton {
     text-transform: uppercase;
@@ -56,7 +55,7 @@
 }
 
 body, html{
-    height: 100%; background: #1f1d1d;
+    height: 100%; background-image: url("tax.jpg"); 
 }
 .nodec{
     text-decoration: none;
