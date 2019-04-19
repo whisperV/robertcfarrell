@@ -16,7 +16,6 @@
     flex-direction: column;     /* stack flex items vertically */
     justify-content: center;    /* center items vertically, in this case */
     align-items: center;        /* center items horizontally, in this case */
-    border: 1px solid black;
     width: 100%;
 }
 
