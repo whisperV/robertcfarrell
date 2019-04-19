@@ -11,13 +11,23 @@
     color: #fff;
 }
 
-.landingbanner{
-    position: fixed;
+#contain{
+    display: flex;              /* establish flex container */
+    flex-direction: column;     /* stack flex items vertically */
+    justify-content: center;    /* center items vertically, in this case */
+    align-items: center;        /* center items horizontally, in this case */
+    border: 1px solid black;
     width: 100%;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+}
+
+
+.landingbanner{
+    position: relative;
+    width: 100%;
+    /* padding-top: 2vh;
+    padding-bottom: 2vh; */
     color: #000;
-    margin-top: 20%;
+    /* margin-top: 20%; */
     background: #1f1d1d;
     background: #EF3B36;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #080808e0, #4ddbff);  /* Chrome 10-25, Safari 5.1-6 */
@@ -27,16 +37,14 @@
 }
 
 .bannerannounce{
-    position: center; 
-    padding-top: auto;
-    padding-bottom: auto;
+    position: relative; 
     color: rgb(255, 255, 255);
     text-align: center;
+    /* padding-top: 2vh;
+    padding-bottom: 2vh; */
+    width: 100%;
    
   }
-
-
-
 
 .navbutton {
     text-transform: uppercase;
@@ -55,8 +63,9 @@
 }
 
 body, html{
-    height: 100%; background-image: url("tax.jpg"); 
+    height: 100%; background-image: url("tax.jpg"); background-size: auto; background-repeat: no-repeat;
 }
+
 .nodec{
     text-decoration: none;
 }
@@ -71,4 +80,7 @@ a, a:hover{
 .centered{
     justify-content: center;
     text-align: center;
+    position: relative;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
