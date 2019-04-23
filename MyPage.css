@@ -16,6 +16,7 @@
     flex-direction: column;     /* stack flex items vertically */
     justify-content: center;    /* center items vertically, in this case */
     align-items: center;        /* center items horizontally, in this case */
+  
     width: 100%;
 }
 
@@ -55,25 +56,27 @@
 	height: 100px;
 	margin-top: 1px;
 	box-shadow: 0px 0px 3px rgba(0,0,0,.3), inset 0px 0px 10px rgba(0,0,255,.3), inset 0px 0px 20px rgba(0, 200, 200, .2), inset 0px 0px 30px rgba(255, 255, 0, .1);
-	border-radius: 50px;
-  width: 219.41px;	
-  font-size: 180%;
-  outline: none; 
+    border-radius: 50px;
+    width: 219.41px;	
+    font-size: 180%;
+    outline: 0; 
+}
+
+button:focus{
+    outline:0;
 }
 
 body, html{
     height: 100%; background-image: url("tax.jpg"); background-size: auto; background-repeat: no-repeat;
 }
 
-.nodec{
-    text-decoration: none;
-}
-button{
-    outline: none;
-}
+
+
 a, a:hover{
     text-decoration: none;
     color: white;
+    outline: none;
+    border: none;
 }
 
 .centered{
@@ -82,4 +85,5 @@ a, a:hover{
     position: relative;
     padding-top: 1vh;
     padding-bottom: 1vh;
+    width: 100%;
 }
