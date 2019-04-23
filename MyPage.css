@@ -67,7 +67,8 @@ button:focus{
 }
 
 body, html{
-    height: 100%; background-image: url("tax.jpg"); background-size: contain; background-repeat: no-repeat;
+    height: 100%; background-image: url("tax.jpg"); background-size: cover; background-repeat: no-repeat;
+    /* height: 100%; background-image: url("/src/assets/tax.jpg"); background-size: cover; background-repeat: no-repeat; */
 }
 
 
