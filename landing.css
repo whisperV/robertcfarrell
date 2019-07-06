@@ -1,0 +1,73 @@
+.leftCol{
+    display: inherit;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+/* 
+    border: 2px solid white; */
+    
+}
+
+.midCol{
+    display: inherit;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    
+   
+
+    /*DRAW LINES HERE*/
+}
+
+.rightCol{
+    display: inherit;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+
+    
+}
+
+.customBut{
+    font-size: 2.75em;
+    padding: .55em;
+    border-radius: 15%;
+    text-decoration: none;
+    outline: none;
+    color: rgb(212, 211, 211);
+    background-color: rgba(0, 0, 0, .75);
+    /* background-image: radial-gradient(rgba(0, 0, 0, 0.8), rgba(50, 27, 252, 0.514)); */
+    border: none;
+    border: 4px inset rgb(193, 241, 255);
+    font-family: 'Audiowide', cursive;
+    transition: font-size .5s, padding .5s, border-radius .5s;
+   
+}
+
+.customBut:hover{
+    font-size: 3em;
+    padding: .75em;
+    border-radius: 15%;
+    text-decoration: none;
+    outline: none;
+    color: rgb(212, 211, 211);
+    background-color: rgba(0, 0, 0, .85);
+    /* background-image: radial-gradient( rgba(50, 27, 252, 0.514), rgba(0, 0, 0, 0.514)); */
+    border: none;
+    border: 4px outset rgb(193, 241, 255);
+    font-family: 'Audiowide', cursive;
+} 
+
+/* .buttonHug{
+    border: 2px solid rgb(212, 211, 211);
+    border-radius: 0%;
+} */
+
+
+
