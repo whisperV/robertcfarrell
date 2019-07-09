@@ -1,11 +1,42 @@
-html, body{
+html{
     height: 100%;
     margin: 0;
     background-image: url("fast.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: black;
-  
+    display: flex;
+    transition-timing-function: ease-in-out;
+    transition: background-image .2s;
+    transition-delay: .05s;
+}
+
+.taxRound{
+    background-image: url("tax.jpg"); 
+    transition-timing-function: ease-in-out;
+    transition: background-image 1s;
+    transition-delay: .05s;
+}
+
+.blogRound{
+    background-image: url("street.jpg");
+    transition-timing-function: ease-in-out;
+    transition: background-image 1s;
+    transition-delay: .05s;
+}
+
+.devRound{
+    background-image: url("sweet.jpg");
+    transition-timing-function: ease-in-out;
+    transition: background-image 1s;
+    transition-delay: .05s;
+}
+
+.aboutRound{
+    background-image: url("mount.jpg");
+    transition-timing-function: ease-in-out;
+    transition: background-image 1s;
+    transition-delay: .05s;
 }
 
 .leftCol{
