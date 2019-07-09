@@ -1,0 +1,56 @@
+/* ABOUT PAGE */
+html, body{
+    height: 100%;
+    margin: 0;
+    background-color: black;
+
+    background-image: url("mount.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /*Photo by Elliott Engelmann on Unsplash - mount*/
+    
+}
+.readMe{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.roundIt{
+    border-radius: 50%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3%;
+}
+.centerText{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.underline{
+    display: flex;
+    position: relative;
+    width: 90%;
+    margin-left: 10%;
+    padding-top: 1em;
+    border-bottom: 2px solid white;
+}
+
+.centerMe{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    left: 45%;
+    top: 50%;
+}
+
+.standOut{
+    display: flex;
+    border: 2px solid white;
+    background-color: white;
+}
