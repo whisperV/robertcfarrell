@@ -54,3 +54,10 @@ html, body{
     border: 2px solid white;
     background-color: white;
 }
+
+.meJPG{
+    border-radius: 50%;
+    border: 2px solid white;
+    max-width: 4%;
+    height: auto;
+}
