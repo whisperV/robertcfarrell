@@ -17,7 +17,18 @@ html, body{
     text-align: center;
     justify-content: center;
     font-size: 1.5em;
+    font-family: 'PT Serif', serif, 'Times New Roman', Times, serif;
+    transition: font-size .2s;
 }
+
+/* p:hover{
+    padding-top: 1%;
+    font-size: 1.51em;
+    font-family: 'PT Serif', serif, 'Times New Roman', Times, serif;
+    border: 1px solid white;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0), 0 6px 20px 0 rgba(255, 255, 255, 0);
+} */
+
 
 p{
     width: 70%;
@@ -83,4 +94,40 @@ p{
 
 .contactInfo{
     display: flex;
+}
+
+.fonty{
+    /* font-family: 'DM Serif Display', serif; */
+    font-family: 'Domine', serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.backLink{
+    padding-top: 2%;
+    text-align: center;
+}
+
+.backPop{
+    height: 100%;
+    width: auto;
+    border-radius: 20%;
+    transition: background-color .5s, transform .5s;
+}
+
+.backPop:hover{
+    background-color: rgba(100, 69, 236, 0.644);
+    border-radius: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.5);
+}
+
+.hoverZoom{
+    transition: transform .5s;
+}
+
+.hoverZoom:hover{
+    transform: scale(1.5);
 }
