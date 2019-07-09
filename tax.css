@@ -53,3 +53,21 @@ html, body{
 } 
 
 
+.backPop{
+    height: 100%;
+    width: auto;
+    border-radius: 20%;
+    transition: background-color .5s, transform .5s;
+}
+
+.backPop:hover{
+    background-color: rgba(100, 69, 236, 0.644);
+    border-radius: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.5);
+}
+
+.backLink{
+    display: flex;
+    text-align: center;
+}
