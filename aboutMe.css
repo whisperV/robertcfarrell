@@ -3,61 +3,84 @@ html, body{
     height: 100%;
     margin: 0;
     background-color: black;
-
+    color: white;
     background-image: url("mount.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
     /*Photo by Elliott Engelmann on Unsplash - mount*/
     
 }
-.readMe{
-    color: white;
-    font-size: 1.5rem;
-}
 
-.roundIt{
-    border-radius: 50%;
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 3%;
-}
 .centerText{
     display: flex;
-    flex-direction: row;
+    padding-top: 1%;
+    text-align: center;
     justify-content: center;
-    align-items: center;
-    margin-left: 10%;
-    margin-right: 10%;
+    font-size: 1.5em;
+}
+
+p{
+    width: 70%;
 }
 
 .underline{
     display: flex;
     position: relative;
-    width: 90%;
-    margin-left: 10%;
+    width: 40%;
+    margin-left: 5%;
     padding-top: 1em;
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 10%;
+
 }
 
 .centerMe{
     display: flex;
-    position: absolute;
     align-items: center;
     flex-direction: column;
     left: 45%;
     top: 50%;
 }
 
-.standOut{
+
+.meFrame{
     display: flex;
-    border: 2px solid white;
-    background-color: white;
+    width: 100%;
+    justify-content: flex-end;
 }
 
 .meJPG{
     border-radius: 50%;
-    border: 2px solid white;
-    max-width: 4%;
+    border: 2px solid rgb(204, 201, 201);
+    max-width: 20%;
     height: auto;
+}
+
+.resume{
+    border: 1px solid white;
+    border-radius: 10%;
+    background-color: rgba(247, 239, 239, .5);
+   
+}
+
+.contactCard{
+    display: flex;
+    border-top: none;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-radius: 20%;
+    top: 0;
+    left: 0;
+    width: 20%;
+    justify-content: flex-start;
+    font-size: 1.5em;
+}
+
+.cleanList{
+    list-style: none;
+    width: 100%;
+}
+
+.contactInfo{
+    display: flex;
 }
