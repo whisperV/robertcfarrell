@@ -1,17 +1,23 @@
-var ht = document.documentElement; //documentElement is the HTML canvas
-var blogBut = document.getElementById("blogHug");
-var devBut = document.getElementById("devHug");
-var taxBut = document.getElementById("taxHug");
-var aboutBut = document.getElementById("aboutHug");
-var taxAppsBut = document.getElementById("taxAppHug");
-var taxArtBut = document.getElementById("taxArtHug");
-var col1 = document.getElementById("col1");
-var col2 = document.getElementById("col2");
-var col3 = document.getElementById("col3");
-var hBut1 = document.getElementById("homeBut1");
-var hBut2 = document.getElementById("homeBut2");
-var hBut3 = document.getElementById("homeBut3");
+// CHANGE TO CONSTS
 
+// CREATE NAMESPACE?
+
+const ht = document.documentElement; //documentElement is the HTML canvas
+const blogBut = document.getElementById("blogHug");
+const devBut = document.getElementById("devHug");
+const taxBut = document.getElementById("taxHug");
+const aboutBut = document.getElementById("aboutHug");
+const taxAppsBut = document.getElementById("taxAppHug");
+const taxArtBut = document.getElementById("taxArtHug");
+const col1 = document.getElementById("col1");
+const col2 = document.getElementById("col2");
+const col3 = document.getElementById("col3");
+const hBut1 = document.getElementById("homeBut1");
+const hBut2 = document.getElementById("homeBut2");
+const hBut3 = document.getElementById("homeBut3");
+const hBut4 = document.getElementById("homeBut4");
+const mDiv = document.getElementById("mainDiv");
+const secDiv = document.getElementById("secondDiv");
 
 // ID.EVENT = function call
 // script injection has to be at the end of html
@@ -28,7 +34,7 @@ devHug.onclick = devIt;
 homeBut1.onclick = resetIt;
 homeBut2.onclick = resetIt;
 homeBut3.onclick = resetIt;
-
+homeBut4.onclick = resetIt;
 
 function taxIt(event){
     //mouseover on *Hug button appends a class to the HTML element
@@ -84,6 +90,9 @@ function aboutIt(event){
     //mouseover on *Hug button appends a class to the HTML element
     if (event.type == 'click') {
         ht.className='aboutRound';
+        mDiv.className='hideMe';
+        secDiv.className='';
+
     }
     else if (event.type == 'mouseover') {
         ht.className='aboutRound';
@@ -126,5 +135,8 @@ function resetIt () {
 
     taxAppsBut.className='hideMe';
     taxArtBut.className='hideMe';
+
+    secDiv.className='hideMe';
+    mDiv.className='centeredSubEle';
    
 }

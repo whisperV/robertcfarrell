@@ -9,6 +9,7 @@ html{
     transition-timing-function: ease-in-out;
     transition: background-image .2s;
     transition-delay: .05s;
+    color: white;
 }
 
 .taxRound{
@@ -171,14 +172,18 @@ html{
 .backPop{
     height: 100%;
     width: auto;
-    border: 1px solid black;
+    padding-left: .2em;
+    padding-right: .2em;
+    background-color: rgba(99, 69, 236, 0.24);
+    border: 4px inset rgb(193, 241, 255);
     border-radius: 20%;
     transition: background-color .5s, transform .5s;
 }
 
 .backPop:hover{
-    background-color: rgba(100, 69, 236, 0.644);
+    background-color: rgba(99, 69, 236, 0.16);
     border-radius: 20%;
+    border: 4px outset rgb(193, 241, 255);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transform: scale(1.5);
 }

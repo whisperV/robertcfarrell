@@ -1,5 +1,5 @@
 /* ABOUT PAGE */
-html, body{
+/* html, body{
     height: 100%;
     margin: 0;
     background-color: black;
@@ -7,9 +7,10 @@ html, body{
     background-image: url("mount.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /*Photo by Elliott Engelmann on Unsplash - mount*/
+    /*Photo by Elliott Engelmann on Unsplash - mount
     
-}
+} */
+
 
 .centerText{
     display: flex;
@@ -63,7 +64,8 @@ p{
 .meJPG{
     border-radius: 50%;
     border: 2px solid rgb(204, 201, 201);
-    max-width: 20%;
+    max-width: 50%;
+    width: 20%;
     height: auto;
 }
 
@@ -83,7 +85,9 @@ p{
     top: 0;
     left: 0;
     width: 20%;
+    max-width: 50%;
     justify-content: flex-start;
+    align-items: center;
     font-size: 1.5em;
 }
 
@@ -94,6 +98,7 @@ p{
 
 .contactInfo{
     display: flex;
+    align-items: center;
 }
 
 .fonty{

@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html class=''>
+<!-- 
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" /> -->
+
 <head>
     <!-- STYLESHEETS -->
 
     <link rel="stylesheet" type="text/css" href="siteStyles.css">
     <link rel="stylesheet" type="text/css" href="landing.css">
+    <link rel="stylesheet" type="text/css" href="aboutMe.css">
 
     <!-- FONTS -->
 
@@ -18,7 +24,7 @@
 </head>
 
 <body>
-    <div class="centeredSubEle">
+    <div id="mainDiv" class="centeredSubEle">
         <div id="col1" class="leftCol">
             <div>
                 <a href="https://stormy-atoll-11633.herokuapp.com/"><button id="devHug" class="customBut">Dev</button></a>
@@ -35,7 +41,7 @@
                 
             </div>
             <div>
-                <a href="https://www.robertcfarrell.com/about.html"><button id="aboutHug" class="customBut">About</button></a>
+                <a href="#"><button id="aboutHug" class="customBut">About</button></a>
             </div>
         </div>
         <div id="col3" class="rightCol">
@@ -51,7 +57,27 @@
         </div>
     </div>
 
-   
+    <div id="secondDiv" class="hideMe">
+        <div class="contactInfo">
+            <div class="contactCard">                
+                <ul class="cleanList">
+                    <li><h3 class="fonty">Robert C Farrell</h3></li>
+                    <li><a href="https://www.linkedin.com/in/robert-farrell-jd-ea-939a8118/"><img class="hoverZoom" src="LinkedIn.png"></a> LinkedIn </li>
+                    <li><a href="https://twitter.com/The_RCF"><img class="hoverZoom" src="Twitter.png"></a> Twitter </li>                        
+                    <li><a href="https://github.com/whisperV/robertcfarrell"><img class="hoverZoom" src="GitHub-Mark-Light-32px.png" height='22' width='22'></a> GitHub </li>
+                    <li><a href="RobertFarrellResume.pdf" download><img class="resume hoverZoom" src="outline-get_app-24px.svg" alt="Download Resume" height="22" width="22"></a> Resume </li>
+                </ul>
+            </div> 
+            <div class="meFrame"><img class = "meJPG" src="Picture7.jpg" alt="Me"></div>
+        </div>
+        <div class="centerText">
+            <p>Robert is a quick learner and hard worker with a variety of experience and skillsets. With a foundation in finance, accounting and tax law, the heavy reliance on software in these industries convinced Robert to begin a journey into application development. 
+                Using software, and more so Cloud applications, to perform tasks is the best way to increase accuracy and efficiency and bring the skills acquired over 
+            years of education and experience to more people and at an affordable cost. 
+            </p>
+        </div>
+        <div id="homeBut4" class="backLink"><a href="#"><img class='backPop'src="2outline_arrow_back_white_18dp.png"></a></div>
+    </div>
     
 </body>
 
