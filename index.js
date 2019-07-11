@@ -72,7 +72,7 @@ function blogIt(event){
         aboutBut.className='hideMe';
 
         col1.className="hideMe";
-        col2.className="reOrg";
+        col2.className="reOrg devOrg";
         col3.className="hideMe";
 
         hBut2.className='backLink';
