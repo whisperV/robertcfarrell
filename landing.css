@@ -111,4 +111,74 @@ html{
 } */
 
 
+.hideMe{
+    display: none;
+}
 
+@keyframes test{
+    from { width: 50%;}
+    to { width: 100%;}
+}
+
+.reOrg{
+    display:flex;
+
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+    
+    animation-name: test;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+    
+    width: 50%;
+    height: auto;
+}
+
+.centeredSubEle{
+    /* background-image: linear-gradient(black, white, black);
+    border: 2em groove red;
+    border-radius: 50%; */
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+}
+
+.homeBut{
+    font-size: 1.5em;
+    padding: 1em;
+    border-radius: 40%;
+    text-decoration: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, .85);
+    /* background-image: radial-gradient( rgba(50, 27, 252, 0.514), rgba(0, 0, 0, 0.514)); */
+    border: none;
+    border: 4px outset rgb(0, 0, 0);
+    font-family: 'Audiowide', cursive;
+}
+
+.home{
+    display: inherit;
+}
+
+.backPop{
+    height: 100%;
+    width: auto;
+    border: 1px solid black;
+    border-radius: 20%;
+    transition: background-color .5s, transform .5s;
+}
+
+.backPop:hover{
+    background-color: rgba(100, 69, 236, 0.644);
+    border-radius: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.5);
+}

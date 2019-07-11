@@ -10,9 +10,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Russo+One&display=swap" rel="stylesheet">
 
-    <!-- SCRIPTING -->
+    <!--Heroku:  https://stormy-atoll-11633.herokuapp.com/  -->   
     
-    <!-- <script src="index.js"></script> -->
 
     <title>Robert Farrell</title>
 
@@ -20,25 +19,39 @@
 
 <body>
     <div class="centeredSubEle">
-        <div class="leftCol">
+        <div id="col1" class="leftCol">
             <div>
                 <a href="https://stormy-atoll-11633.herokuapp.com/"><button id="devHug" class="customBut">Dev</button></a>
             </div>
+            <div id="homeBut1" class="backLink hideMe"><a href="#"><img class='backPop'src="2outline_arrow_back_white_18dp.png"></a></div>
         </div>
-        <div class="midCol">
+        <div id="col2" class="midCol">
+            <div> 
+                <a href="#"><button id="blogHug" class="customBut">Blog</button></a>
+            </div> 
             <div>
-                <a href="https://stormy-atoll-11633.herokuapp.com/"><button id="blogHug" class="customBut">Blog</button></a>
+                <!-- HOME BUTTON TO RESTORE THE MENU-->
+                <div id="homeBut2" class="backLink hideMe"><a href="#"><img class='backPop'src="2outline_arrow_back_white_18dp.png"></a></div>
+                
             </div>
             <div>
                 <a href="https://www.robertcfarrell.com/about.html"><button id="aboutHug" class="customBut">About</button></a>
             </div>
         </div>
-        <div class="rightCol">
-            <div>
-                <a href="https://www.robertcfarrell.com/tax.html"><button id="taxHug" class="customBut">Tax</button></a>           
-            </div>
+        <div id="col3" class="rightCol">
+        
+                <a href="#"><button id="taxHug" class="customBut">Tax</button></a>  
+
+                <div id="homeBut3" class="backLink hideMe"><a href="#"><img class='backPop'src="2outline_arrow_back_white_18dp.png"></a></div>
+        
+                <a href="https://stormy-atoll-11633.herokuapp.com/"><button id="taxAppHug" class="customBut hideMe">Tax Apps</button></a>         
+
+                <a href="https://stormy-atoll-11633.herokuapp.com/"><button id="taxArtHug" class="customBut hideMe">Tax Articles</button></a> 
+    
         </div>
     </div>
+
+   
     
 </body>
 
