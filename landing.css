@@ -137,6 +137,10 @@ html{
     height: auto;
 }
 
+.devOrg{
+    flex-direction: column !important;
+}
+
 .centeredSubEle{
     /* background-image: linear-gradient(black, white, black);
     border: 2em groove red;
