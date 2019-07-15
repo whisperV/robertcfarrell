@@ -18,6 +18,7 @@ const hBut3 = document.getElementById("homeBut3");
 const hBut4 = document.getElementById("homeBut4");
 const mDiv = document.getElementById("mainDiv");
 const secDiv = document.getElementById("secondDiv");
+const artist = document.getElementById("imageCredit");
 
 // ID.EVENT = function call
 // script injection has to be at the end of html
@@ -53,6 +54,9 @@ function taxIt(event){
         taxAppsBut.className='customBut';
         taxArtBut.className='customBut';
         hBut3.className='backLink';
+
+        artist.innerHTML='Photo by Kelly Sikkema on Unsplash';
+        
     }
     else if (event.type == 'mouseover') {
         ht.className='taxRound';
@@ -76,6 +80,8 @@ function blogIt(event){
         col3.className="hideMe";
 
         hBut2.className='backLink';
+
+        artist.innerHTML='Photo by Alejandro Benėt on Unsplash';
     }
     else if (event.type == 'mouseover') {
         ht.className='blogRound';
@@ -93,6 +99,7 @@ function aboutIt(event){
         mDiv.className='hideMe';
         secDiv.className='';
 
+        artist.innerHTML='Photo by Elliott Engelmann on Unsplash';
     }
     else if (event.type == 'mouseover') {
         ht.className='aboutRound';
@@ -101,12 +108,15 @@ function aboutIt(event){
         ht.className ='';
     }
 
+   
+
 }
 
 function devIt(event){
     //mouseover on *Hug button appends a class to the HTML element
     if (event.type == 'click') {
         ht.className='devRound';
+        artist.innerHTML='Photo by Wilmer Martinez on Unsplash';
     }
     else if (event.type == 'mouseover') {
         ht.className='devRound';
@@ -114,6 +124,8 @@ function devIt(event){
     if (event.type == 'mouseout') {
         ht.className ='';
     }
+
+
 
 }
 
@@ -138,5 +150,7 @@ function resetIt () {
 
     secDiv.className='hideMe';
     mDiv.className='centeredSubEle';
+
+    artist.innerHTML='Marc-Olivier Jodoin on Unsplash';
    
 }
