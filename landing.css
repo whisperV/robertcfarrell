@@ -84,27 +84,21 @@ html{
     outline: none;
     color: rgb(212, 211, 211);
     background-color: rgba(0, 0, 0, .75);
-    /* background-image: radial-gradient(rgba(0, 0, 0, 0.8), rgba(50, 27, 252, 0.514)); */
-    border: none;
     border: 4px inset rgb(193, 241, 255);
     font-family: 'Audiowide', cursive;
-    transition: font-size .5s, padding .5s, border-radius .5s;
+    transition: font-size .5s, padding .5s, transform .5s;
    
 }
 
 .customBut:hover{
     font-size: 3em;
     padding: .75em;
-    border-radius: 15%;
-    text-decoration: none;
-    outline: none;
     color: rgb(212, 211, 211);
     background-color: rgba(0, 0, 0, .85);
-    /* background-image: radial-gradient( rgba(50, 27, 252, 0.514), rgba(0, 0, 0, 0.514)); */
-    border: none;
     border: 4px outset rgb(193, 241, 255);
-    font-family: 'Audiowide', cursive;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 } 
+
 
 /* .buttonHug{
     border: 2px solid rgb(212, 211, 211);
