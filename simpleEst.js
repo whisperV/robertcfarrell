@@ -1,6 +1,22 @@
 // Namespace creation, although not needed as scope will be limited to file, and app is simple enoughin execution... for now
 // var simple_estimate = simple_estimate || {};
 
+//DOM manipulation
+
+var spouseA = document.getElementById("spouseAge");
+var spouseS = document.getElementById("spouseSight");
+
+function showItems(showMe){
+  if (showMe == 'single' || showMe == 'hOH'){
+    console.log("Show it sing: " + showMe);
+    spouseA.className = 'hideMe';
+    spouseS.className = 'hideMe';
+  } else {
+    spouseA.className = '';
+    spouseS.className = '';
+  }
+}
+
 // CONSTANTS - UPDATE WITH 2019 CHANGES
 
     // Child tax credit income limits and medicare surtax income limits
@@ -76,7 +92,7 @@ function calcIt (info){
     totalDue = Math.round(totalDue);
      
     
-    taxResult.innerHTML = `<p class="results">&nbsp ${totalDue} &nbsp</p>`;
+    taxResult.innerHTML = `<span class="results">&nbsp $${totalDue} &nbsp</span>`;
     
     
 }
