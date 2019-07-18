@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script src='simpleEst.js'></script>
+        <link rel='stylesheet' href='simpleEst.css'>
+        <link href="https://fonts.googleapis.com/css?family=Audiowide|Russo+One&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class = "container"> 
+            <div class = "readable row">
+            <br>
+                <h1 class = "appName"> Simple Tax Estimator - Standard Deduction</h1>
+            <br><br> 
+                <form name ="info" onsubmit="calcIt(info)">
+                    <label for="filingStatus">Choose a filing status:</label>
+                    <select name = "filingStatus" class="customInputs">
+                        <option value="single">Single</option>
+                        <option value="mFJ">Married, Filing Joint</option>
+                        <option value="mFS">Married, Filing Separate</option>
+                        <option value="hOH">Head of Household</option>
+                        <option value="mFJ">Qualifying Widow/er</option>
+                    </select>
+            <br><br>
+                    <label for="age"> Check if you are over 65: </label>
+                    <input type = "checkbox" name = "age" formControlName = "age">
+            <br><br>
+                  <div [hidden] = "form.controls.filingStatus.value != 'mFJ'">
+                    <label for="spAge"> Check if your spouse is over 65: </label>
+                    <input  type = "checkbox" name = "spAge" formControlName = "spAge">
+            <br><br>
+                  </div>
+                    <label for="sight"> Check if your vision is below 20/200: </label>
+                    <input  type = "checkbox" name = "sight" formControlName = "sight">
+            <br><br> 
+                  <div [hidden] = "form.controls.filingStatus.value != 'mFJ'">
+                    <label for="spSight"> Check if your spouse's vision is below 20/200: </label>
+                    <input  type = "checkbox" name = "spSight" formControlName = "spSight">
+            <br><br>
+                  </div>
+                  <label for="dependents"> How many dependents do you have? </label>
+                    <input class="customInputs" type = "number" name = "dependents"  placeholder = "0" min = "0" max = "10" step = "1" formControlName = "dependents">
+            <br><br>      
+                  <label for="dependents"> How many of those dependents are not your children or are but were 17 or older at the end of last year? </label>
+                    <input class="customInputs" type = "number" name = "oDeps"  placeholder = "0" min = "0" max = "10" step = "1" formControlName = "oDeps">
+            <br><br>
+                  <!-- Cap Gains, ordinary income, SE taxes, underpayment penalties-->
+                    <label for="grossWages"> What was your total income from wages, salary and tips? </label>
+                    <input class="customInputs" type = "number" name = "grossWages"  placeholder = "0" min = "0" step = "1" formControlName = "grossWages">
+                    <p> </p>
+            <br>
+                  <div class = "row">
+                      <input class = "customSubmitBut" type = "submit" value = "Calculate" id = "dataSub" >
+                      <h1 class ='resultDisp'>Rough estimate: </h1><span id="taxOwed"></span>
+                  </div>
+              </form>
+                
+            </div>
+           
+          </div>
+    </body>
+</html>
