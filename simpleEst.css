@@ -145,14 +145,17 @@ body{
     font-family: 'Audiowide', serif, 'Courier New', Courier, monospace;
     text-decoration: underline;
     text-align: center;
-    background: #56CCF2;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #56CCF2, #2F80ED );  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #56CCF2, #2F80ED); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: #292929;
     padding: 10px;
     border-radius: 10px;
     /* box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
+
+/*
+background: #56CCF2;  /* fallback for old browsers 
+background: -webkit-linear-gradient(to right, #56CCF2, #2F80ED );  /* Chrome 10-25, Safari 5.1-6 
+background: linear-gradient(to right, #56CCF2, #2F80ED); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
+*/
+
 
 .ste{
     color: rgba(0, 0, 255, 0.753);
