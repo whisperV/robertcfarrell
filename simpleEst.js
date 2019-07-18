@@ -11,10 +11,10 @@ const   ctcLimitM = 400000,
 
     //Change points for tax rates to apply
 const   incomeTiers = {
-        sTier: [9525, 38700, 82500, 157500, 200000, 500000],
-        mfjTier: [19050, 77400, 165000, 315000, 400000, 600000],
-        hOHTier: [13600, 51800, 82500, 157500, 200000, 500000 ],
-        mFSTier: [9525, 38700, 82500, 157500, 200000, 300000]
+        sTier: [9700, 39475, 84200, 160725, 204100, 510300],
+        mfjTier: [19400, 78950, 168400, 321450, 408200, 612350],
+        hOHTier: [13850, 52850, 84200, 160700, 204100, 510300],
+        mFSTier: [9700, 39475, 84200, 160725, 204100, 306175]
 };
 
     //Single Standard deduction    
@@ -47,10 +47,10 @@ let appTier = [];
 function calcIt (info){
     let formInfo = document.info,
         fStatus= formInfo.filingStatus.value,
-        tAge= formInfo.age.value,
-        tSAge= formInfo.spAge.value,
-        tSight= formInfo.sight.value,
-        tSSight= formInfo.spSight.value,
+        tAge= formInfo.age.checked,
+        tSAge= formInfo.spAge.checked,
+        tSight= formInfo.sight.checked,
+        tSSight= formInfo.spSight.chedked,
         tDependents= formInfo.dependents.value,
         tODeps= formInfo.oDeps.value,
         tGrossWages= formInfo.grossWages.value;
@@ -150,6 +150,7 @@ function currDed(tPayer){
           }
       };
     
+      console.log(tPayer.age, tPayer.sight, currentDed);
       return(currentDed);
 };
 

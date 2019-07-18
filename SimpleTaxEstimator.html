@@ -11,7 +11,7 @@
             <br>
                 <h1 class = "appName"> Simple Tax Estimator - Standard Deduction</h1>
             <br><br> 
-                <form name ="info" onsubmit="calcIt(info)">
+                <form name ="info" onsubmit="calcIt(info); return false">
                     <label for="filingStatus">Choose a filing status:</label>
                     <select name = "filingStatus" class="customInputs">
                         <option value="single">Single</option>
