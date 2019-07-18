@@ -7,9 +7,9 @@
     <body>
         <div class = "container"> 
             <div class = "readable row">
+            <button class="customBut-sm" href='javascript:history.back()'>Back</button>
             <br>
-                <h1 class = "appName"><span class="ste">Simple Tax Estimator</span> - <span class='se'>Standard Deduction</span></h1>
-            <br><br> 
+                <h1 class = "appName">Tax Year 2019 Simple Tax Estimator</h1>
                 <form name ="info" onsubmit="calcIt(info); return false">
                     <label for="filingStatus">Choose a filing status:</label>
                     <select id = "filingStatus" name = "filingStatus" class="customInputs" onchange="showItems(this.value)">
@@ -20,28 +20,32 @@
                         <option value="mFJ">Qualifying Widow/er</option>
                     </select>
             <br><br>
-                  <div class='tableIt'>
+                
                     <div id = "age">
-                      <label for="age"> Check if you are over 65: </label>
-                      <input type = "checkbox" name = "age" >            
+                    <span>
+                      <label for="age"> Check if you are over 65:&nbsp</label>
+                      <input type = "checkbox" name = "age" formControlName = "age">            
                     </div>
-            <br><br>
-                    <div class = "hideMe" id="spouseAge"> <!-- "form.controls.filingStatus.value != 'mFJ'"-->
-                      <label for="spAge"> Check if your spouse is over 65: </label>
+                    </span>
+           
+                    <span style="padding-left: 2%" class = "hideMe" id="spouseAge"> 
+                      <label for="spAge"> Check if your spouse is over 65:&nbsp </label>
                       <input  type = "checkbox" name = "spAge" formControlName = "spAge">
+                    </span>
             <br><br>
-                    </div>
                     <div id = "sight">
-                      <label for="sight"> Check if your vision is below 20/200: </label>
+                    <span>
+                      <label for="sight"> Check if you are legally blind (Vision is below 20/200):&nbsp</label>
                       <input  type = "checkbox" name = "sight" >
+                    </span>
             <br><br> 
                     </div>
-                    <div id="spouseSight" class="hideMe">
-                      <label for="spSight"> Check if your spouse's vision is below 20/200: </label>
+                    <span style="padding-left: 2%" id="spouseSight" class="hideMe">
+                      <label for="spSight"> Check if your spouse is legally blind:&nbsp </label>
                       <input  type = "checkbox" name = "spSight" formControlName = "spSight">
-            <br><br> 
-                    </div>
-                  </div>
+         
+                    </span>
+                 <br>
                   <label for="dependents"> How many dependents do you have? </label>
                     <input class="customInputs" type = "number" name = "dependents"  placeholder = "0" min = "0" max = "10" step = "1" formControlName = "dependents">
             <br><br>      
@@ -50,19 +54,23 @@
             <br><br>
                   <!-- Cap Gains, ordinary income, SE taxes, underpayment penalties-->
                     <label for="grossWages"> What was your total income from wages, salary and tips? </label>
-                    <input class="customInputs" type = "number" name = "grossWages"  placeholder = "0" min = "0" step = "1" formControlName = "grossWages">
-                    <p> </p>
-            <br>
+                    <input class="customInputs" type = "number" name = "grossWages"  placeholder = "0" min = "0" step = "1" formControlName = "grossWages">    
+            <br><br>
+                  <label>Are you itemizing deductions? </label>
+                  <div style="text-indent: 5%"><label for="itemDed"> Yes </label><input id="itemDed" type="checkbox" onchange="showDeducts()">&nbsp&nbsp<label> No </label><input type="checkbox"></div>
+                  <div class="hideMe" id="iDed" style="text-indent: 5%"><label for="sDed"> Amount of your deductions: </label><input id="iDeduction" class="customInputs" type="number" min="0" value="0"></div>
+            <br><p> </p>
                   <div class = "row">
-                      <input class = "customBut" type = "submit" value = "Calculate" id = "dataSub" >
+                      <input class = "customBut" type = "submit" value = "Calculate" id = "dataSub" >&nbsp&nbsp&nbsp<span class = "hideMe" id="showResults"><div class='midIt'><div class='resultDisp'>Estimated Total Due: <span id="total"> </span></div></div>
                       <br>
-                      <div class ='resultDisp'>Federal Income tax estimate: </div>&nbsp<span id="taxOwed"></span>
+                      <div>Federal Income tax estimate: &nbsp<span id="taxOwed"></span></div>
+                      <div>Social Security tax estimate: &nbsp<span id="fica"></span> </div>
+                      <div>Medicare tax estimate: &nbsp<span id="medi"></span>&nbsp Surtax:<span id="mediSur"></span></div>
                       <br>
-                      <div class ='resultDisp'>FICA/SECA tax estimate: </div>&nbsp<span id="fiseca"></span>
-                      <br>
+                      </span>
                   </div>
               </form>
-                
+           
             </div>
            
           </div>
