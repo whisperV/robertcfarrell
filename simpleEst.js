@@ -8,8 +8,11 @@ let spouseS = document.getElementById("spouseSight");
 
 function showItems(showMe){
   if (showMe == 'single' || showMe == 'hOH'){
+    document.getElementById('spAge').checked = false;
+    document.getElementById('spSight').checked = false;
     spouseA.className = 'hideMe';
     spouseS.className = 'hideMe';
+    
   } else {
     spouseA.className = '';
     spouseS.className = '';
@@ -23,10 +26,21 @@ function showDeducts(){
     iDed.className='';
   } else {
     document.getElementById('iDeduction').value=0;
-    iDed.className='hideMe';
-    
+    iDed.className='hideMe';    
+  } 
+}
+
+let depTypes = document.getElementById("dependents");
+let depShow = document.getElementById("showDeps");
+let resetDeps = document.getElementById("noDeps");
+
+function dependentType(){
+  if (depTypes.value != 0){
+    depShow.className = '';
+  } else {
+    depShow.className = 'hideMe';
+    resetDeps.value = 0;
   }
-  
 }
 
 // CONSTANTS - UPDATE WITH 2019 CHANGES

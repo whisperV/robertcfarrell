@@ -1,72 +1,179 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
     <head>
+        <!-- custom style sheets -->
         <link rel='stylesheet' href='simpleEst.css'>
         <link href="https://fonts.googleapis.com/css?family=Audiowide|Russo+One&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap stylesheets -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- Bootstrap Dependencies -->
+
     </head>
-    <body>
-        <div class = "container"> 
-            <div class = "readable row">
-            <button class="customBut-sm"><a href="javascript:history.back()">Back</a></button>
+    <body class="bground">
+      <div class="navbar-wrapper">
+        <nav class="navbar navbar-expand-md navbar-dark justify-content-between" style="background-color: #161616;">         
+            <div class="navbar-nav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="javascript:history.back()">BACK</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        App List
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://www.robertcfarrell.com/SimpleTaxEstimator.html">Simple Tax Estimator</a>
+                        <a class="dropdown-item" href="#">Retirement Contribution Calculator</a>
+                        <a class="dropdown-item" href="#">Placeholder</a>
+                      </div>
+                    </li>                    
+                  </ul>
+            </div>
+            <span class="navbar-brand logo"></span>   
+          </div>
+        </nav>
+      </div>
+
+      <div class = "container "> 
+        <div class = "readable">
+          <br>
+            <h1 class = "appName">Simple Tax Estimator for 2019 </h1>
             <br>
-                <h1 class = "appName">Tax Year 2019 Simple Tax Estimator</h1>
-                <form name ="info" onsubmit="calcIt(info); return false">
-                    <label for="filingStatus">Choose a filing status:</label>
-                    <select id = "filingStatus" name = "filingStatus" class="customInputs" onchange="showItems(this.value)">
+            <form name ="info" onsubmit="calcIt(info); return false">
+            <div class="row">
+              <div class="col popIt">
+                <div class="form-group form-inline">
+                  <label for="filingStatus">Choose a filing status: &nbsp</label>
+                    <select class="custom-select" id = "filingStatus" name = "filingStatus" onchange="showItems(this.value)">
                         <option value="single">Single</option>
                         <option value="mFJ">Married, Filing Joint</option>
                         <option value="mFS">Married, Filing Separate</option>
                         <option value="hOH">Head of Household</option>
                         <option value="mFJ">Qualifying Widow/er</option>
                     </select>
-            <br><br>
-                
-                    <div id = "age">
-                    <span>
-                      <label for="age"> Check if you are over 65:&nbsp</label>
-                      <input type = "checkbox" name = "age" formControlName = "age">            
-                    </div>
-                    </span>
-           
-                    <span style="padding-left: 2%" class = "hideMe" id="spouseAge"> 
-                      <label for="spAge"> Check if your spouse is over 65:&nbsp </label>
-                      <input  type = "checkbox" name = "spAge" formControlName = "spAge">
-                    </span>
-            <br><br>
-                    <div id = "sight">
-                    <span>
-                      <label for="sight"> Check if you are legally blind (Vision is below 20/200):&nbsp</label>
-                      <input  type = "checkbox" name = "sight" >
-                    </span>
-            <br><br> 
-                    </div>
-                    <span style="padding-left: 2%" id="spouseSight" class="hideMe">
-                      <label for="spSight"> Check if your spouse is legally blind:&nbsp </label>
-                      <input  type = "checkbox" name = "spSight" formControlName = "spSight">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col popIt">
+                  <div class="form-group">
+                  <span id="age">
+                    <label for="age"> Check if you are over 65:&nbsp</label>
+                    <input type="checkbox" name="age" formControlName="age">            
+                  </span>
          
-                    </span>
-                 <br>
-                  <label for="dependents"> How many dependents do you have? </label>
-                    <input class="customInputs" type = "number" name = "dependents"  placeholder = "0" min = "0" max = "10" step = "1" formControlName = "dependents">
-            <br><br>      
-                  <label for="dependents"> How many of those dependents are not your children or are but were 17 or older at the end of last year? </label>
-                    <input class="customInputs" type = "number" name = "oDeps"  placeholder = "0" min = "0" max = "10" step = "1" formControlName = "oDeps">
-            <br><br>
-                  <!-- Cap Gains, ordinary income, SE taxes, underpayment penalties-->
-                    <label for="grossWages"> What was your total income from wages, salary and tips? </label>
-                    <input class="customInputs" type = "number" name = "grossWages"  placeholder = "0" min = "0" step = "1" formControlName = "grossWages">    
-            <br><br>
-                  <label>Are you itemizing deductions? </label>
-                  <div style="text-indent: 5%"><label for="itemDed"> Yes </label><input id="itemDed" type="checkbox" onchange="showDeducts()">&nbsp&nbsp<label> No </label><input type="checkbox"></div>
-                  <div class="hideMe" id="iDed" style="text-indent: 5%"><label for="sDed"> Amount of your deductions: </label><input id="iDeduction" class="customInputs" type="number" min="0" value="0"></div>
-            <br><p> </p>
-                  <div class = "row">
-                      <input class = "customBut" type = "submit" value = "Calculate" id = "dataSub" >&nbsp&nbsp&nbsp<span class = "hideMe" id="showResults"><div class='midIt'><div class='resultDisp'>Estimated Total Taxes: <span id="total"> </span></div></div>
-                      <br>
-                      <div>Federal Income tax estimate: &nbsp<span id="taxOwed"></span></div>
-                      <div>Social Security tax estimate: &nbsp<span id="fica"></span> </div>
-                      <div>Medicare tax estimate: &nbsp<span id="medi"></span>&nbsp Surtax:<span id="mediSur"></span></div>
-                      <br>
+                  <span style="padding-left: 2%" class = "hideMe" id="spouseAge"> 
+                    <label for="spAge"> Check if your spouse is over 65:&nbsp </label>
+                    <input type = "checkbox" name = "spAge" id = "spAge">
+                  </span>
+                </div>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col popIt">
+                  <div class="form-group">
+                      <span id = "sight">
+                        <label for="sight"> Check if you are legally blind:&nbsp</label>
+                        <input type = "checkbox" name = "sight" >
+                      </span>
+                      <span style="padding-left: 2%" id="spouseSight" class="hideMe">
+                        <label for="spSight"> Check if your spouse is legally blind:&nbsp </label>
+                        <input  type = "checkbox" name = "spSight" id= "spSight">
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+           
+                <div class="row">
+                  <div class="col popIt">
+                    <div class="form-group form-inline">
+                      <label for="dependents"> How many dependents do you have?&nbsp </label>
+                      <input class="form-control" type = "number" id = "dependents"  placeholder = "0" min = "0" max = "10" step = "1" onchange="dependentType()">   
+                    </div>
+                  </div>
+                </div>
+                <div id="showDeps" class="hideMe">
+                  <div class="row">
+                    <div class="col popIt">
+                      <div class="form-group form-inline">
+                        <label style="display: inline;" for="oDeps"> How many aren't your children or were over 17 on Jan 1?&nbsp </label>
+                        <input class="form-control" type = "number" id="noDeps" name = "oDeps"  placeholder = "0" min = "0" max = "10" step = "1">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+           
+                <div class="row">
+                  <div class="col popIt">
+                    <div class="form-group form-inline">
+                    <!-- Cap Gains, ordinary income, SE taxes, underpayment penalties-->
+                    
+                      <div class="input-group">
+                        <label for="grossWages"> What was your total income from wages, salary and tips?&nbsp </label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input class="form-control" type = "number" name = "grossWages"  placeholder = "0" min = "0" step = "1" formControlName = "grossWages">   
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col popIt">
+                    <div class="form-group">Are you itemizing deductions? 
+                      <span style="text-indent: 5%">
+                        <label for="itemDed"> Yes&nbsp&nbsp </label>
+                          <input id="itemDed" type="checkbox" onchange="showDeducts()">&nbsp&nbsp
+                            <label> No&nbsp&nbsp </label>
+                            <input type="checkbox">
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col popIt">
+                    <div class="hideMe" id="iDed">
+                      <div class="form-group form-inline">
+                        <div class="input-group">
+                          <label for="iDedudction"> Amount of your deductions:&nbsp </label>
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                          </div>
+                          <input id="iDeduction" class="form-control" type="number" min="0" value="0">
+                          <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+            <p> </p>
+                  <div>
+                      <button class="btn btn-secondary btn-lg" type="submit" value = "Calculate" id = "dataSub" >Calculate</button>
+                      <span class = "hideMe" id="showResults">
+                        <div class='midIt'>
+                          <div class='resultDisp'>Estimated Total Due: <span id="total"> </span></div>
+                        </div>
+                        <br><br>
+                        <div>Tax breakdown:</div>
+                        <span style="text-indent: 1rem;">
+                          <div>Federal Income tax estimate: &nbsp<span id="taxOwed"></span></div>
+                          <div>Social Security tax estimate: &nbsp<span id="fica"></span> </div>
+                          <div>Medicare tax estimate: &nbsp<span id="medi"></span>&nbsp Surtax:<span id="mediSur"></span></div>
+                        </span>
                       </span>
                   </div>
               </form>
@@ -74,8 +181,15 @@
             </div>
            
           </div>
+          <!-- Bootstrap scripts -->
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+          <!-- custome scripts -->
+          <script src='simpleEst.js' crossorigin="anonymous"></script>
     </body>
 
-    <script src='simpleEst.js'></script>
+
 
 </html>
