@@ -189,11 +189,11 @@ function currDed(tPayer){
         for(let j=0; j< tpSP.length; j++){
           if(tpSP[j]){
             currentDed += mFJS;
-            console.log(currentDed);
+           // console.log(currentDed);
           }
         }
     }
-    console.log('AgeEye Check for ' + tPayer.filingStatus + ' with age ' + tPayer.age +' and sight '+ tPayer.sight + ': '+ currentDed);
+   // console.log('AgeEye Check for ' + tPayer.filingStatus + ' with age ' + tPayer.age +' and sight '+ tPayer.sight + ': '+ currentDed);
     return(currentDed);
   }
 
@@ -203,11 +203,11 @@ function currDed(tPayer){
       currentDed += stdDeduction;
     } else {
       currentDed += iDedVal;
-      console.log('single: ' + currentDed);
+     // console.log('single: ' + currentDed);
     }    
     //Check age and eyeSight
     ageSightCheck();
-    console.log(currentDed);
+    //console.log(currentDed);
        
   } else if (tPayer.filingStatus == "hOH"){
     if(headOHDed > iDedVal){
@@ -225,22 +225,22 @@ function currDed(tPayer){
       currentDed += mFSDed;
     } else {
       currentDed += iDedVal;
-      console.log('mFS: ' + currentDed);
+      //console.log('mFS: ' + currentDed);
     }
     //Check age and eyeSight
     ageSightCheck();
-    console.log(currentDed);
+    //console.log(currentDed);
 
   } else if (tPayer.filingStatus == "mFJ"){
     if(mFJDed > iDedVal){
       currentDed += mFJDed;
     } else {
       currentDed += iDedVal;
-      console.log('mFJ: ' + currentDed);
+     // console.log('mFJ: ' + currentDed);
     }
     //Check age and eyeSight
     ageSightCheck();
-    console.log(currentDed);
+    //console.log(currentDed);
   }
   // console.log(tPayer.age, tPayer.sight, currentDed);
   return(currentDed);
@@ -275,7 +275,7 @@ function taxOwed(tPayer, agi){
         taxDue = taxDue + (tierTaxable * taxTables[i]);
         taxableInc -= tierTaxable;
       }
-      console.log(taxDue, taxableInc);
+      //console.log(taxDue, taxableInc);
       i += 1;
     }
 
@@ -345,7 +345,7 @@ function dependentCredits(tPayer){
 // SSI tax, limited to a specific amount each year
 function ficaTax(wages){
   if(wages < sSTaxLimit){
-    console.log(wages + ' wages | ' + 'Limit ' + sSTaxLimit);
+    //console.log(wages + ' wages | ' + 'Limit ' + sSTaxLimit);
     return (wages*ficaRate);
   } else {
     return (ficaRate * sSTaxLimit);

@@ -89,3 +89,25 @@ input[type='checkbox']{
     display: none;
 }
 
+.blindDef{
+    color: blue;
+}
+
+.tip{
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.76);
+    color: #fff;
+    text-align: center;
+    padding: .5rem 0;
+    border-radius: 6px;
+    font-weight: 100;
+    /* Position the tooltip text - see examples below! */
+    width: 6em;
+    right: 100%; 
+    position: absolute;
+    z-index: 1;
+}
+
+.blindDef:hover .tip{
+    visibility: visible;
+}
