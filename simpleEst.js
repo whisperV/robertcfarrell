@@ -20,14 +20,27 @@ function showItems(showMe){
 }
 
 let iDeds = document.getElementById("itemDed");
+let noDeds = document.getElementById("nDed");
 
 function showDeducts(){
   if(iDeds.checked === true){
     iDed.className='';
+    noDeds.checked = false;
   } else {
     document.getElementById('iDeduction').value=0;
     iDed.className='hideMe';    
   } 
+}
+
+function noDeducts(){
+  if(noDeds.checked == true){
+    iDeds.checked = false;
+    document.getElementById('iDeduction').value=0;
+    iDed.className='hideMe';  
+  } else {
+    iDed.className='';
+  }
+
 }
 
 let depTypes = document.getElementById("dependents");
@@ -107,7 +120,7 @@ function calcIt (info){
         tSight= formInfo.sight.checked,
         tSSight= formInfo.spSight.checked,
         tDependents= formInfo.dependents.value,
-        tODeps= formInfo.oDeps.value,
+        tODeps= formInfo.noDeps.value,
         tGrossWages= formInfo.grossWages.value;
         iDedVal= formInfo.iDeduction.value;
 
@@ -121,7 +134,9 @@ function calcIt (info){
         oDeps: tODeps,
         grossWages: tGrossWages
     }    
-        
+  
+    console.log(taxpayer.oDeps);
+
     //For sending answer to window
     let taxResult = document.getElementById('taxOwed');
     let ficaResult = document.getElementById('fica');
