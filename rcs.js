@@ -159,7 +159,7 @@ function initCalc(info){
         fIspWP = formInfo.spWP.checked,
         fIagi = formInfo.agi.value,  
         fIdeductionS = formInfo.itemS.checked,
-        fIdeductionI = formInfo.itemD.checed,
+        fIdeductionI = formInfo.itemD.checked,
         fIdeductionAmount = formInfo.itemizedDeductions.value,      
         fIaddbacks = [
             formInfo.addBack1.value, 
@@ -183,7 +183,7 @@ function initCalc(info){
         spWP: fIspWP,
         agi: fIagi*1,
         sID: fIdeductionS,
-        iID: fIdeductionI,
+        iID: fIdeductionI*1,
         iDedAmt: fIdeductionAmount*1,
         //acc -> accumulator, the eventual output value when function completes. curr -> current value to add to acc. 0 is default value if array is empty
         addbacks: fIaddbacks.reduce((acc, curr) => acc*1 + curr*1, 0) 
@@ -222,13 +222,14 @@ function getTaxableInc(tPayer){
     let tInc = 0;
     let appTier = Object.keys(standard).filter(currStat => currStat == tPayer.filingStatus);
 
-    //tInc = tPayer.sID ? tPayer.agi - standard[''] : tPayer.agi - tPayer.iID
+    //tInc = tPayer.sID ? tPayer.agi - standard[''] : tPayer.agi - tPayer.iDedAmt
 
     if(tPayer.sID){
         tInc = tPayer.agi - standard[appTier];
         tInc = Math.max(0, tInc);
     } else {
-        tInc = tPayer.agi - tPayer.iID;
+        console.log(tPayer.iDedAmt);
+        tInc = tPayer.agi - tPayer.iDedAmt;
         tInc = Math.max(0, tInc);
     }
     return(tInc);
@@ -240,7 +241,6 @@ function adjustLimit(tPayer){
     // let taxInc = getTaxableInc(tPayer);
 
     let taxIncome = getTaxableInc(tPayer);
-    console.log(taxIncome);
     
     //check filing status, adjust limit accordingly
     if(statusCheck.length > 0){
