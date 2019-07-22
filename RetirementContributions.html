@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Bootstrap stylesheets -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- custom stylesheets -->
+        <link rel="stylesheet" href="rcs.css?v1.1">
+    </head>
+
+    <body class="bground">
+<!-- NAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBAR -->
+        <div class="navbar-wrapper">
+            <nav class="navbar navbar-expand-md navbar-dark justify-content-between" style="background-color: #161616;">         
+                <div class="navbar-nav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="https://www.robertcfarrrell.com">HOME <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:history.back()">BACK</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            App List
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://www.robertcfarrell.com/SimpleTaxEstimator.html">Simple Tax Estimator</a>
+                            <a class="dropdown-item" href="https://www.robertcfarrell.com/RetirementContributions.html">Retirement Contribution Calculator</a>
+                            <a class="dropdown-item" href="#">Placeholder</a>
+                            </div>
+                        </li>                    
+                    </ul>
+                </div>
+                <span class="navbar-brand logo"></span>     
+            </nav>
+        </div>
+<!-- NAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBARNAVBAR -->
+
+    <div class="container">
+        <div class = "readable">
+            <br>
+            <h1 class = "appName">Retirement Contribution Calculator</h1>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <form name ="info" onsubmit="initCalc(info); return false">                  
+                        <div>
+                            <label for="sight"> Would you like to contribute to a Roth or Traditional IRA? </label>
+                                <ul>
+                                    <li></li><input type="radio" name="iraType" formControlName="iraType" value="trad" onchange="showTitems(this.value)"> Traditional
+                                    <li></li><input type="radio" name="iraType" formControlName="iraType" value="roth" onchange="showTitems(this.value)"> Roth
+                                </ul>
+                        </div>
+                        
+                        <label for="filingStatus">Choose a filing status:</label> &nbsp;
+                        <select name="filingStatus" id="filingStatus" onchange="showMarried(this.value)">
+                            <option value="single">Single</option>
+                            <option value="mFJ">Married, Filing Joint</option>
+                            <option value="mFS">Married, Filing Separate and lived apart</option>
+                            <option value="mFSlw">Married, Filing Separate but lived together</option>
+                            <option value="hOH">Head of Household</option>
+                            <option value="mFJ">Qualifying Widow/er</option>
+                        </select>
+
+                        <div>
+                            <label for="sight"> Are you taking the standard deduction or itemizing? </label>
+                                <ul>
+                                    <li></li><input type="radio" id="itemS" name="dedType" onchange="itemizedAmount()"> Standard
+                                    <li></li><input type="radio" id="itemD" name="dedType" onchange="itemizedAmount()"> Itemized 
+                                    <span class="hideMe" id="itemizedDeds">
+                                        <label for="madeContribs"> Amount: </label>
+                                        <input type="number" min="0" max="99999999" name="itemizedDeductions" id="itemizedDeductions">
+                                    </span>
+                                </ul>
+                        </div>
+                        
+
+                        <div>
+                            <label for="priorContribs"> Check here if you<span class="hideMe" name="spouseItem">, or your spouse,</span> have already contributed to any type of IRA this year:</label>
+                                &nbsp;
+                                <input type="checkbox" name="priorContribs" id="priorContribs" onchange="pContribs()">
+                                <br>
+                                <span class="hideMe" id="showContribs">
+                                    <label for="madeContribs"> Amount: </label>
+                                    <input type="number" min="0" max="99999999" plcaeholder="0" step="1" name="madeContribs" id="madeContribs">
+                                </span>
+                               <span class="hideMe" id="showDedContrib">&nbspOf this amount, how much have you deducted?
+                                    <!-- <label for="addBack1">&nbsp Amount: </label> -->
+                                        <input type="number" min="0" max="99999999" name="addBack" id="addBack1" placeholder="0" step="1"></span></span>
+                        </div>
+                        
+                        <div>
+                            <label for="age"> Check if you are over 50: </label>&nbsp;
+                            <input type="checkbox" name="age" id="age">
+                        </div>
+
+                        <div class="hideMe" id="spouseAge" name="spouseItem">
+                            <label for="spAge"> Check if your spouse is over 50: </label>&nbsp;
+                            <input type="checkbox" name="spAge" id="spAge">
+                        </div>
+
+                        <!-- Applies to Traditional IRAs contribution deductibility -->
+                        <div class="hideMe" id="spRetPlan">
+                            <label for="workPlan"> Check here if you have a retirement plan through your employer: </label>&nbsp;&nbsp;
+                            <input type="checkbox" name="workPlan" id="workPlan"> 
+                            <span class="hideMe" name="spouseItem"><label for="spWP">And here if your spouse is enrolled in an employer plan: </label>
+                                <input type="checkbox" id="spWP">
+                            </span>
+                        </div>
+
+                        <div>
+                            <label for="agi"> Enter your adjusted gross income from you tax return: </label>
+                            <input type="number" name="agi" placeholder="0" min="0" step="1" id="agi">
+                        </div>
+
+
+                        <div> Check all that apply:
+                            <ul>
+                                <li><input type="checkbox" name="addBackCheck" onclick="showAddbacks()"><label for="addBack2Check">&nbsp Took a deduction for student loan interest paid.</label>
+                                    <span class="hideMe" name="addBackAmt"><label for="addBack1">&nbsp Amount: </label>
+                                        <input type="number" min="0" max="99999999" name="addBack" id="addBack2" placeholder="0"> </span></li>
+        
+                                <li><input type="checkbox" name="addBackCheck" onclick="showAddbacks()"><label for="addBack3Check">&nbsp Took a deduction for qualified tuition and fees paid.</label>
+                                    <span class="hideMe" name="addBackAmt"><label for="addBack1">&nbsp Amount: </label>
+                                        <input type="number" min="0" max="99999999" name="addBack" id="addBack3" placeholder="0"> </span></li>
+        
+                                <li><input type="checkbox"name="addBackCheck" onclick="showAddbacks()"><label for="addBack4Check">&nbsp Took a deduction for domestic production activity.</label>
+                                    <span class="hideMe"  name="addBackAmt"><label for="addBack1">&nbsp Amount: </label>
+                                        <input type="number" min="0" max="99999999" name="addBack" id="addBack4" placeholder="0"> </span></li>
+        
+                                <li><input type="checkbox" name="addBackCheck" onclick="showAddbacks()"><label for="addBack5Check">&nbsp Excluded foreign earned income or housing. Found on Form 2555, line 45.</label>
+                                    <span class="hideMe" name="addBackAmt"><label for="addBack1">&nbsp Amount: </label>
+                                        <input type="number" min="0" max="99999999" name="addBack" id="addBack5" placeholder="0"> </span></li>
+        
+                                <li><input type="checkbox" name="addBackCheck" onclick="showAddbacks()"><label for="addBack6Check">&nbsp Deducted for foreign housing. Found on Form 2555, line 50.</label>
+                                    <span class="hideMe" name="addBackAmt"><label for="addBack1">&nbsp Amount: </label>
+                                        <input type="number" min="0" max="99999999" name="addBack" id="addBack6" placeholder="0"></span></li>
+        
+                                <li><input type="checkbox" name="addBackCheck" onclick="showAddbacks()"><label for="addBack7Check">&nbsp Any qualified savings bonds interest excluded Found on form 8815, line 14.</label>
+                                    <span class="hideMe" name="addBackAmt"><label for="addBack1">&nbsp Amount: </label>
+                                        <input type="number" min="0" max="99999999" name="addBack" id="addBack7"placeholder="0"> </span></li>
+        
+                                <li><input type="checkbox" name="addBackCheck" onclick="showAddbacks()"><label for="addBack8Check">&nbsp Any excludable employer-provided adoption benefits. Found on Form 8839, line 28.</label>
+                                    <span class="hideMe" name="addBackAmt"><label for="addBack1">&nbsp Amount: </label>
+                                        <input type="number" min="0" max="99999999" name="addBack" id="addBack8" placeholder="0"></span></li>
+
+                                <li><input name="noAddbacks" type="checkbox"><label for="noAddbacks">&nbsp None of these apply.</label></li>
+                            </ul>
+                        </div>
+                        <br>
+
+                        <div class="col" id="centerBot">
+                            <button class="btn btn-lg btn-primary" type="submit">Calculate</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-sm btn-success" onclick="clearOutput()">Clear</button>
+                        </div>                   
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <h1 class="output" id="results"> OUTPUT </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+     
+           
+
+<!-- Bootstrap scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!-- custom scripts -->
+<script src="rcs.js" type="application/javascript" crossorigin="anonymous"></script>
+    </body>
+</html>
