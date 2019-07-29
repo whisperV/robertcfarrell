@@ -3,6 +3,7 @@
 // CREATE NAMESPACE?
 
 const ht = document.documentElement; //documentElement is the HTML canvas
+const bod = document.getElementsByTagName("body");
 const blogBut = document.getElementById("blogHug");
 const devBut = document.getElementById("devHug");
 const taxBut = document.getElementById("taxHug");
@@ -19,6 +20,8 @@ const hBut4 = document.getElementById("homeBut4");
 const mDiv = document.getElementById("mainDiv");
 const secDiv = document.getElementById("secondDiv");
 const artist = document.getElementById("imageCredit");
+const loader = document.getElementById("loadIt");
+const devButText = document.getElementById("devLoad");
 
 // ID.EVENT = function call
 // script injection has to be at the end of html
@@ -37,6 +40,7 @@ homeBut2.onclick = resetIt;
 homeBut3.onclick = resetIt;
 homeBut4.onclick = resetIt;
 
+
 function taxIt(event){
     //mouseover on *Hug button appends a class to the HTML element
     if (event.type == 'click') {
@@ -54,6 +58,9 @@ function taxIt(event){
         taxAppsBut.className='customBut';
         taxArtBut.className='customBut';
         hBut3.className='backLink';
+
+        devButText.className="";
+        loader.className="hideMe";
 
         artist.innerHTML='Photo by Kelly Sikkema on Unsplash';
         
@@ -79,6 +86,9 @@ function blogIt(event){
         col2.className="reOrg devOrg";
         col3.className="hideMe";
 
+        devButText.className="";
+        loader.className="hideMe";
+
         hBut2.className='backLink';
 
         artist.innerHTML='Photo by Alejandro Benėt on Unsplash';
@@ -99,7 +109,10 @@ function aboutIt(event){
         mDiv.className='hideMe';
         secDiv.className='';
 
-        artist.innerHTML='Photo by Elliott Engelmann on Unsplash';
+        devButText.className="";
+        loader.className="hideMe";
+
+        artist.innerHTML='Photo by Joss Woodhead on Unsplash';
     }
     else if (event.type == 'mouseover') {
         ht.className='aboutRound';
@@ -116,6 +129,10 @@ function devIt(event){
     //mouseover on *Hug button appends a class to the HTML element
     if (event.type == 'click') {
         ht.className='devRound';
+
+        loader.className="";
+        devButText.className="hideMe";
+
         artist.innerHTML='Photo by Wilmer Martinez on Unsplash';
     }
     else if (event.type == 'mouseover') {
@@ -151,6 +168,14 @@ function resetIt () {
     secDiv.className='hideMe';
     mDiv.className='centeredSubEle';
 
+    devButText.className="";
+    loader.className="hideMe";
+
     artist.innerHTML='Marc-Olivier Jodoin on Unsplash';
    
 }
+
+// function showLoader(){
+//     loader.className='hideMe';
+//     devButText.className=''
+// }

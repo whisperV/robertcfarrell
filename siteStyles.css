@@ -1,16 +1,3 @@
 
 
 
-.centeredSubEle{
-    /* background-image: linear-gradient(black, white, black);
-    border: 2em groove red;
-    border-radius: 50%; */
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    height: 50%;
-    width: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);    
-}

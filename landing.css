@@ -1,7 +1,7 @@
 html{
     height: 100%;
     margin: 0;
-    background-image: url("fast.jpg");
+    background-image: url("src/assets/fast.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: black;
@@ -13,31 +13,32 @@ html{
 }
 
 .taxRound{
-    background-image: url("tax.jpg"); 
+    background-image: url("src/assets/tax.jpg"); 
     transition-timing-function: ease-in-out;
     transition: background-image 1s;
     transition-delay: .05s;
 }
 
 .blogRound{
-    background-image: url("street.jpg");
+    background-image: url("src/assets/street.jpg");
     transition-timing-function: ease-in-out;
     transition: background-image 1s;
     transition-delay: .05s;
 }
 
 .devRound{
-    background-image: url("sweet.jpg");
+    background-image: url("src/assets/sweet.jpg");
     transition-timing-function: ease-in-out;
     transition: background-image 1s;
     transition-delay: .05s;
 }
 
 .aboutRound{
-    background-image: url("mount.jpg");
+    background-image: url("src/assets/joss-woodhead-mJ35U595uhA-unsplash.jpg");
     transition-timing-function: ease-in-out;
     transition: background-image 1s;
     transition-delay: .05s;
+    background-color: black;
 }
 
 .leftCol{
@@ -59,10 +60,8 @@ html{
     align-items: center;
     height: 100%;
     width: 100%;
-    
-   
 
-    /*DRAW LINES HERE*/
+    /*DRAW LINES HERE ?*/
 }
 
 .rightCol{
@@ -71,11 +70,65 @@ html{
     flex-direction: row;
     align-items: center;
     height: 100%;
-    width: 80%;
-
-    
+    width: 80%;    
 }
 
+@media only screen and (max-width: 500px){
+    .customBut{
+        font-size: .60em;
+        /* max-width: 25%;
+        height: 5em; */
+        padding: .55em;
+        border-radius: 15%;
+        text-decoration: none;
+        outline: none;
+        color: rgb(212, 211, 211);
+        background-color: rgba(0, 0, 0, .75);
+        border: 4px inset rgb(193, 241, 255);
+        font-family: 'Audiowide', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        transition: transform .5s;
+    }
+
+    .customBut:hover{
+        transform: scale(1.25);
+        color: rgb(212, 211, 211);
+        background-color: rgba(0, 0, 0, .85);
+        border: 4px outset rgb(193, 241, 255);   
+    }        
+
+    .customBut:active{
+        transform: scale(.25);
+    }
+}
+
+@media only screen and (max-width: 1800px) and (min-width: 501px){
+    .customBut{
+        font-size: 1.25em;
+        /* max-width: 25%;
+        height: 5em; */
+        padding: .55em;
+        border-radius: 15%;
+        text-decoration: none;
+        outline: none;
+        color: rgb(212, 211, 211);
+        background-color: rgba(0, 0, 0, .75);
+        border: 4px inset rgb(193, 241, 255);
+        font-family: 'Audiowide', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        transition: transform .5s;
+    }
+
+    .customBut:hover{
+        transform: scale(1.25);
+        color: rgb(212, 211, 211);
+        background-color: rgba(0, 0, 0, .85);
+        border: 4px outset rgb(193, 241, 255);  
+        box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }        
+
+    .customBut:active{
+        transform: scale(.25);
+    }
+}
 .customBut{
     font-size: 2.75em;
     padding: .55em;
@@ -99,6 +152,9 @@ html{
     box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 } 
 
+.customBut:active{
+    transform: scale(.55);
+}
 
 /* .buttonHug{
     border: 2px solid rgb(212, 211, 211);
@@ -194,4 +250,73 @@ html{
     font-family: 'Audiowide', serif;
     font-style: italic;
     font-size: 80%;
+}
+
+
+@keyframes spinner-border {
+    to { transform: rotate(360deg); }
+  }
+  
+  .spinner-border {
+    display: inline-block;
+    width: 2rem;
+    height: auto;
+    vertical-align: text-bottom;
+    border: .25em solid currentColor;
+    border-right-color: transparent;
+    /* stylelint-disable-next-line property-blacklist */
+    border-radius: 50%;
+    animation: spinner-border .75s linear infinite;
+  }
+  
+  .spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: .2em;
+  }
+  
+  /*
+   Growing circle -- Bootstrap
+  */
+  
+  @keyframes spinner-grow {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .spinner-grow {
+    display: inline-block;
+    width: 2.85rem;
+    height: 2.85rem;
+    vertical-align: text-bottom;
+    background-color: currentColor;
+    /* // stylelint-disable-next-line property-blacklist */
+    border-radius: 50%;
+    opacity: 0;
+    animation: spinner-grow .75s linear infinite;
+  }
+  
+  .spinner-grow-sm {
+    width: 1rem;
+    height: auto;
+  }
+
+.sr-only,
+.sr-only-focusable:not(:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+#loadIt{
+    font-size: 1.2rem;
 }
