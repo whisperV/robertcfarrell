@@ -1,7 +1,7 @@
 html{
     height: 100%;
     margin: 0;
-    background-image: url("src/assets/fast.jpg");
+    background-image: url("/assets/fast.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: black;
@@ -13,28 +13,28 @@ html{
 }
 
 .taxRound{
-    background-image: url("src/assets/tax.jpg"); 
+    background-image: url("/assets/tax.jpg"); 
     transition-timing-function: ease-in-out;
     transition: background-image 1s;
     transition-delay: .05s;
 }
 
 .blogRound{
-    background-image: url("src/assets/street.jpg");
+    background-image: url("/assets/street.jpg");
     transition-timing-function: ease-in-out;
     transition: background-image 1s;
     transition-delay: .05s;
 }
 
 .devRound{
-    background-image: url("src/assets/sweet.jpg");
+    background-image: url("/assets/sweet.jpg");
     transition-timing-function: ease-in-out;
     transition: background-image 1s;
     transition-delay: .05s;
 }
 
 .aboutRound{
-    background-image: url("src/assets/joss-woodhead-mJ35U595uhA-unsplash.jpg");
+    background-image: url("/assets/joss-woodhead-mJ35U595uhA-unsplash.jpg");
     transition-timing-function: ease-in-out;
     transition: background-image 1s;
     transition-delay: .05s;
