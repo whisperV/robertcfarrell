@@ -27,8 +27,8 @@
                             App List
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="https://www.robertcfarrell.com/SimpleTaxEstimator.html">Simple Tax Estimator</a>
-                            <a class="dropdown-item" href="https://www.robertcfarrell.com/RetirementContributions.html">Retirement Contribution Calculator</a>
+                            <a class="dropdown-item" href="/Src/SimpleTaxEstimator.html">Simple Tax Estimator</a>
+                            <a class="dropdown-item" href="/Src/RetirementContributions.html">Retirement Contribution Calculator</a>
                             <a class="dropdown-item" href="#">Placeholder</a>
                             </div>
                         </li>                    
@@ -142,9 +142,56 @@
                             </span>
                         </div>
 
+                        <div class="popIt" id="SocSecInc">
+                            <label for="sSI"> Check here if you,<span class="hideMe" name="spouseItem"> your spouse, or both of you,</span> are receiving Social Security Income: </label>&nbsp;&nbsp;
+                            <input type="checkbox" name="sSI" id="sSI" onchange="showSSI()"> 
+                        </div>
+                        <span class="hideMe" id="totalSSI" name="ssiItems">&nbspWhat is the total Social Secuity income for your household?
+                            <div class="form-group form-inline">
+                                 <div class="input-group">
+                                     <label for="hSSI">&nbsp Amount: &nbsp</label>
+                                         <div class="input-group-prepend">
+                                             <span class="input-group-text">$</span>
+                                         </div>
+                                         <input class="form-control" type="number" min="0" max="99999999" name="hSSI" id="hSSI" placeholder="0" step="1"></span>
+                                         <div class="input-group-append">
+                                             <span class="input-group-text">.00</span>
+                                         </div>
+                                 </div>
+                             </div>
+                         </span>
+                         <span class="hideMe" id="exemptInt" name="ssiItems">&nbspHow much, if any, tax exempt interest did you report on line 2a from your 1040?
+                            <div class="form-group form-inline">
+                                 <div class="input-group">
+                                     <label for="exInt">&nbsp Amount: &nbsp</label>
+                                         <div class="input-group-prepend">
+                                             <span class="input-group-text">$</span>
+                                         </div>
+                                         <input class="form-control" type="number" min="0" max="99999999" name="exInt" id="exInt" placeholder="0" step="1"></span>
+                                         <div class="input-group-append">
+                                             <span class="input-group-text">.00</span>
+                                         </div>
+                                 </div>
+                             </div>
+                         </span>
+                         <span class="hideMe" id="exemptInt" name="ssiItems">&nbspHow much, if any, US possession income did you exclude? Include income excluded as a bona fide resident of PR.
+                            <div class="form-group form-inline">
+                                 <div class="input-group">
+                                     <label for="exclInc">&nbsp Amount: &nbsp</label>
+                                         <div class="input-group-prepend">
+                                             <span class="input-group-text">$</span>
+                                         </div>
+                                         <input class="form-control" type="number" min="0" max="99999999" name="exInt" id="exclInc" placeholder="0" step="1"></span>
+                                         <div class="input-group-append">
+                                             <span class="input-group-text">.00</span>
+                                         </div>
+                                 </div>
+                             </div>
+                         </span>
+
                         <div class="popIt form-group form-inline">
                             <div class="input-group">
-                                <label for="agi"> Enter your adjusted gross income from you tax return: </label>&nbsp;
+                                <label for="agi"> Enter your adjusted gross income from your tax return </label><span class="hideMe" name="ssiItems"> <em>but do not include the amounts from your SSA-1099</em>:&nbsp;</span>
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">$</span>
                                 </div>
