@@ -1,0 +1,338 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Bootstrap stylesheets -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+            crossorigin="anonymous">
+
+        <!-- custom stylesheets -->
+        <link rel="stylesheet" href="rcs.css?v1.1">
+    </head>
+
+    <body class="bground">
+
+        <div class="navbar-wrapper">
+            <nav class="navbar navbar-expand-md navbar-dark justify-content-between" style="background-color: #161616;">         
+                <div class="navbar-nav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="https://www.robertcfarrell.com">HOME <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:history.back()">BACK</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            App List
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/Src/SimpleTaxEstimator.html">Simple Tax Estimator</a>
+                            <a class="dropdown-item" href="/Src/RetirementContributions.html">Retirement Contribution Calculator</a>
+                            <a class="dropdown-item" href="#">Placeholder</a>
+                            </div>
+                        </li>                    
+                    </ul>
+                </div>
+                <span class="navbar-brand logo"></span>     
+            </nav>
+        </div>
+
+    <div class="container">
+        <div class = "readable">
+            <br>
+            <h1 class = "appName">Retirement Contribution Calculator</h1>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <form name ="info" onsubmit="initCalc(info); return false">                  
+                        <div class="popIt">
+                            <label for="sight"> Would you like to contribute to a Roth or Traditional IRA? </label>
+                                <ul>
+                                    <li></li><input type="radio" name="iraType" formControlName="iraType" value="trad" onchange="showTitems(this.value)"> Traditional
+                                    <li></li><input type="radio" name="iraType" formControlName="iraType" value="roth" onchange="showTitems(this.value)"> Roth
+                                </ul>
+                        </div>
+                        <div class="form-group form-inline popIt">
+                            <label for="filingStatus">Choose a filing status:</label> &nbsp;&nbsp;
+                            <select class="custom-select" name="filingStatus" id="filingStatus" onchange="showMarried(this.value)">
+                                <option value="single">Single</option>
+                                <option value="mFJ">Married, Filing Joint</option>
+                                <option value="mFS">Married, Filing Separate and lived apart</option>
+                                <option value="mFSlw">Married, Filing Separate but lived together</option>
+                                <option value="hOH">Head of Household</option>
+                                <option value="mFJ">Qualifying Widow/er</option>
+                            </select>
+                        </div>
+
+                        <div class="popIt">
+                            <label for="sight"> Are you taking the standard deduction or itemizing? </label>
+                                <ul>
+                                    <li></li><input type="radio" id="itemS" name="dedType" onchange="itemizedAmount()"> Standard
+                                    <li></li><input type="radio" id="itemD" name="dedType" onchange="itemizedAmount()"> Itemized 
+                                    <span class="hideMe" id="itemizedDeds">
+                                        <div class="form-group form-inline">
+                                            <div class="input-group">
+                                                <label for="madeContribs"> Amount: </label>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">$</span>
+                                                </div>
+                                                <input class="form-control" type="number" min="0" max="99999999" name="itemizedDeductions" id="itemizedDeductions">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </ul>
+                        </div>
+                        
+
+                        <div class="popIt">
+                            <label for="priorContribs"> Check here if you<span class="hideMe" name="spouseItem">, or your spouse,</span> have already contributed to an IRA this year:</label>
+                                &nbsp;
+                                <input type="checkbox" name="priorContribs" id="priorContribs" onchange="pContribs()">
+                                <br>
+                                <span class="hideMe" id="showContribs">
+                                    <div class="form-group form-inline">
+                                        <div class="input-group">
+                                            <label for="madeContribs">&nbsp Amount: &nbsp</label>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input class="form-control" type="number" min="0" max="99999999" plcaeholder="0" step="1" name="madeContribs" id="madeContribs">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                               <span class="hideMe" id="showDedContrib">&nbspOf this amount, how much have you deducted?
+                                   <div class="form-group form-inline">
+                                        <div class="input-group">
+                                            <label for="addBack1">&nbsp Amount: &nbsp</label>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">$</span>
+                                                </div>
+                                                <input class="form-control" type="number" min="0" max="99999999" name="addBack" id="addBack1" placeholder="0" step="1"></span>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">.00</span>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </span>
+                        </div>
+                        
+                        <div class="popIt">
+                            <label for="age"> Check if you are over 50: </label>&nbsp;
+                            <input type="checkbox" name="age" id="age">
+                        </div>
+
+                        <div class="hideMe popIt" id="spouseAge" name="spouseItem">
+                            <label for="spAge"> Check if your spouse is over 50: </label>&nbsp;
+                            <input type="checkbox" name="spAge" id="spAge">
+                        </div>
+
+                        <!-- Applies to Traditional IRAs contribution deductibility -->
+                        <div class="hideMe popIt" id="spRetPlan">
+                            <label for="workPlan"> Check here if you have a retirement plan through your employer: </label>&nbsp;&nbsp;
+                            <input type="checkbox" name="workPlan" id="workPlan"> 
+                            <span class="hideMe" name="spouseItem"><label for="spWP">And here if your spouse is enrolled in an employer plan: </label>
+                                <input type="checkbox" id="spWP">
+                            </span>
+                        </div>
+
+                        <div class="popIt" id="SocSecInc">
+                            <label for="sSI"> Check here if you,<span class="hideMe" name="spouseItem"> your spouse, or both of you,</span> are receiving Social Security Income: </label>&nbsp;&nbsp;
+                            <input type="checkbox" name="sSI" id="sSI" onchange="showSSI()"> 
+                        </div>
+                        <span class="hideMe" id="totalSSI" name="ssiItems">&nbspWhat is the total Social Secuity income for your household?
+                            <div class="form-group form-inline">
+                                 <div class="input-group">
+                                     <label for="hSSI">&nbsp Amount: &nbsp</label>
+                                         <div class="input-group-prepend">
+                                             <span class="input-group-text">$</span>
+                                         </div>
+                                         <input class="form-control" type="number" min="0" max="99999999" name="hSSI" id="hSSI" placeholder="0" step="1"></span>
+                                         <div class="input-group-append">
+                                             <span class="input-group-text">.00</span>
+                                         </div>
+                                 </div>
+                             </div>
+                         </span>
+                         <span class="hideMe" id="exemptInt" name="ssiItems">&nbspHow much, if any, tax exempt interest did you report on line 2a from your 1040?
+                            <div class="form-group form-inline">
+                                 <div class="input-group">
+                                     <label for="exInt">&nbsp Amount: &nbsp</label>
+                                         <div class="input-group-prepend">
+                                             <span class="input-group-text">$</span>
+                                         </div>
+                                         <input class="form-control" type="number" min="0" max="99999999" name="exInt" id="exInt" placeholder="0" step="1"></span>
+                                         <div class="input-group-append">
+                                             <span class="input-group-text">.00</span>
+                                         </div>
+                                 </div>
+                             </div>
+                         </span>
+                         <span class="hideMe" id="exemptInt" name="ssiItems">&nbspHow much, if any, US possession income did you exclude? Include income excluded as a bona fide resident of PR.
+                            <div class="form-group form-inline">
+                                 <div class="input-group">
+                                     <label for="exclInc">&nbsp Amount: &nbsp</label>
+                                         <div class="input-group-prepend">
+                                             <span class="input-group-text">$</span>
+                                         </div>
+                                         <input class="form-control" type="number" min="0" max="99999999" name="exInt" id="exclInc" placeholder="0" step="1"></span>
+                                         <div class="input-group-append">
+                                             <span class="input-group-text">.00</span>
+                                         </div>
+                                 </div>
+                             </div>
+                         </span>
+
+                        <div class="popIt form-group form-inline">
+                            <div class="input-group">
+                                <label for="agi"> Enter your adjusted gross income from your tax return </label><span class="hideMe" name="ssiItems"> <em>but do not include the amounts from your SSA-1099</em>:&nbsp;</span>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input class="form-control" type="number" name="agi" placeholder="0" min="0" step="1" id="agi">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div> Check all that apply:
+                            <ul>
+                                <li class="popIt"><label for="addBack2Check"><input type="checkbox" name="addBackCheck" onclick="showAddbacks()"></label>&nbsp Took a deduction for student loan interest paid.</label>
+                                    <span class="hideMe" name="addBackAmt">
+                                        <div class="input-group">
+                                            <label for="addBack2">&nbsp Amount: &nbsp</label>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="number" min="0" max="99999999" name="addBack" id="addBack2" placeholder="0">  <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </li>
+                                       
+        
+                                <li class="popIt"><label for="addBack3Check"><input type="checkbox" name="addBackCheck" onclick="showAddbacks()">&nbsp Took a deduction for qualified tuition and fees paid.</label>
+                                    <span class="hideMe" name="addBackAmt">
+                                        <div class="input-group">
+                                            <label for="addBack3">&nbsp Amount: &nbsp</label>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="number" min="0" max="99999999" name="addBack" id="addBack3" placeholder="0"> <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </li>
+        
+                                <li class="popIt"><label for="addBack4Check"><input type="checkbox"name="addBackCheck" onclick="showAddbacks()">&nbsp Took a deduction for domestic production activity.</label>
+                                    <span class="hideMe"  name="addBackAmt">
+                                        <div class="input-group">    
+                                            <label for="addBack4">&nbsp Amount: &nbsp</label>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="number" min="0" max="99999999" name="addBack" id="addBack4" placeholder="0"><div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div> 
+                                        </div>
+                                    </span>
+                                </li>
+        
+                                <li class="popIt"><label for="addBack5Check"><input type="checkbox" name="addBackCheck" onclick="showAddbacks()">&nbsp Excluded foreign earned income or housing. Found on Form 2555, line 45. <br></label>
+                                    <span class="hideMe" name="addBackAmt">
+                                        <div class="input-group">   
+                                            <label for="addBack5">&nbsp Amount: &nbsp</label>
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="number" min="0" max="99999999" name="addBack" id="addBack5" placeholder="0"><div class="input-group-append">
+                                                    <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </li>
+        
+                                <li class="popIt"><label for="addBack6Check"><input type="checkbox" name="addBackCheck" onclick="showAddbacks()">&nbsp Deducted for foreign housing. Found on Form 2555, line 50.</label><br>
+                                    <span class="hideMe" name="addBackAmt">
+                                        <div class="input-group">  
+                                            <label for="addBack6">&nbsp Amount: &nbsp</label>
+                                            <div class="input-group-prepend">
+                                                 <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="number" min="0" max="99999999" name="addBack" id="addBack6" placeholder="0"><div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </li>
+        
+                                <li class="popIt"><label for="addBack7Check"><input type="checkbox" name="addBackCheck" onclick="showAddbacks()">&nbsp Any qualified savings bonds interest excluded Found on form 8815, line 14.</label>
+                                    <span class="hideMe" name="addBackAmt">
+                                        <div class="input-group">   
+                                            <label for="addBack7">&nbsp Amount: &nbsp</label>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="number" min="0" max="99999999" name="addBack" id="addBack7"placeholder="0"><div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </li>
+        
+                                <li class="popIt"><label for="addBack8Check"><input type="checkbox" name="addBackCheck" onclick="showAddbacks()">&nbsp Any excludable employer-provided adoption benefits. Form 8839, line 28. <br></label>
+                                    <span class="hideMe" name="addBackAmt">
+                                        <div class="input-group">  
+                                            <label for="addBack8">&nbsp Amount: &nbsp</label>
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text">$</span>
+                                            </div>
+                                            <input type="number" min="0" max="99999999" name="addBack" id="addBack8" placeholder="0"><div class="input-group-append">
+                                                    <span class="input-group-text">.00</span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </li>
+
+                                <li class="popIt"><label for="noAddbacks"><input name="noAddbacks" id="clearIt" type="checkbox" onchange="clearAddbacks()">&nbsp None of these apply.</label></li>
+                            </ul>
+                        </div>
+                        <br>
+
+                        <div class="col" id="centerBot">
+                            <button class="btn btn-lg btn-primary" type="submit">Calculate</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-sm btn-success" onclick="clearOutput()">Clear</button>
+                        </div>                   
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <h1 class="output" id="results"> Hello! </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+     
+           
+
+<!-- Bootstrap scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!-- custom scripts -->
+<script src="rcs.js" type="application/javascript" crossorigin="anonymous"></script>
+    </body>
+</html>
