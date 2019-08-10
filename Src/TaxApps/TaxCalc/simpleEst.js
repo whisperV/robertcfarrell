@@ -37,8 +37,6 @@ function noDeducts(){
     iDeds.checked = false;
     document.getElementById('iDeduction').value=0;
     iDed.className='hideMe';  
-  } else {
-    iDed.className='';
   }
 
 }
