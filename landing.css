@@ -85,7 +85,7 @@ html{
         color: rgb(212, 211, 211);
         background-color: rgba(0, 0, 0, .75);
         border: 4px inset rgb(193, 241, 255);
-        font-family: 'Audiowide', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-family: 'Audiowide', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         transition: transform .5s;
     }
 
@@ -113,7 +113,7 @@ html{
         color: rgb(212, 211, 211);
         background-color: rgba(0, 0, 0, .75);
         border: 4px inset rgb(193, 241, 255);
-        font-family: 'Audiowide', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-family: 'Audiowide', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         transition: transform .5s;
     }
 
@@ -138,7 +138,7 @@ html{
     color: rgb(212, 211, 211);
     background-color: rgba(0, 0, 0, .75);
     border: 4px inset rgb(193, 241, 255);
-    font-family: 'Audiowide', cursive;
+    font-family: 'Audiowide', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: font-size .5s, padding .5s, transform .5s;
    
 }
@@ -216,7 +216,7 @@ html{
     /* background-image: radial-gradient( rgba(50, 27, 252, 0.514), rgba(0, 0, 0, 0.514)); */
     border: none;
     border: 4px outset rgb(0, 0, 0);
-    font-family: 'Audiowide', cursive;
+    font-family: 'Audiowide', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .home{
@@ -247,7 +247,7 @@ html{
     left: 0; 
     position: fixed;
     color: rgba(109, 64, 139, 0.8);
-    font-family: 'Audiowide', serif;
+    font-family: 'Audiowide', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
     font-size: 80%;
 }
