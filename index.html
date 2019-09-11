@@ -5,22 +5,6 @@
 <head>
     <!-- META Info -->
 
-    <!-- 
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="-1" /> -->
-    
-    
-    <!-- Preload images-->
-
-    <link rel="preload" href="/assets/fast.jpg" as="image">
-    <link rel="preload" href="/assets/street.jpg" as="image">
-    <link rel="preload" href="/assets/tax.jpg" as="image">
-    <link rel="preload" href="/assets/sweet.jpg" as="image">
-    <link rel="preload" href="/assets/kelly-sikkema-G_91H-3qZOA-unsplash.jpg" as="image">
-    <link rel="preload" href="/assets/joss-woodhead-mJ35U595uhA-unsplash.jpg" as="image">
-    
-    
     <!-- STYLESHEETS -->
 
     <link rel="stylesheet" type="text/css" href="siteStyles.css?v1.0">
@@ -54,35 +38,28 @@
     <div id="mainDiv" class="centeredSubEle">
         <div id="col1" class="leftCol">
             <div> 
-                <a href="#"><button id="devHug" class="customBut"><span id="devLoad" class=''>Dev</span><span id="loadIt" class="hideMe">Spinning up dynos &nbsp<div class="spinner-grow" role="status">
+                <a href="#"><button id="devHug" class="customBut" onclick="devIt()"><span id="devLoad" class=''>Read</span><span id="loadItD" class="hideMe">Loading &nbsp<div class="spinner-grow" role="status">
                         <span class="sr-only">Loading...</span> 
                     </div></span></button></a>
             </div>
             
-            <div id="homeBut1" class="backLink hideMe"><a href="#"><img class='backPop'src="/assets/2outline_arrow_back_white_18dp.png"></a></div>
+            <div class="backLink hideMe"><a href="/"><img class='backPop'src="/assets/2outline_arrow_back_white_18dp.png"></a></div>
         </div>
         <div id="col2" class="midCol">
             <div> 
-                <a href="#"><button id="blogHug" class="customBut">Blog</button></a>
+                <a href="https://guarded-peak-44051.herokuapp.com"><button id="blogHug" class="customBut" onclick="blogIt()"><span id="blogLoad" class=''>Blog</span><span id="loadItB" class="hideMe">Loading &nbsp<div class="spinner-grow" role="status">
+                    <span class="sr-only">Loading...</span> 
+                </div></span></button></a>
             </div> 
-            <div>
-                <!-- HOME BUTTON TO RESTORE THE MENU-->
-                <div id="homeBut2" class="backLink hideMe"><a href="#"><img class='backPop'src="/assets/2outline_arrow_back_white_18dp.png"></a></div>
-                
+            <div>                
             </div>
             <div>
-                <a href="#"><button id="aboutHug" class="customBut">About</button></a>
+                <a href="#"><button id="aboutHug" class="customBut" onclick="aboutIt()">About</button></a>
             </div>
         </div>
         <div id="col3" class="rightCol">
         
-                <a href="#"><button id="taxHug" class="customBut">Tax</button></a>  
-
-                <div id="homeBut3" class="backLink hideMe"><a href="#"><img class='backPop'src="/assets/2outline_arrow_back_white_18dp.png"></a></div>
-        
-                <a href="Src/taxapps.html"><button id="taxAppHug" class="customBut hideMe">Tax Apps</button></a>         
-
-                <a href="https://stormy-atoll-11633.herokuapp.com/"><button id="taxArtHug" class="customBut hideMe">Tax Articles</button></a> 
+                <a href="Src/apps.html"><button id="taxHug" class="customBut">Play</button></a> 
     
         </div>
     </div>
@@ -94,25 +71,20 @@
                     <li><h3 class="fonty">Robert C Farrell</h3></li>
                     <li><a href="https://www.linkedin.com/in/robert-farrell-jd-ea-939a8118/"><img class="hoverZoom" src="/assets/LinkedIn.png"></a> LinkedIn </li>
                     <li><a href="https://twitter.com/The_RCF"><img class="hoverZoom" src="/assets/Twitter.png"></a> Twitter </li>                        
-                    <li><a href="https://github.com/whisperV/robertcfarrell"><img class="hoverZoom" src="/assets/GitHub-Mark-Light-32px.png" height='22' width='22'></a> GitHub </li>
+                    <li><a href="https://github.com/Robert-Farrell/Robert-Farrell.github.io"><img class="hoverZoom" src="/assets/GitHub-Mark-Light-32px.png" height='22' width='22'></a> GitHub </li>
                     <li><a href="RobertFarrellResume.pdf" download><img class="resume hoverZoom" src="/assets/outline-get_app-24px.svg" alt="Download Resume" height="22" width="22"></a> Resume </li>
                 </ul>
             </div> 
             <div class="meFrame"><img class = "meJPG" src="/assets/Picture7.jpg" alt="Me"></div>
         </div>
         <div class="centerText">
-            <p>Robert is a quick learner and hard worker with a variety of experience and skillsets. With a foundation in finance, accounting and tax law, the heavy reliance on software in these industries convinced Robert to begin a journey into application development. 
-                Using software, and more so Cloud applications, to perform tasks is the best way to increase accuracy and efficiency and bring the skills acquired over 
-            years of education and experience to more people and at an affordable cost. 
+            <p>Thank you for visiting my site. This is a project I've been working to create and share projects, improve my skills and stake a small claim of internet real estate. 
             </p>
+            <p> This site was created using a mix of various frameworks, dependencies and languages. The primary domain is composed of static pages hosted on GitHub pages using HTML, CSS and Javascript. The Blog is hosted on Heroku with an Express server build with Node.js and serving Angular 8 on the front end.</p>
+            <br>           
         </div>
-        <div id="homeBut4" class="backLink"><a href="#"><img class='backPop'src="/assets/2outline_arrow_back_white_18dp.png"></a></div>
+        <div class="backLink"><a href="/"><img class='backPop'src="/assets/2outline_arrow_back_white_18dp.png"></a></div>
     </div>
-
-    <p class='botLeft'><span id="imageCredit">Photo by Marc-Olivier Jodoin</span></p>
-
-    
-
 
 </body>
 

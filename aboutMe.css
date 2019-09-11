@@ -1,57 +1,26 @@
 /* ABOUT PAGE */
-/* html, body{
-    height: 100%;
-    margin: 0;
-    background-color: black;
-    color: white;
-    background-image: url("mount.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    /*Photo by Elliott Engelmann on Unsplash - mount
-    
-} */
-
 
 .centerText{
     display: flex;
     padding-top: 1%;
-    text-align: center;
-    justify-content: center;
-    font-size: 1.5em;
+    align-content: center;
+    flex-direction: column;
+    font-size: 1.3em;
     font-family: 'PT Serif', serif, 'Times New Roman', Times, serif;
-    transition: font-size .2s;
+    margin: 0 10% 0 10%;
 }
-
-/* p:hover{
-    padding-top: 1%;
-    font-size: 1.51em;
-    font-family: 'PT Serif', serif, 'Times New Roman', Times, serif;
-    border: 1px solid white;
-    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0), 0 6px 20px 0 rgba(255, 255, 255, 0);
-} */
 
 
 p{
-    width: 70%;
+    width: 100%;
 }
 
-.underline{
-    display: flex;
-    position: relative;
-    width: 40%;
-    margin-left: 5%;
-    padding-top: 1em;
-    border-bottom: 1px solid white;
-    border-radius: 10%;
 
-}
 
 .centerMe{
     display: flex;
     align-items: center;
-    flex-direction: column;
-    left: 45%;
-    top: 50%;
+    flex-direction: column;   
 }
 
 
@@ -62,11 +31,12 @@ p{
 }
 
 .meJPG{
-    border-radius: 50%;
+    border-radius: 40%;
     border: 2px solid rgb(204, 201, 201);
     max-width: 50%;
     width: 20%;
     height: auto;
+    transform: scale(.6);
 }
 
 .resume{
@@ -85,10 +55,15 @@ p{
     top: 0;
     left: 0;
     width: 20%;
-    max-width: 50%;
     justify-content: flex-start;
     align-items: center;
     font-size: 1.5em;
+}
+
+@media screen and (min-width: 1500px){
+    .contactCard{
+        width: 15%;
+    }
 }
 
 .cleanList{
@@ -110,10 +85,6 @@ a{
     text-decoration: none;
 }
 
-.backLink{
-    padding-top: 2%;
-    text-align: center;
-}
 
 .backPop{
     height: 100%;
@@ -135,4 +106,26 @@ a{
 
 .hoverZoom:hover{
     transform: scale(1.5);
+}
+
+.skill-set{
+    display: flex;
+    justify-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+table, th, td {
+    padding: .5rem;
+    border: 1px solid rgb(255, 156, 156);
+}
+
+th{
+    color: rgb(142, 142, 255);
+    background-image: url("/assets/backgrounds/carbon-fibre.png");
+}
+
+.backLink{
+    padding-top: 2%;
+    text-align: center;
 }

@@ -1,44 +1,13 @@
 html{
     height: 100%;
     margin: 0;
-    background-image: url("/assets/fast.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: black;
+    background-image: url("/assets/backgrounds/carbon-fibre.png");   
+    background-color: rgb(37, 37, 37);
     display: flex;
     transition-timing-function: ease-in-out;
     transition: background-image .2s;
     transition-delay: .05s;
     color: white;
-}
-
-.taxRound{
-    background-image: url("/assets/tax.jpg"); 
-    transition-timing-function: ease-in-out;
-    transition: background-image 1s;
-    transition-delay: .05s;
-}
-
-.blogRound{
-    background-image: url("/assets/street.jpg");
-    transition-timing-function: ease-in-out;
-    transition: background-image 1s;
-    transition-delay: .05s;
-}
-
-.devRound{
-    background-image: url("/assets/sweet.jpg");
-    transition-timing-function: ease-in-out;
-    transition: background-image 1s;
-    transition-delay: .05s;
-}
-
-.aboutRound{
-    background-image: url("/assets/joss-woodhead-mJ35U595uhA-unsplash.jpg");
-    transition-timing-function: ease-in-out;
-    transition: background-image 1s;
-    transition-delay: .05s;
-    background-color: black;
 }
 
 .leftCol{
@@ -104,8 +73,6 @@ html{
 @media only screen and (max-width: 1800px) and (min-width: 501px){
     .customBut{
         font-size: 1.25em;
-        /* max-width: 25%;
-        height: 5em; */
         padding: .55em;
         border-radius: 15%;
         text-decoration: none;
@@ -156,12 +123,6 @@ html{
     transform: scale(.55);
 }
 
-/* .buttonHug{
-    border: 2px solid rgb(212, 211, 211);
-    border-radius: 0%;
-} */
-
-
 .hideMe{
     display: none;
 }
@@ -192,9 +153,6 @@ html{
 }
 
 .centeredSubEle{
-    /* background-image: linear-gradient(black, white, black);
-    border: 2em groove red;
-    border-radius: 50%; */
     display: flex;
     flex-direction: row;
     position: absolute;
