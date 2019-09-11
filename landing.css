@@ -1,7 +1,7 @@
 html{
     height: 100%;
     margin: 0;
-    background-image: url("/assets/backgrounds/carbon-fibre.png");   
+    background-image: url("/assets/carbon-fibre.png");   
     background-color: rgb(37, 37, 37);
     display: flex;
     transition-timing-function: ease-in-out;
