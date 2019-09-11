@@ -1,9 +1,6 @@
 html{
-    background-image: url("../assets/backgrounds/dark-leather.png");
-    /* background-image: url('tj-dragotta-hJznVqwD4fI-unsplash.jpg'); */
+    background-image: url("../assets/dark-leather.png");
     background-color: rgb(104, 103, 103);
-    /* background-size: cover;
-    background-repeat: no-repeat;     */
 }
 
 a, a:active{
