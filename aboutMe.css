@@ -108,22 +108,6 @@ a{
     transform: scale(1.5);
 }
 
-.skill-set{
-    display: flex;
-    justify-content: center;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-table, th, td {
-    padding: .5rem;
-    border: 1px solid rgb(255, 156, 156);
-}
-
-th{
-    color: rgb(142, 142, 255);
-    background-image: url("/assets/backgrounds/carbon-fibre.png");
-}
 
 .backLink{
     padding-top: 2%;
