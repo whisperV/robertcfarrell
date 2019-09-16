@@ -80,3 +80,18 @@ ul{
 input[type='checkbox'], input[type='radio']{
     transform: scale(1.15);
 }
+
+@media screen and (max-width: 1425px) and (min-width: 992px ){
+    .bground{
+        background: rgba(239,240,237,1);
+    }
+
+    .tip{
+        width: 6em;
+        left: 60%; 
+        position: absolute;
+        z-index: 1;
+    }
+    
+
+}
