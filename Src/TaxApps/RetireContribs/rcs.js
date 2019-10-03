@@ -66,13 +66,14 @@ function clearOutput(){
 }
 
 // Work provided retirement plan 
-function showTitems(iraT){
-    if(iraT == "trad"){
+function showTitems(iraT){ // don't need the argument here
+        let iraType = document.getElementById("iraTypeT");
+    if(iraType.checked){
         document.getElementById("spRetPlan").className = 'popIt';
     } else {
-        document.getElementById("spRetPlan").classList.add = 'hideMe';
+        document.getElementById("spRetPlan").className = 'hideMe';
         document.getElementById("workPlan").checked = false;
-        document.getELementById("spWP").checked = false;    
+        document.getElementById("spWP").checked = false;    
     }
 }
 
