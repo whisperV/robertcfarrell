@@ -70,9 +70,9 @@ function showTitems(iraT){
     if(iraT == "trad"){
         document.getElementById("spRetPlan").className = 'popIt';
     } else {
-        document.getElementById("spRetPlan").className = 'hideMe';
-        document.getElementById("spRetPlan").checked = false;
-            
+        document.getElementById("spRetPlan").classList.add = 'hideMe';
+        document.getElementById("workPlan").checked = false;
+        document.getELementById("spWP").checked = false;    
     }
 }
 
