@@ -1,3 +1,233 @@
+html, body{
+    padding: 0;
+    margin: 0;    
+    height: 100vh;
+    width: 100vw;  
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-radial-gradient(#ffe8ba, #3e5151, #3e5151);  /* Chrome 10-25, Safari 5.1-6 */
+    background: radial-gradient(#ffe8ba, #3e5151, #3e5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
 
+a{
+    text-decoration: none;
+}
 
+.nav-container {
+    display: inline-grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 10% auto auto auto 10%;    
+    grid-template-rows: 20% auto auto auto 20%;
+    background-image: url("/assets/egg-shell.png");  
+}
 
+#blog:hover, #articles:hover, #apps:hover, #about:hover{ 
+    transform: scale(1.15);    
+}
+#blog:active, #articles:active, #apps:active, #about:active{
+    transform: scale(.85); 
+}
+
+.hover-zoom:hover {
+    transform: scale(1.15);    
+}
+
+.navbuttons{
+    background-image: none;
+    color: rgb(255, 239, 239);
+    background-color: rgb(2, 2, 2, .2);
+    font-family: Audiowide, 'Courier New', Courier, monospace;
+    font-size: xx-large;
+    outline: none;
+    border-radius: 25px; 
+    align-self: center;
+    height: 8rem;
+    width: 10rem;
+    transition: transform .5s;
+    z-index: 0;
+}
+
+@media only screen and (max-width: 500px){
+    .navbuttons{
+        height: 6rem;
+        width: 6rem;
+        font-size: 100%;
+    }
+}
+
+/* janky hack for getting a css animation to re-run on an event */
+/* need some cooler css to get the buttons to move as if they're floating */
+
+@keyframes navimation {
+    from {transform: scale(1.05)}
+    to{transform: scale(.95)}
+}
+
+@keyframes jankimation {
+    from {transform: scale(1.05)}
+    to{transform: scale(.95)}
+}
+
+/* , .wavy:active */
+.wavy {    
+    animation-name: navimation;
+    animation-delay: 100ms;
+    animation-duration: .5s;    
+    animation-iteration-count: 4;
+    animation-direction: alternate;
+}
+
+/* , .gravy:active */
+.gravy {
+    animation-name: jankimation;
+    animation-delay: 100ms;
+    animation-duration: .5s;    
+    animation-iteration-count: 4;
+    animation-direction: alternate;
+
+}
+
+#blog{
+    grid-column-start: 3;
+    grid-row-start: 2;
+    justify-self: center;
+}
+
+#articles{
+    grid-column-start: 2;
+    grid-row-start: 3;    
+    justify-self: right;
+}
+
+#apps{
+    grid-column-start: 4;
+    grid-row-start: 3;   
+    justify-self: left; 
+}
+
+#about{
+    grid-column-start: 3;
+    grid-row-start: 4;    
+    justify-self: center;
+}
+
+.hideMe{
+    display: none;
+}
+
+.about-container {
+    background-color: #ffe8ba;
+    display: grid;    
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: 1fr 2fr 1fr;   
+    grid-template-rows:  2fr 2fr 1fr 1fr 1fr;
+    background-image: url("/assets/egg-shell.png");  
+}
+
+#contact-card{        
+    grid-column-start: 1;
+    grid-row-start: 1;
+    justify-self: center;    
+    align-self: center;    
+}
+/* 
+#contact-wrapper{
+    display: flex;
+    flex-direction: row;
+} */
+
+#headshot{
+    grid-column-start: 3;
+    grid-row-start: 1;
+    justify-self: center;    
+    align-self: center;
+}
+
+#back-nav{
+    grid-column-start: 2;
+    grid-row-start: 4;
+    justify-self: center;    
+    align-self: center;
+}
+
+#about-blurb{
+    grid-column-start: 2;
+    grid-row: 2;
+    justify-self: center;    
+    align-self: end;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#meJPG{
+    margin-top: .5rem;
+    height: 12rem;
+    width: 12rem;
+    border: 1px solid black;
+    border-radius: 40%;
+}
+
+#back-page{
+    border-radius: 20%;
+    background-color: #3e5151;
+}
+
+/* APPS PAGE */
+
+#apps-container{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("/assets/dark-leather.png");
+    grid-template-columns: 1fr 1fr 1fr;   
+    grid-template-rows:  1fr 1fr 1fr;
+    display: grid;
+}
+
+#estimator{    
+    grid-column-start: 1;
+    grid-row-start: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+#IRAcontribution{  
+    grid-column-start: 2;
+    grid-row-start: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+#salestax{  
+    grid-column-start: 3;
+    grid-row-start: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+#app-back-nav{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    justify-self: center;
+    align-self: center;
+}
+
+.appbuttons{
+    font-size: auto;
+    background-image: none;
+    color: rgb(255, 239, 239);
+    background-color: rgb(2, 2, 2, .2);
+    font-family: Audiowide, 'Courier New', Courier, monospace;    
+    outline: none;
+    border-radius: 25px; 
+    align-self: center;
+    height: 8rem;
+    width: 10rem;
+    transition: transform .5s;
+    z-index: 0;
+}
+
+.appbuttons:hover {
+    transform: scale(1.5); 
+}

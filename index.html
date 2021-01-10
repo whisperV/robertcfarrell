@@ -4,18 +4,16 @@
 
 <head>
     <!-- META Info -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
     <!-- STYLESHEETS -->
 
-    <link rel="stylesheet" type="text/css" href="siteStyles.css?v1.0">
-    <link rel="stylesheet" type="text/css" href="landing.css?v1.0">
-    <link rel="stylesheet" type="text/css" href="aboutMe.css?v1.0">
+    <link rel="stylesheet" type="text/css" href="siteStyles.css?v2.0">
 
     <!-- FONTS -->
 
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Russo+One&display=swap" rel="stylesheet">
-
-    <!--Heroku:  https://stormy-atoll-11633.herokuapp.com/  -->   
 
     <!-- FAVICO -->
 
@@ -25,68 +23,27 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="icon" type="image/png" href="/assets/favicon.ico?">
-    <meta name="msapplication-TileColor" content="#00aba9">
-    <meta name="theme-color" content="#ffffff">
+  
 
-    
 
-    <title>Robert Farrell</title>
+    <title>Robert C. Farrell</title>
 
 </head>
 
-<body>
-    <div id="mainDiv" class="centeredSubEle">
-        <div id="col1" class="leftCol">
-            <div> 
-                <a href="#"><button id="devHug" class="customBut" onclick="devIt()"><span id="devLoad" class=''>Read</span><span id="loadItD" class="hideMe">Under Construction &nbsp<div class="spinner-grow" role="status">
-                        <span class="sr-only">Under Construction...</span> 
-                    </div></span></button></a>
-            </div>
-            
-            <div class="backLink hideMe"><a href="/"><img class='backPop'src="/assets/2outline_arrow_back_white_18dp.png" alt="Back"></a></div>
-        </div>
-        <div id="col2" class="midCol">
-            <div> 
-                <a href="https://blogbert.herokuapp.com/"><button id="blogHug" class="customBut" onclick="blogIt()"><span id="blogLoad" class=''>Blog</span><span id="loadItB" class="hideMe">Loading &nbsp<div class="spinner-grow" role="status">
-                    <span class="sr-only">Loading...</span> 
-                </div></span></button></a>
-            </div> 
-            <div>                
-            </div>
-            <div>
-                <a href="#"><button id="aboutHug" class="customBut" onclick="aboutIt()">About</button></a>
-            </div>
-        </div>
-        <div id="col3" class="rightCol">
-        
-                <a href="Src/apps.html"><button id="taxHug" class="customBut">Play</button></a> 
-    
-        </div>
-    </div>
+<body>    
+    <nav class='nav-container' onclick="buttonResponse()">
+        <button id="blog" class="navbuttons" onclick="blogIt()"> Blog </button>
 
-    <div id="secondDiv" class="hideMe">
-        <div class="contactInfo">
-            <div class="contactCard">                
-                <ul class="cleanList">
-                    <li><h3 class="fonty">Robert C Farrell</h3></li>
-                    <li><a href="https://www.linkedin.com/in/robertfarrell365"><img class="hoverZoom" src="/assets/LinkedIn.png" alt="LinkedIn"></a> LinkedIn </li>
-                    <li><a href="https://twitter.com/The_RCF"><img class="hoverZoom" src="/assets/Twitter.png" alt="Twitter"></a> Twitter </li>                        
-                    <li><a href="https://github.com/Robert-Farrell/Robert-Farrell.github.io"><img class="hoverZoom" src="/assets/GitHub-Mark-Light-32px.png" alt="GitHub" height='22' width='22'></a> GitHub </li>
-                    <li><a href="RobertFarrellResume.pdf" download><img class="resume hoverZoom" src="/assets/outline-get_app-24px.svg" alt="Download Resume" height="22" width="22"></a> Resume </li>
-                </ul>
-            </div> 
-            <div class="meFrame"><img class = "meJPG" src="/assets/Picture7.jpg" alt="Me"></div>
-        </div>
-        <div class="centerText">
-            <p>Thank you for visiting my site. This is a project I've been working to create and share projects, improve my skills and stake a small claim of internet real estate. 
-            </p>
-            <p> This site was created using a mix of various frameworks, dependencies and languages. The primary domain is composed of static pages hosted on GitHub pages using HTML, CSS and Javascript. The Blog is hosted on Heroku with an Express server built with Node.js and serving React on the frontend</p>
-            <br>           
-        </div>
-        <div class="backLink"><a href="/"><img class='backPop'src="/assets/2outline_arrow_back_white_18dp.png" alt="Back"></a></div>
-    </div>
+        <button id="articles" class="navbuttons" onclick="readIt()"> Read </button>
 
+        <button id="apps" class="navbuttons" onclick="devIt(event)">Apps</button>
+
+        <button id="about" class="navbuttons" onclick="aboutIt()">About</button>
+    </nav>
 </body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="http://www.jqueryscript.net/demo/jQuery-Plugin-For-Water-Ripple-Animation-ripples/js/jquery.ripples.js"></script>
 
 <script src="index.js"></script>
 
