@@ -9,10 +9,10 @@ const blogIt = () => {
     window.location = 'https://blogbert.herokuapp.com/'  
     blogButton.innerText = 'Loading';
     blogButton.className += " spinner-grow";
-    setTimeout(()=> {
-        blogButton.innerText = 'Blog';
-        blogButton.className = "navbuttons navimation";
-    }, 5000)                      
+    // setTimeout(()=> {
+    //     blogButton.innerText = 'Blog';
+    //     blogButton.className = "navbuttons navimation";
+    // }, 5000)                      
 }
 
 const aboutIt = () => {

@@ -49,17 +49,16 @@
                 <div class="col">
                     <form name ="info" onsubmit="initCalc(info); return false">                  
                         <div class="popIt">
-                            <label for="iraType"> Would you like to contribute to a Roth or Traditional IRA? </label>
-                                <ul>
-                                    <li></li><input type="radio" id="iraTypeT" name="iraType" formControlName="iraType" value="trad" onchange="showTitems(this.value)"><label for="iraTypeT">&nbsp; Traditional</label>
-                                    <li></li><input type="radio" id="iraTypeR" name="iraType" formControlName="iraType" value="roth" onchange="showTitems(this.value)"><label for="iraTypeR">&nbsp; Roth</label>                                </ul>
+                            <label for="iraType"> Would you like to contribute to a Roth or Traditional IRA? </label>                            
+                            <input type="radio" id="iraTypeT" name="iraType" formControlName="iraType" value="trad" onchange="showTitems(this.value)"><label for="iraTypeT">&nbsp; Traditional</label>
+                            <input type="radio" id="iraTypeR" name="iraType" formControlName="iraType" value="roth" onchange="showTitems(this.value)"><label for="iraTypeR">&nbsp; Roth</label>                                </ul>
                         </div>
                         <div class="form-group form-inline popIt">
                             <label for="filingStatus">Choose a filing status:</label> &nbsp;&nbsp;
                             <select class="custom-select" name="filingStatus" id="filingStatus" onchange="showMarried(this.value)">
                                 <option value="single">Single</option>
                                 <option value="mFJ">Married, Filing Joint</option>
-                                <option value="mFS">Married, Filing Separate and lived apart</option>
+                                <option value="mFS">Married, Filing Separate and lived apart (>6 months)</option>
                                 <option value="mFSlw">Married, Filing Separate but lived together</option>
                                 <option value="hOH">Head of Household</option>
                                 <option value="mFJ">Qualifying Widow/er</option>
@@ -67,25 +66,23 @@
                         </div>
 
                         <div class="popIt">
-                            <label for="sight"> Are you taking the standard deduction or itemizing? </label>
-                                <ul>
-                                    <li></li><input type="radio" id="itemS" name="dedType" onchange="itemizedAmount()"><label for='itemS'>&nbsp; Standard </label>
-                                    <li></li><input type="radio" id="itemD" name="dedType" onchange="itemizedAmount()"><label for='itemD'>&nbsp; Itemized </label>
-                                    <span class="hideMe" id="itemizedDeds">
-                                        <div class="form-group form-inline">
-                                            <div class="input-group">
-                                                <label for="itemizedDeductions"> Amount: </label>
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">$</span>
-                                                </div>
-                                                <input class="form-control" type="number" min="0" max="99999999" name="itemizedDeductions" id="itemizedDeductions">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">.00</span>
-                                                </div>
-                                            </div>
+                            <label for="sight"> Are you taking the standard deduction or itemizing? </label>                            
+                            <input type="radio" id="itemS" name="dedType" onchange="itemizedAmount()"><label for='itemS'>&nbsp; Standard </label>
+                            <input type="radio" id="itemD" name="dedType" onchange="itemizedAmount()"><label for='itemD'>&nbsp; Itemized </label>
+                            <span class="hideMe" id="itemizedDeds">
+                                <div class="form-group form-inline">
+                                    <div class="input-group">
+                                        <label for="itemizedDeductions"> Amount: </label>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
                                         </div>
-                                    </span>
-                                </ul>
+                                        <input class="form-control" type="number" min="0" max="99999999" name="itemizedDeductions" id="itemizedDeductions">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>                                
                         </div>
                         
 
