@@ -3,7 +3,7 @@ html, body{
     margin: 0;    
     height: 100vh;
     width: 100vw;  
-    background: #c31432;  /* fallback for old browsers */
+    background: #a58e92;  /* fallback for old browsers */
     background: -webkit-radial-gradient(#ffe8ba, #3e5151, #3e5151);  /* Chrome 10-25, Safari 5.1-6 */
     background: radial-gradient(#ffe8ba, #3e5151, #3e5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
 }
@@ -126,18 +126,28 @@ a{
 .about-container {
     background-color: #ffe8ba;
     display: grid;    
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     grid-template-columns: 1fr 2fr 1fr;   
     grid-template-rows:  2fr 2fr 1fr 1fr 1fr;
     background-image: url("/assets/egg-shell.png");  
+    background: #108dc7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ef8e38, #108dc7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ef8e38, #108dc7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 }
+
 
 #contact-card{        
     grid-column-start: 1;
     grid-row-start: 1;
     justify-self: center;    
     align-self: center;    
+    padding: 1rem;
+    background-color: rgba(128, 128, 128, 0.527);
+    border-radius: 25px;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
 }
 /* 
 #contact-wrapper{
@@ -159,14 +169,32 @@ a{
     align-self: center;
 }
 
+@media only screen and (max-width: 500px){
+    #back-nav{
+        grid-column-start: 3;
+        grid-row-start: 4;
+        justify-self: start;    
+        align-self: center;
+    }
+}
+
 #about-blurb{
-    grid-column-start: 2;
-    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
     justify-self: center;    
-    align-self: end;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(4, 1fr);
+    align-self: center;    
+    padding: 1rem;
+    background-color: rgba(240, 255, 240, 0.397);
+    border-radius: 20px;
+    margin: 1rem;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.about-text{
+    width: 100%;
+    overflow: hidden;
 }
 
 #meJPG{
@@ -237,6 +265,11 @@ a{
 
 .appbuttons:hover {
     transform: scale(1.5); 
+}
+
+#blog, #articles, #apps, #about {
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 @media only screen and (max-width: 500px){
