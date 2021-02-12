@@ -12,12 +12,21 @@ a{
     text-decoration: none;
 }
 
-.nav-container {
-    display: inline-grid;
+/* below all other elements, then repositioned to the center of the screen (I think this will avoid the 0,0 ripple effect */
+
+.nav-center {
+    margin: auto;
+    width: 100%;
+    top: 40%;
+    text-align: center;    
+    position: absolute;    
+}
+
+.water-container {
+    /* display: inline-grid; */
     height: 100%;
     width: 100%;
-    grid-template-columns: 10% auto auto auto 10%;    
-    grid-template-rows: 20% auto auto auto 20%;
+
     background-image: url("/assets/egg-shell.png");  
 }
 
@@ -29,7 +38,7 @@ a{
 }
 
 .hover-zoom:hover {
-    transform: scale(1.15);    
+    transform: scale(1.25);    
 }
 
 .navbuttons{
@@ -44,15 +53,14 @@ a{
     height: 8rem;
     width: 10rem;
     transition: transform .5s;
-    z-index: 0;
 }
 
 @media only screen and (max-width: 500px){
-    .navbuttons{
+    .navbuttons {
         height: 6rem;
         width: 6rem;
         font-size: 100%;
-    }
+    }  
 }
 
 /* janky hack for getting a css animation to re-run on an event */
@@ -177,12 +185,12 @@ a{
 /* APPS PAGE */
 
 #apps-container{
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-image: url("/assets/dark-leather.png");
-    grid-template-columns: 1fr 1fr 1fr;   
-    grid-template-rows:  1fr 1fr 1fr;
-    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows:  auto;
+    display: grid;     
 }
 
 #estimator{    
@@ -223,11 +231,18 @@ a{
     border-radius: 25px; 
     align-self: center;
     height: 8rem;
-    width: 10rem;
-    transition: transform .5s;
-    z-index: 0;
+    width: 10rem; 
+    transition: transform .5s;   
 }
 
 .appbuttons:hover {
     transform: scale(1.5); 
+}
+
+@media only screen and (max-width: 500px){
+    .appbuttons {
+        height: 6rem;
+        width: 6rem;
+        font-size: auto;
+    }
 }

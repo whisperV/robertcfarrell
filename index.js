@@ -27,13 +27,6 @@ const aboutIt = () => {
 
 const devIt = (event) => {
     window.location.pathname = '/apps.html';
-    // var cX = event.clientX;
-    // var sX = event.screenX;
-    // var cY = event.clientY;
-    // var sY = event.screenY;
-    // var coords1 = "client - X: " + cX + ", Y coords: " + cY;
-    // var coords2 = "screen - X: " + sX + ", Y coords: " + sY;
-    // document.getElementById("cursorloc").innerHTML = coords1 + "<br>" + coords2;
 }
 
 const readIt = () => {
@@ -53,21 +46,8 @@ const iraCalc = () => {
     window.location='Src/TaxApps/RetireContribs/RetirementContributions.html'
 }
 
-const buttonResponse = () => {     
-    // for(button of allButtons){
-    //     if(button.classList.contains('wavy')){
-    //         button.classList.remove('wavy')
-    //         button.classList.add('gravy')       
-    //     } else {
-    //         button.classList.add('wavy')
-    //         button.classList.remove('gravy')
-    //     }
-        
-    // }      
-}
-
 $(document).ready(function() {
-        $('.nav-container').ripples({
+        $('.water-container').ripples({
             resolution: 512,
             dropRadius: 10,
             perturbance: 0.02,
