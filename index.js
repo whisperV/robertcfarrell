@@ -6,7 +6,7 @@ const   aboutButton = document.getElementById('about'),
         allButtons = document.getElementsByClassName('navbuttons');
 
 const blogIt = () => {  
-    window.location = 'https://blogbert.herokuapp.com/'  
+    window.location = 'https://blog-v7.herokuapp.com/'  
     blogButton.innerText = 'Loading';
     blogButton.className += " spinner-grow";
     // setTimeout(()=> {
