@@ -184,8 +184,8 @@ a{
     justify-self: center;    
     align-self: center;    
     padding: 1rem;
-    background-color: rgba(240, 255, 240, 0.397);
-    border-radius: 20px;
+    border-left: solid 5px blueviolet;
+    border-radius: 5px;
     margin: 1rem;
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;
