@@ -247,6 +247,7 @@ a{
     grid-row-start: 2;
     justify-self: center;
     align-self: center;
+    color: rgb(255, 239, 239);
 }
 
 #app-back-nav{
