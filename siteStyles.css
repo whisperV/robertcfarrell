@@ -269,6 +269,7 @@ a{
     height: 8rem;
     width: 10rem; 
     transition: transform .5s;   
+    justify-self: center;
 }
 
 .appbuttons:hover {
