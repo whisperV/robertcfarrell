@@ -243,13 +243,11 @@ function getTaxableInc(tPayer){
 
     //tInc = tPayer.sID ? tPayer.agi - standard[''] : tPayer.agi - tPayer.iDedAmt
    
-    if(tPayer.sID || tPayer.iDedAmt == 0 || !tPayer.iDedAmt){
-        
-        tInc = tPayer.agi - standard[appTier];
-        tInc = Math.max(0, tInc);
+    if(tPayer.sID || tPayer.iDedAmt == 0 || !tPayer.iDedAmt){        
+        tInc < 0 ? 0: (tPayer.agi - standard[appTier]) - passInc;
+        console.log(passInc)
     } else {
-        tInc = tPayer.agi - tPayer.iDedAmt - passInc;
-        tInc = Math.max(0, tInc);
+        tInc < 0 ? 0 : (tPayer.agi - tPayer.iDedAmt) - passInc;        
     } 
     return(tInc);
 }
