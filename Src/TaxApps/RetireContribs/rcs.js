@@ -239,6 +239,7 @@ function getTaxableInc(tPayer){
     };
     let tInc = 0;
     let appTier = Object.keys(standard).filter(currStat => currStat == tPayer.filingStatus);
+    let passInc = document.getElementById(passiveInc);
 
     //tInc = tPayer.sID ? tPayer.agi - standard[''] : tPayer.agi - tPayer.iDedAmt
    
@@ -247,7 +248,7 @@ function getTaxableInc(tPayer){
         tInc = tPayer.agi - standard[appTier];
         tInc = Math.max(0, tInc);
     } else {
-        tInc = tPayer.agi - tPayer.iDedAmt;
+        tInc = tPayer.agi - tPayer.iDedAmt - passInc;
         tInc = Math.max(0, tInc);
     } 
     return(tInc);
