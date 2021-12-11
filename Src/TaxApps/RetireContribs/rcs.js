@@ -178,7 +178,8 @@ function initCalc(info){
         fIagi = formInfo.agi.value,  
         fIdeductionS = formInfo.itemS.checked,
         fIdeductionI = formInfo.itemD.checked,
-        fIdeductionAmount = formInfo.itemizedDeductions.value,      
+        fIdeductionAmount = formInfo.itemizedDeductions.value,
+        fpassInc = formInfo.passiveInc.value,
         fIaddbacks = [
             formInfo.addBack1.value, 
             formInfo.addBack2.value, 
@@ -202,7 +203,8 @@ function initCalc(info){
         agi: fIagi*1,
         sID: fIdeductionS,
         iID: fIdeductionI*1,
-        iDedAmt: fIdeductionAmount*1,
+        iDedAmt: fIdeductionAmount * 1,
+        passive: fpassInc,
         //acc -> accumulator, the eventual output value when function completes. curr -> current value to add to acc. 0 is default value if array is empty
         addbacks: fIaddbacks.reduce((acc, curr) => acc*1 + curr*1, 0) 
     }
@@ -238,15 +240,15 @@ function getTaxableInc(tPayer){
         mFJ: 24400
     };
     let tInc = 0;
-    let appTier = Object.keys(standard).filter(currStat => currStat == tPayer.filingStatus);
-    let passInc = document.getElementById(passiveInc);
-    console.log(passInc)
+    let appTier = Object.keys(standard).filter(currStat => currStat == tPayer.filingStatus);        
     //tInc = tPayer.sID ? tPayer.agi - standard[''] : tPayer.agi - tPayer.iDedAmt
-   
-    if(tPayer.sID || tPayer.iDedAmt == 0 || !tPayer.iDedAmt){        
-        tInc < 0 ? 0: (tPayer.agi - standard[appTier]) - passInc;        
+    console.log(tPayer.passive)
+    if (tPayer.sID || tPayer.iDedAmt == 0 || !tPayer.iDedAmt) {
+        // reduced by any passive income
+        tInc < 0 ? 0 : (tPayer.agi - standard[appTier]) - tPayer.passive;
     } else {
-        tInc < 0 ? 0 : (tPayer.agi - tPayer.iDedAmt) - passInc;        
+        // reduced by any passive income
+        tInc < 0 ? 0 : (tPayer.agi - tPayer.iDedAmt) - tPayer.passive;
     } 
     return(tInc);
 }
@@ -271,8 +273,7 @@ function adjustLimit(tPayer){
     if(tPayer.spAge){
         userAllowedContrib += ageUP;
     }
-    if(userAllowedContrib > taxIncome){
-       // console.log(taxIncome);
+    if(userAllowedContrib > taxIncome){       
         userAllowedContrib = taxIncome;
         return(userAllowedContrib);
     } else {
