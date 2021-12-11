@@ -240,12 +240,11 @@ function getTaxableInc(tPayer){
     let tInc = 0;
     let appTier = Object.keys(standard).filter(currStat => currStat == tPayer.filingStatus);
     let passInc = document.getElementById(passiveInc);
-
+    console.log(passInc)
     //tInc = tPayer.sID ? tPayer.agi - standard[''] : tPayer.agi - tPayer.iDedAmt
    
     if(tPayer.sID || tPayer.iDedAmt == 0 || !tPayer.iDedAmt){        
-        tInc < 0 ? 0: (tPayer.agi - standard[appTier]) - passInc;
-        console.log(passInc)
+        tInc < 0 ? 0: (tPayer.agi - standard[appTier]) - passInc;        
     } else {
         tInc < 0 ? 0 : (tPayer.agi - tPayer.iDedAmt) - passInc;        
     } 
@@ -273,7 +272,7 @@ function adjustLimit(tPayer){
         userAllowedContrib += ageUP;
     }
     if(userAllowedContrib > taxIncome){
-        console.log(taxIncome);
+       // console.log(taxIncome);
         userAllowedContrib = taxIncome;
         return(userAllowedContrib);
     } else {
@@ -369,38 +368,38 @@ function sSIAdjust(tPayer, sSIMagi){ //tPayer.workplan == true;
         taxableSSI = 0; //SSI included as taxable income
 
     prog = (totalSSI*.5) + sSIMagi; //the additional items (PR income, etc) already covered by addbacks? 
-    console.log("totalSSI (value of input):" + totalSSI);
-    console.log("Prog value before adjustments: (half of SSI plus MAGI) " + prog); //NaN
+    //console.log("totalSSI (value of input):" + totalSSI);
+    //console.log("Prog value before adjustments: (half of SSI plus MAGI) " + prog); //NaN
     prog *= 1;
     //separate function? Determines amount of SSI that is taxable
     if(tPayer.filingStatus != 'mFSlw'){
-        console.log("Adjustment logic begins");
+        //console.log("Adjustment logic begins");
         (tPayer.filingStatus == 'mFJ' ? l8 = prog - l8MFJ: l8 = prog - l8SEtAl);
         Math.max(0, l8);
-        console.log("l8 before adjustments: " + l8);
+        //console.log("l8 before adjustments: " + l8);
         // Line 8
             if(l8 > 0){
-                console.log('L8 > 0: ' + l8);
+                //console.log('L8 > 0: ' + l8);
                 (tPayer.filingStatus == 'mFJ' ? l10 = prog - l10MFJ: l10 = prog - l10SEtAl);  //lin 9 is 12k, 9k, or 0
                 Math.max(0, prog);
                 // Line 10
                 l11 = l8;  //needed?
             } else if (l8 <= 0){
-                console.log("l8 (assigned to l11) is 0 or less: " + l8);
+                //console.log("l8 (assigned to l11) is 0 or less: " + l8);
                 l11 = (tPayer.filingStatus == 'mFJ' ? l11 = l10MFJ: l11 = l10SEtAl); //var needed?   
-                console.log("l11 calc'd using constants: " + l11);
+                //console.log("l11 calc'd using constants: " + l11);
             }  // l11 ends up being smaller of l8 or filing status constants
         prog = (totalSSI*.5 < l11*.5) ? (totalSSI*.5 + l10*.085) : (l11*.5 + l10 * .85);  //line 13 //smaller of line 3 or 12 //// l11 *=.5 is line 12, totalSSI*.5 is line 3
-        console.log("prog at line 13: " + prog);
+        //console.log("prog at line 13: " + prog);
         l10 *=.85 //line 14
         //below is executed in the ternary operation
         // prog + l10;//line 15 
         // tPayer.hSSI * .85 //line 16
         taxableSSI = (prog + l10 < totalSSI*.85) ? prog + l10 : totalSSI*.85;
-        console.log("Taxable SSI: " + taxableSSI);
+        //console.log("Taxable SSI: " + taxableSSI);
         newMAGI = taxableSSI + (sSIMagi - totalSSI); //must include the additional addbacks - excluded income
 
-        console.log(newMAGI);
+        //console.log(newMAGI);
         return(newMAGI);
     } 
 }
@@ -420,16 +419,16 @@ function checkDeducted(tPayer, contribLimit, contribsDeducted){
     //let fStatusGroup = ['single', 'hOH', 'mFS', 'mFSlw'];
     //returns filingstat or empty
     
-    console.log(contribsDeducted);
+    //console.log(contribsDeducted);
    
     if(ssiCheck.checked){ // && tPayer.workPlan 
         
         //different than above magi?
         let mMAGI = tPayer.agi + tPayer.addback1 + tPayer.addback2; //+student loan interest, +8816 excluded interest, +taxableSSI - added back in sSIAdjust function
-        console.log("Calling for SSI adjustment");
+        //console.log("Calling for SSI adjustment");
         magi = sSIAdjust(tPayer, magi);
     }
-    console.log(magi);
+    //console.log(magi);
 
     if(tPayer.workPlan){
 
@@ -441,7 +440,7 @@ function checkDeducted(tPayer, contribLimit, contribsDeducted){
             output.innerHTML=`Your modified adjusted gross income is too high`;
             }
         } else if(singles.length > 0){
-            console.log("single");
+           // console.log("single");
             if(magi < TRAD_MIN_S){
                 deductible = contribLimit;
             } else if(magi >= TRAD_MAX_S){
@@ -489,7 +488,7 @@ function beginTradCalc(tPayer){
    
     let deductAmountCheck = checkDeducted(tPayer, userTContrib, tradContributions);
 
-    console.log(deductAmountCheck, tradContributions);
+    //console.log(deductAmountCheck, tradContributions);
 
     if(deductAmountCheck < tradContributions){
         //$${tradContributions-deductAmountCheck} once the partial amount is figured out
