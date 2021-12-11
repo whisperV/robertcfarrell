@@ -188,7 +188,7 @@
 
                         <div class="popIt form-group form-inline">
                             <div class="input-group">
-                                <label for="agi"> Enter your adjusted gross income from your tax return </label><span class="hideMe" name="ssiItems"> <em>but do not include the amounts from your SSA-1099</em>:&nbsp;</span>
+                                <label for="agi"> Enter your adjusted gross income from your tax return </label><span class="hideMe" name="ssiItems"> <em>but ONLY include your taxable compensation (including self employment)</em>:&nbsp;</span>
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">$</span>
                                 </div>
@@ -299,21 +299,7 @@
                                             </div>
                                         </div>
                                     </span>
-                                </li>
-                                
-                                <li class="popIt"><label for="addBack9Check"><input type="checkbox" id="addBack9Check" name="addBackCheck" onclick="showAddbacks()">&nbsp Any of your AGI was untaxable compensation, or not compensation? (Not earned income)</label>
-                                    <span class="hideMe" name="addBackAmt">
-                                        <div class="input-group">   
-                                            <label for="addBack9">&nbsp Amount: &nbsp</label>
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">$</span>
-                                            </div>
-                                            <input type="number" min="0" max="99999999" name="addBack" id="addBack9"placeholder="0"><div class="input-group-append">
-                                                <span class="input-group-text">.00</span>
-                                            </div>
-                                        </div>
-                                    </span>
-                                </li>
+                                </li>                               
 
                                 <li class="popIt"><label for="clearIt"><input name="noAddbacks" id="clearIt" type="checkbox" onchange="clearAddbacks()">&nbsp None of these apply.</label></li>
                             </ul>
