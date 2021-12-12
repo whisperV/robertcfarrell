@@ -245,12 +245,12 @@ function getTaxableInc(tPayer){
     console.log(tPayer.passive)
     if (tPayer.sID || tPayer.iDedAmt == 0 || !tPayer.iDedAmt) {
         // reduced by any passive income
-        tInc < 0 ? 0 : (tPayer.agi - standard[appTier]) - tPayer.passive;
+        tInc = (tPayer.agi - standard[appTier]) - tPayer.passive;        
     } else {
         // reduced by any passive income
-        tInc < 0 ? 0 : (tPayer.agi - tPayer.iDedAmt) - tPayer.passive;
+        tInc = (tPayer.agi - tPayer.iDedAmt) - tPayer.passive;        
     } 
-    return(tInc);
+    return (tInc < 0 ? 0 : tInc);
 }
 
 function adjustLimit(tPayer){
