@@ -289,7 +289,7 @@ function excessCheck(contribsMade, contribLimit){
         } else if (contribsLeft > 0){
             output.innerHTML = `You can contribute up to $${contribsLeft} this year`;
         } else if (contribsLeft == 0){
-            output.innerHTML = `You have reached your contribution limit for the year, or your taxable income is $0.`;
+            output.innerHTML = `You have reached your contribution limit for the year, or you do not have any qualifying income.`;
         }
 }
 
