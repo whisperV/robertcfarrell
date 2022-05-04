@@ -16,7 +16,7 @@ const blogIt = () => {
 }
 
 const aboutIt = () => {
-    window.location.pathname = '/about.html'  
+    window.location.pathname = '/#' // '/about.html'  
     aboutButton.innerText = 'Loading';
     aboutButton.className += " spinner-grow";
     setTimeout(()=> {
@@ -26,7 +26,7 @@ const aboutIt = () => {
 }
 
 const devIt = (event) => {
-    window.location.pathname = '/apps.html';
+    window.location.pathname = '/#' // '/apps.html';
 }
 
 const readIt = () => {
@@ -39,11 +39,11 @@ const readIt = () => {
 }
 
 const simpleEstimate = () => {
-    window.location='Src/TaxApps/TaxCalc/SimpleTaxEstimator.html'
+    window.location= '/#' // 'Src/TaxApps/TaxCalc/SimpleTaxEstimator.html'
     
 }
 const iraCalc = () => {
-    window.location='Src/TaxApps/RetireContribs/RetirementContributions.html'
+    window.location= '/#' // 'Src/TaxApps/RetireContribs/RetirementContributions.html'
 }
 
 $(document).ready(function() {
